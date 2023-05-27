@@ -9,7 +9,7 @@ const usernameVerify=(error={},value)=>{
     if(!value.username){
         error.username=toast.error("Please Enter Username")
     }else if(value.username.includes(" ")){
-        error.username=toast.error("Invalid username")
+        error.username=toast.error("invalid username")
     }
 
     return error

@@ -26,7 +26,7 @@ const formik=useFormik({
 
   return (
     <div className="container mx-auto">
-    <Toaster position="top-center" reverseOrder={false}></Toaster>
+    <Toaster toastOptions={{style:{background:"#D2D2C0"}}} position="top-center" reverseOrder={false}></Toaster>
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass}>
           <div className="title flex flex-col items-center">
