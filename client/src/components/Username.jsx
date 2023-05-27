@@ -1,16 +1,32 @@
 import { Link } from "react-router-dom";
 import Avatar from "../assets/profile.png";
 import Styles from "../styles/username.module.css";
-
+import {Toaster} from "react-hot-toast";
+import {useFormik} from "formik"
+import { userValidate } from "../helper/validate";
 
 const d = new Date();
 let year = d.getFullYear();
 
 
 const Username = () => {
+const formik=useFormik({
+  initialValues:{
+    username:''
+  },
+  validate:userValidate,
+
+  validateOnBlur:false,
+  validateOnChange:false,
+  onSubmit:async value=>{
+    console.log(value);
+  }
+})
+
 
   return (
     <div className="container mx-auto">
+    <Toaster position="top-center" reverseOrder={false}></Toaster>
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass}>
           <div className="title flex flex-col items-center">
@@ -19,12 +35,12 @@ const Username = () => {
               Explore more by connecting with Us
             </span>
           </div>
-          <form className="py-1">
+          <form className="py-1" onSubmit={formik.handleSubmit}>
             <div className="profile flex justify-center py-4">
               <img className={Styles.profile_img} src={Avatar} alt="Avatar" />
             </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
-              <input type="text" className={Styles.textbox} placeholder="Username" />
+              <input type="text" {...formik.getFieldProps("username")} className={Styles.textbox} autoComplete="OFF" placeholder="Username" />
               <button className={Styles.btn}  type="submit">Lets Go  </button>
             </div>
             <div className="text-center py-10">

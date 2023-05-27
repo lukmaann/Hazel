@@ -1,7 +1,9 @@
 
 const Register = () => {
   return (
-    <div>Register</div>
+    <div>
+      <input type="text" placeholder="Faisal" />
+    </div>
   )
 }
 
