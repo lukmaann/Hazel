@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import Avatar from "../assets/profile.png";
 import Styles from "../styles/username.module.css";
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { useState } from "react";
 
 
 const d = new Date();
@@ -11,7 +9,6 @@ let year = d.getFullYear();
 
 const Username = () => {
 
-  const [ison,seton]=useState(false)
   return (
     <div className="container mx-auto">
       <div className="flex items-center justify-center h-screen">
@@ -28,7 +25,7 @@ const Username = () => {
             </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
               <input type="text" className={Styles.textbox} placeholder="Username" />
-              <button className={Styles.btn} onMouseOver={()=>seton(true)} onMouseOut={()=>seton(false)} type="submit">Lets Go {ison && <ArrowOutwardIcon className="ml-4"/> } </button>
+              <button className={Styles.btn}  type="submit">Lets Go  </button>
             </div>
             <div className="text-center py-10">
               <span>
