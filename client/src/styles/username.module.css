@@ -4,10 +4,10 @@
     box-shadow: 0 4px 30px #4747470b;
     backdrop-filter: blur(7.1px);
     border:1px solid rgba(255, 255, 255, 0.3);
-    @apply border-4 border-gray-50 shrink-0 h-5/6 w-[20%] rounded-3xl py-10 px-4 min-w-max;
+    @apply border-4 border-gray-50 shrink-0 h-5/6 w-[20%] rounded-3xl py-10 px-4 min-w-max min-h-max;
 }
 .profile_img{
-    @apply border-4 rounded-full w-[100px] shadow-lg cursor-pointer;
+    @apply border-4 rounded-full w-[100px] h-[100px]  shadow-lg cursor-pointer;
     @apply hover:border-blue-300
 }
 
@@ -22,4 +22,9 @@
 
 .btn:hover{
     @apply border-2 bg-purple-600
+}
+
+input[type="file"]{
+    display: none;
+
 }
