@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Avatar from "../assets/profile.png";
 import Styles from "../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
@@ -23,16 +23,15 @@ const formik=useFormik({
   }
 })
 
-
   return (
-    <div className="container mx-auto">
+    <div className="container p-10 mx-auto">
     <Toaster toastOptions={{style:{background:"#D2D2C0"}}} position="top-center" reverseOrder={false}></Toaster>
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl font-bold text-purple-500">Bourban!</h4>
+            <h4 className="text-4xl font-bold text-pink-400">Bourban!</h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
-              Explore more by connecting with Us
+            Your Social Sphere Awaits!
             </span>
           </div>
           <form className="py-1" onSubmit={formik.handleSubmit}>
@@ -41,7 +40,7 @@ const formik=useFormik({
             </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
               <input type="text" {...formik.getFieldProps("username")} className={Styles.textbox} autoComplete="OFF" placeholder="Username" />
-              <button className={Styles.btn}  type="submit">Lets Go  </button>
+              <button className={Styles.btn}   type="submit">Lets Go  </button>
             </div>
             <div className="text-center py-10">
               <span>
@@ -53,6 +52,7 @@ const formik=useFormik({
             </div>
           </form>
         </div>
+    
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">©{year} Lukn Developments || All right reserved</footer>
     </div>

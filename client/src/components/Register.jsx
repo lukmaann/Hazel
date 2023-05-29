@@ -3,7 +3,7 @@ import Avatar from "../assets/profile.png";
 import Styles from "../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
 import {useFormik} from "formik"
-import { passwordValidate } from "../helper/validate";
+import { registerValidation } from "../helper/validate";
 import { useState } from "react";
 import convertToBase64 from "../helper/convert";
 
@@ -20,7 +20,7 @@ const formik=useFormik({
     username:"",
     password:'',
   },
-  validate:passwordValidate,
+  validate:registerValidation,
 
   validateOnBlur:false,
   validateOnChange:false,
@@ -43,7 +43,7 @@ const onUpload=async (e)=>{
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass} >
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl font-bold text-purple-500">Bourban!</h4>
+            <h4 className="text-4xl font-bold text-pink-400">Bourban!</h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
               Happy to join you
             </span>

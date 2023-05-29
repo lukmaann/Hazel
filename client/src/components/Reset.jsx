@@ -30,7 +30,7 @@ const formik=useFormik({
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass} >
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl font-bold text-purple-500">Reset</h4>
+            <h4 className="text-4xl font-bold text-pink-400">Reset</h4>
          
           </div>
           <span className="text-center text-gray-400 text-lg flex justify-center">Enter new password</span>

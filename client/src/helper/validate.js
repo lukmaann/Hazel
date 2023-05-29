@@ -40,3 +40,26 @@ export const resetPasswordValidation=async (values)=>{
         errors.exist=toast.error("Password Mis-Match")
     }
 }
+
+
+
+export const registerValidation=async (values)=>{
+    const errors=usernameVerify({},values);
+    passwordverify(errors,values),
+    emailverify(errors,values)
+
+    return errors
+}
+
+
+const emailverify=(errors={},value)=>{
+    if(!value.email){
+        errors.email=toast.error("required email");
+    }else if(value.email.includes(" ")){
+        errors.email=toast.error("Invalid email");
+    }else if( ! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value.email)){
+        errors.email=toast.error("invalid email");
+    }
+
+    return errors
+}

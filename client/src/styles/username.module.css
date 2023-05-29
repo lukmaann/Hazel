@@ -12,16 +12,16 @@
 }
 
 .textbox{
-    @apply border-0 py-2 px-5 w-3/4 text-lg rounded-md shadow-sm;
+    @apply border-0 py-2 px-5 w-3/4 text-lg m-auto rounded-md shadow-sm;
     @apply focus:outline-none border-purple-500;
 }
 
 .btn{
-    @apply bg-indigo-600 border-2 border-purple-500 w-3/4 rounded-lg py-2
+    @apply  border-2  border-pink-400 w-3/4 rounded-lg py-2
 }
 
 .btn:hover{
-    @apply border-2 bg-purple-600
+    @apply border-2 bg-pink-500
 }
 
 input[type="file"]{
