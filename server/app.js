@@ -1,13 +1,31 @@
 import express from "express"
-import mongoose from "mongoose"
+import mongoose, { connect } from "mongoose"
 import bodyParser from "body-parser"
 import dotenv from "dotenv"
+import cors from "cors";
+import multer from "multer";
+import morgan from "morgan";
+import connectdb from "./database/conn.js";
+import router from "./Router/Routes.js";
+
 dotenv.config()
-
-
 const app=express();
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json({extended:true}));
+app.use(express.json());
+app.use(cors());
+app.disable('x-powered-by')
 
-app.listen(3000,()=>{
-    console.log("sever connected at port 3000");
-    console.log(process.env.NAME);
+
+
+
+app.get("/",(req,res)=>{
+    res.status(201).json("hello")
+})
+
+app.use('/api',router)
+
+
+connectdb().then(()=>{
+    app.listen(3000,()=>console.log("server connected to db started on port 3000"))
 })

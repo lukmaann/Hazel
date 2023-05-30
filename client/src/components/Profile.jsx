@@ -3,7 +3,7 @@ import Avatar from "../assets/profile.png";
 import Styles from "../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
 import {useFormik} from "formik"
-import { registerValidation } from "../helper/validate";
+import { profileValidation } from "../helper/validate";
 import { useState } from "react";
 import convertToBase64 from "../helper/convert";
 
@@ -17,10 +17,12 @@ const Profile = () => {
 const formik=useFormik({
   initialValues:{
     email:'',
-    username:"",
-    password:'',
+    firstName:"",
+    lastName:'',
+    "mobile_no":"",
+    "adress":""
   },
-  validate:registerValidation,
+  validate:profileValidation,
 
   validateOnBlur:false,
   validateOnChange:false,
@@ -71,7 +73,7 @@ const onUpload=async (e)=>{
 
             </div>
 
-              <input type="text" {...formik.getFieldProps("ad")} className={Styles.textbox} autoComplete="OFF" placeholder="Username" />
+              <input type="text" {...formik.getFieldProps("adress")} className={Styles.textbox} autoComplete="OFF" placeholder="Username" />
 
               <button className={Styles.btn}  type="submit">Register</button>
             </div>

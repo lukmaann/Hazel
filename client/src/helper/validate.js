@@ -41,7 +41,10 @@ export const resetPasswordValidation=async (values)=>{
     }
 }
 
-
+export const profileValidation=async (values)=>{
+    const errors=emailverify({},values);
+    return errors
+}
 
 export const registerValidation=async (values)=>{
     const errors=usernameVerify({},values);
