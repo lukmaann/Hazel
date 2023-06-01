@@ -8,7 +8,7 @@ router.route("/register").post(controller.register)
 
 router.route("/authenticate").post((req,res)=>res.end("ended task")); //authenticate the user
 // router.route("/registerMail").post(controller); //register the email
-router.route("/login").post(controller.login);  //login the user
+router.route("/login").post(controller.verifyUser,controller.login);  //login the user
 //  ------------------------------------get routes------------------------
 router.route("/genrateotp").get(controller.generateOTP); //generate the random variables
 router.route("/resetSession").get(controller.createResetSession);//reset the variables
