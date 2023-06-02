@@ -79,45 +79,37 @@ export const register = async (req, res) => {
 };
 
 // --------------------login---------------------
-export const login = async (req, res) => {
-  const { username, password } = req.body;
-  console.log(password);
+export const login=async (req,res)=>{
+  const {username,password}=req.body;
   try {
-    userModel
-      .findOne({ username })
-      .then((user) => {
-        const userPassword = user.password;
-        bcrypt
-          .compare(password, userPassword)
-          .then(() => {
-            // ------------------if passowrd matchs create token----------
-            const payload = {
-              username: user.username,
-              userId: user._id,
-            };
+    userModel.findOne({username}).then((user)=>{
+      bcrypt.compare(password,user.password).then((match)=>{
+        if(!match) res.status(400).send({err:"Invalid password"});
+        // --------------------create token------------------------
+        const payload={
+          userId:user._id,
+          username:user.username
+        }
+        const secret=process.env.JWT_SECRET;
+        const expiry={
+          expiresIn:"24h"
+        }
 
-            const secret = process.env.JWT_SECRET;
-            const expiry = {
-              expiresIn: "24h",
-            };
+        const token=jwt.sign(payload,secret,expiry);
 
-            const token = jwt.sign(payload, secret, expiry);
+        res.status(200).send({
+          msg:"Login Succefull",
+          username:user.username,
+          token
+        })
+      }).catch(()=>{res.send({err:"password invalid"})})
+     
 
-            return res.status(200).send({
-              msg: "login succesfull",
-              username: user.username,
-              token,
-            });
-          })
-          .catch((err) => {
-            res.send(err);
-          });
-      })
-      .catch((err) => res.status(404).send({ err: "User Not Found" }));
+    }).catch((err)=>{res.status(404).send({err:"User Not Found"})})
   } catch (error) {
-    return res.status(500).send({ error });
+    res.status(500).send({err:"login error"})
   }
-};
+}
 
 // --------------------------generate OTP--------------
 
