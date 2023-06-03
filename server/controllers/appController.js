@@ -97,12 +97,12 @@ export const login=async (req,res)=>{
 
         const token=jwt.sign(payload,secret,expiry);
 
-        res.status(200).send({
+      return res.status(200).send({
           msg:"Login Succefull",
           username:user.username,
           token
         })
-      }).catch(()=>{res.send({err:"password invalid"})})
+      }).catch((err)=>res.status(400).send(err))
      
 
     }).catch((err)=>{res.status(404).send({err:"User Not Found"})})
@@ -126,13 +126,39 @@ export const verifyOTP = async (req, res) => {
 // --------------------------------getUser----------------
 
 export const getUser = async (req, res) => {
-  res.json("get User Route");
+  const {username} =req.params;
+  try {
+    if(!username) return res.status(501).send("Invalid username");
+    
+    userModel.findOne({username}).then((user)=>{
+      if(!user) return res.status(501).send("cannot find user");
+
+      const { password , ...rest}=Object.assign({},user.toJSON());
+      res.status(200).send(rest)
+    }).catch((err)=>{res.status(500).send(err)})
+  } catch (error) {
+    return res.status(501).send("connot find user")
+  }
 };
 
 // -------------------------------updateUser-------------
 
 export const updateUser = async (req, res) => {
-  res.json("update User Route");
+  const {id}=req.query;
+  try {
+    if(id){
+      console.log(id);
+      const body=req.body;
+      userModel.updateOne({_id:id},body).then(()=>{
+        res.status(201).send("record updated")
+      }).catch((err)=>res.status(201).send("cant update user"))
+
+    }else{
+      return res.status(401).send({err:"user not Found"})
+    }
+  } catch (error) {
+    return res.status(401).send({err:"user not Found"})
+  }
 };
 
 // -----------------------------redirect user to reset password when otp is correct
