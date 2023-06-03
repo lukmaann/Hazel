@@ -1,6 +1,7 @@
 import userModel from "../models/userModel.js";
 import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import otpGenerator from "otp-generator";
 
 // ------------------------------verify user---------------------
 
@@ -114,13 +115,19 @@ export const login=async (req,res)=>{
 // --------------------------generate OTP--------------
 
 export const generateOTP = async (req, res) => {
-  res.json("genrate otp route");
+  req.app.locals.Otp= await otpGenerator.generate(6,{specialChars:false,upperCaseAlphabets:false,lowerCaseAlphabets:false});
+  res.status(201).send({code:req.app.locals.Otp})
 };
 
 // -----------------------------verify OTP---------------
 
 export const verifyOTP = async (req, res) => {
-  res.json("verify OTP");
+ const {code}=req.query;
+ if(parseInt(code)===parseInt(req.app.locals.Otp)){
+  res.send("matched");
+ }else{
+  res.send("not matched")
+ }
 };
 
 // --------------------------------getUser----------------
@@ -144,12 +151,13 @@ export const getUser = async (req, res) => {
 // -------------------------------updateUser-------------
 
 export const updateUser = async (req, res) => {
-  const {id}=req.query;
+  const {userId}=req.user;
+  console.log(userId)
   try {
-    if(id){
-      console.log(id);
+    if(userId){
+      console.log(userId);
       const body=req.body;
-      userModel.updateOne({_id:id},body).then(()=>{
+      userModel.updateOne({_id:userId},body).then(()=>{
         res.status(201).send("record updated")
       }).catch((err)=>res.status(201).send("cant update user"))
 
