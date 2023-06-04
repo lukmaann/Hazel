@@ -4,6 +4,7 @@ import Styles from "../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
 import {useFormik} from "formik"
 import { userValidate } from "../helper/validate";
+import { authenticate } from "../helper/helper";
 
 const d = new Date();
 let year = d.getFullYear();
@@ -20,6 +21,8 @@ const formik=useFormik({
   validateOnChange:false,
   onSubmit:async value=>{
     console.log(value);
+
+    authenticate(value.username)
   }
 })
 
