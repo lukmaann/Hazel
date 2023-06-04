@@ -19,7 +19,7 @@ router.route("/verifyOtp").get(controller.verifyOTP); //used to verify the otp
 
 // --------------------------------------put routes-------------------------
 router.route("/updateUser").put(auth,controller.updateUser); //Update the user
-router.route("/resetPassword").put(controller.resetPassword); //used to reset the user
+router.route("/resetPassword").put(controller.verifyUser,controller.resetPassword); //used to reset the user
     
 // --------------------------------------put routes-------------------------
 
