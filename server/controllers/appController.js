@@ -80,7 +80,7 @@ export const register = async (req, res) => {
 };
 
 // --------------------login---------------------
-export const login = async (req, res) => {
+export const login = async (req, res) => {  
   const { username, password } = req.body;
   try {
     userModel

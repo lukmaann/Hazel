@@ -6,7 +6,7 @@ import cors from "cors";
 import multer from "multer";
 import morgan from "morgan";
 import connectdb from "./database/conn.js";
-import router from "./Router/Routes.js";
+import router from "./Router/LoginRoutes.js";
 
 dotenv.config()
 const app=express();

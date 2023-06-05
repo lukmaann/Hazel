@@ -25,11 +25,11 @@ const nodeConfig={
 
   export const registerMail=async (req,res)=>{
 
-    const {username ,userEmail}=req.body
+    const {username ,userEmail,text,subject}=req.body
     const email={
         body:{
             name:username,
-            intro:"welcome to bourbon",
+            intro:text || "Welcome to Bourbon",
             outro:"thanks for joining us"
         }
     }
@@ -37,7 +37,7 @@ const nodeConfig={
     let message={
         from:process.env.EMAIL,
         to:userEmail,
-        subject:"welcome",
+        subject:subject||"welcome",
         html:emailBody
     }
 
