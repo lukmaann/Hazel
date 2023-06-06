@@ -156,10 +156,10 @@ export const getUser = async (req, res) => {
 
         const { password, ...rest } = Object.assign({}, user.toJSON());
         res.status(200).send(rest);
+      }).catch(err=>{
+        res.status(501).send({err})
       })
-      .catch((err) => {
-        res.status(500).send(err);
-      });
+      
   } catch (error) {
     return res.status(501).send("connot find user");
   }

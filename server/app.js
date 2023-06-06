@@ -10,10 +10,11 @@ import router from "./Router/LoginRoutes.js";
 
 dotenv.config()
 const app=express();
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json({extended:true}));
+app.use(bodyParser.urlencoded({extended:true, limit:"200mb"}));
+app.use(bodyParser.json({extended:true, limit:'200mb'}));
 app.use(express.json());
-app.use(cors());
+
+app.use(cors())
 app.disable('x-powered-by')
 
 
