@@ -21,7 +21,8 @@ export const UserSchema=new mongoose.Schema({
     firstName:String,
     lastName:String,
     mobile:Number,
-    profile:String
+    profile:String,
+    address:String
 
 });
 

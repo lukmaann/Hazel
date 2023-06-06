@@ -80,7 +80,7 @@ export const register = async (req, res) => {
 };
 
 // --------------------login---------------------
-export const login = async (req, res) => {  
+export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
     userModel
@@ -108,7 +108,7 @@ export const login = async (req, res) => {
               token,
             });
           })
-          // .catch((err) => res.status(400).send(err));
+          .catch((err) => res.status(400).send(err));
       })
       .catch((err) => {
         res.status(404).send({ err: "User Not Found" });
@@ -156,10 +156,10 @@ export const getUser = async (req, res) => {
 
         const { password, ...rest } = Object.assign({}, user.toJSON());
         res.status(200).send(rest);
-      }).catch(err=>{
-        res.status(501).send({err})
       })
-      
+      .catch((err) => {
+        res.status(501).send({ err });
+      });
   } catch (error) {
     return res.status(501).send("connot find user");
   }
@@ -169,17 +169,15 @@ export const getUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const { userId } = req.user;
-  console.log(userId);
+
   try {
     if (userId) {
-      console.log(userId);
       const body = req.body;
-      userModel
-        .updateOne({ _id: userId }, body)
-        .then(() => {
-          res.status(201).send("record updated");
-        })
-        .catch((err) => res.status(201).send("cant update user"));
+      userModel.updateOne({_id:userId},body).then(()=>{
+        res.status(201)
+      })
+     
+        
     } else {
       return res.status(401).send({ err: "user not Found" });
     }
@@ -191,40 +189,53 @@ export const updateUser = async (req, res) => {
 // -----------------------------redirect user to reset password when otp is correct
 
 export const createResetSession = async (Req, res) => {
-  if(req.app.locals.resetSession){
-    req.app.locals.resetSession=false // allow access to this route only once
-    return res.status(201).send({msg:"access granted"})
+  if (req.app.locals.resetSession) {
+    req.app.locals.resetSession = false; // allow access to this route only once
+    return res.status(201).send({ msg: "access granted" });
   }
   return res.status(440).send("session expired");
 };
 
 // --------------------------------------resetPassword----------------------
-export const resetPassword=async(req,res)=>{
+export const resetPassword = async (req, res) => {
   try {
-
-    if(!res.app.locals.resetSession) return res.status(440).send({err:"session expired!!"})
-    const {username,password}=req.body;
+    if (!res.app.locals.resetSession)
+      return res.status(440).send({ err: "session expired!!" });
+    const { username, password } = req.body;
     try {
-      userModel.findOne({username}).then((user)=>{
-        bcrypt.hash(password,10).then(hashedPassword=>{
-          userModel.updateOne({username:user.username},{password:hashedPassword})
-          .then(()=>{
-            res.status(201).send({msg:"updated succeffully..."})
-          }).catch((e)=>{
-            return res.status(400).send({err:"Unable to update password"})
-          })
+      userModel
+        .findOne({ username })
+        .then((user) => {
+          bcrypt
+            .hash(password, 10)
+            .then((hashedPassword) => {
+              userModel
+                .updateOne(
+                  { username: user.username },
+                  { password: hashedPassword }
+                )
+                .then(() => {
+                  res.status(201).send({ msg: "updated succeffully..." });
+                })
+                .catch((e) => {
+                  return res
+                    .status(400)
+                    .send({ err: "Unable to update password" });
+                });
+            })
+            .catch((err) => {
+              return res
+                .status(440)
+                .send({ err: "unable to hash the password" });
+            });
         })
-        .catch((err)=>{
-          return res.status(440).send({err:"unable to hash the password"})
-        })
-      }).catch((e)=>{
-        return res.status(404).send({err:"user not Found"})
-      })
+        .catch((e) => {
+          return res.status(404).send({ err: "user not Found" });
+        });
     } catch (error) {
-      return res.status(401).send({error})
+      return res.status(401).send({ error });
     }
-    
   } catch (error) {
-    return res.status(401).send({err:"Unauthorised"})
+    return res.status(401).send({ err: "Unauthorised" });
   }
-}
+};
