@@ -1,7 +1,17 @@
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 // eslint-disable-next-line no-undef
 axios.defaults.baseURL="http://localhost:3000";
+
+export const getUsername=async()=>{
+  const token=localStorage.getItem("token");
+  if(!token) return Promise.reject("session expired!!");
+  let decode=jwt_decode(token);
+  console.log(decode);
+  return decode;
+
+}
 
 export const authenticate = async (username) => {
   try {
@@ -13,7 +23,9 @@ export const authenticate = async (username) => {
 
 export const getUser = async (username) => {
   try {
-    const { data } = await axios.get(`/api/user/${username}`);
+    const { data  } = await axios.get(`/api/user/${username}`);
+  
+   
     return { data };
   } catch (error) {
     return { error: "password not match" };
@@ -22,10 +34,12 @@ export const getUser = async (username) => {
 
 export const registerUser = async (credentials) => {
   try {
+    // console.log(credentials);
+ 
     const {
       data: { msg },
       status,
-    } = await axios.post("/api/register", { credentials });
+    } = await axios.post("/api/register", credentials);
 
     let { username, email } = credentials;
     if (status === 201) {
@@ -34,6 +48,7 @@ export const registerUser = async (credentials) => {
         userEmail: email,
         text: msg,
       });
+      console.log(msg);
       return Promise.resolve(msg);
     }
   } catch (error) {
@@ -45,6 +60,7 @@ export const loginUser = async ({ username, password }) => {
   try {
     if (username) {
       const { data } = await axios.post("/api/login", { username, password });
+      console.log(data);
       return Promise.resolve(data);
     }
   } catch (error) {
@@ -52,10 +68,13 @@ export const loginUser = async ({ username, password }) => {
   }
 };
 
-export const updateUser = async (responce) => {
+export const updateUser = async (body) => {
+  console.log(body)
+
   try {
     const token = localStorage.getItem("token");
-    const data = await axios.put("/api/updateUser", responce, {
+    
+    const data = await axios.put("/api/updateUser", body, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return Promise.resolve({ data });
@@ -69,11 +88,13 @@ export const genrateOtp = async (username) => {
     const {
       data: { code },
       status,
-    } = await axios.get("/api/genrateOtp", { params: { username } });
+    } = await axios.get("/api/genrateotp", {params:{ username:username }});
+    // console.log(code);
     if (status === 201) {
       let {
         data: { email },
-      } = await getUser({ username });
+      } = await getUser(username);
+   
       let text = `Your Otp is ${code}`;
       await axios.post("/api/registerMail", {
         username,

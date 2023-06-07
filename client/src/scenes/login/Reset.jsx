@@ -1,14 +1,13 @@
 
-import Styles from "../styles/username.module.css";
+import Styles from "../../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
 import {useFormik} from "formik"
-import { resetPasswordValidation } from "../helper/validate";
-
+import { resetPasswordValidation } from "../../helper/validate";
 const d = new Date();
 let year = d.getFullYear();
 
 
-const Password = () => {
+const Reset = () => {
 const formik=useFormik({
   initialValues:{
     password:'',
@@ -52,4 +51,4 @@ const formik=useFormik({
   );
 };
 
-export default Password;
+export default Reset;

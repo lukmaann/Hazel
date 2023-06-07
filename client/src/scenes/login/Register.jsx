@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom";
-import Avatar from "../assets/profile.png";
-import Styles from "../styles/username.module.css";
-import {Toaster} from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import Avatar from "../../assets/profile.png";
+import Styles from "../../styles/username.module.css";
+import {Toaster, toast} from "react-hot-toast";
 import {useFormik} from "formik"
-import { registerValidation } from "../helper/validate";
+import { registerValidation } from "../../helper/validate";
 import { useState } from "react";
-import convertToBase64 from "../helper/convert";
+import convertToBase64 from "../../helper/convert";
+import { registerUser } from "../../helper/helper";
 
 const d = new Date();
 let year = d.getFullYear();
 
 
 const Register = () => {
+  const navigate=useNavigate();
 
   const [file,setFile]=useState()
 const formik=useFormik({
@@ -26,6 +28,17 @@ const formik=useFormik({
   validateOnChange:false,
   onSubmit:async value=>{
     value=await Object.assign(value,{profile:file || ""}) 
+    let registerPromise=registerUser(value);
+    toast.promise(registerPromise,{
+      loading:"creating user",
+      success:"User registered please log In",
+      
+      error:"cant Register right now"
+    }).then(()=>{
+      navigate("/")
+    })
+    
+
   
     console.log(value);
   }
@@ -43,7 +56,7 @@ const onUpload=async (e)=>{
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass} >
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl font-bold text-pink-400">Bourban!</h4>
+            <h4 className="text-4xl font-bold text-pink-400">Hazel!</h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
               Happy to join you
             </span>
