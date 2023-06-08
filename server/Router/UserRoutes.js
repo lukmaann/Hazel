@@ -8,10 +8,11 @@ const router=Router();
 
 /* READ */
 router.route("/user/:username").get(getUser)
-// router.get("/:id/friends", auth, getUserFriends);
-router.route('/:id/friends').get(getUserFriends)
+
+router.route('/:id/friends').get(auth,getUserFriends)
 
 /* UPDATE */
-router.patch("/:id/:friendId", auth, addRemoveFriend);
+router.route('/:id/:friendsId').patch(auth,addRemoveFriend)
+
 
 export default router;

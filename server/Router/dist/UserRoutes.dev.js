@@ -18,11 +18,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var router = (0, _express.Router)();
 /* READ */
 
-router.route("/user/:username").get(_appController.getUser); // router.get("/:id/friends", auth, getUserFriends);
-
-router.route('/:id/friends').get(_usercontroller.getUserFriends);
+router.route("/user/:username").get(_appController.getUser);
+router.route('/:id/friends').get(_auth["default"], _usercontroller.getUserFriends);
 /* UPDATE */
 
-router.patch("/:id/:friendId", _auth["default"], _usercontroller.addRemoveFriend);
+router.route('/:id/:friendsId').patch(_auth["default"], _usercontroller.addRemoveFriend);
 var _default = router;
 exports["default"] = _default;
