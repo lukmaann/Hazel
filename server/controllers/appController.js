@@ -108,7 +108,7 @@ export const login = async (req, res) => {
               token,
             });
           })
-          .catch((err) => res.status(400).send(err));
+          
       })
       .catch((err) => {
         res.status(404).send({ err: "User Not Found" });

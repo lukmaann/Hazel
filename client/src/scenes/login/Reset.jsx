@@ -1,13 +1,19 @@
 
 import Styles from "../../styles/username.module.css";
-import {Toaster} from "react-hot-toast";
+import {Toaster, toast} from "react-hot-toast";
 import {useFormik} from "formik"
+import {useNavigate} from "react-router-dom"
 import { resetPasswordValidation } from "../../helper/validate";
+import {useAuthStore} from "../../store/store"
+import { resetPassword } from "../../helper/helper";
 const d = new Date();
 let year = d.getFullYear();
 
 
 const Reset = () => {
+  const navigate=useNavigate();
+  const {username}=useAuthStore((state)=>state.auth);
+  console.log(username);
 const formik=useFormik({
   initialValues:{
     password:'',
@@ -18,6 +24,18 @@ const formik=useFormik({
   validateOnBlur:false,
   validateOnChange:false,
   onSubmit:async value=>{
+    let resetpromise=resetPassword({username,password:value.password});
+
+    toast.promise(resetpromise,{
+      success:"successfull ",
+      error:"cant reset now",
+      loading:"setting..."
+    })
+
+    resetpromise.then(()=>{
+      navigate('/password')
+      
+    })
     console.log(value);
   }
 })

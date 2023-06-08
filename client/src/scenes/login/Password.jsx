@@ -39,7 +39,7 @@ const formik=useFormik({
     loginPromise.then(res=>{
       let {token}=res;
       localStorage.setItem("token",token)
-      navigate('/editprofile')
+      navigate('/homepage')
       
     })
     toast.promise(loginPromise,{

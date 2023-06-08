@@ -7,6 +7,7 @@ import Recovery from "./scenes/login/Recovery";
 import Register from "./scenes/login/Register";
 // import Reset from "./scenes/Reset";
 import Reset from "./scenes/login/Reset";
+import HomePage from "./scenes/Profile/HomePage"
 
 // -----------------middlewares to protect routes------------
 import { AuthoriseUser } from "./middleware/auth";
@@ -42,6 +43,10 @@ const Routes = createBrowserRouter([
     path: "/editprofile",
     element: <AuthoriseUser><EditProfile/></AuthoriseUser>
   },
+  {
+    path:"/homepage",
+    element:<HomePage/>
+  }
 ]);
 
 const App = () => {

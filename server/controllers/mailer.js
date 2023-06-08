@@ -4,7 +4,7 @@ import nodemailer from "nodemailer"
 const nodeConfig={
     // host: "smtp.ethereal.email",
     // port: 587,
-    service:"gmail",
+    service:"Gmail",
     secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.EMAIL, // generated ethereal user
@@ -17,7 +17,7 @@ const nodeConfig={
   let mailGenerator= new mailgen({
     theme:"default",
     product:{
-        name:"Bourbon",
+        name:"Hazel",
         link:"https://lukmaanbhai.com/"
     }
   })
@@ -29,7 +29,7 @@ const nodeConfig={
     const email={
         body:{
             name:username,
-            intro:text || "Welcome to Bourbon",
+            intro:text || "Welcome to Hazel",
             outro:"thanks for joining us"
         }
     }

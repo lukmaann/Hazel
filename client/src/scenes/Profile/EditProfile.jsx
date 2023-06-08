@@ -11,11 +11,13 @@ import useFecth from "../../hooks/fecth.hooks";
 import { updateUser } from "../../helper/helper";
 import { useNavigate } from "react-router-dom";
 
+
 const d = new Date();
 let year = d.getFullYear();
 
 const EditProfile = () => {
   const navigate = useNavigate();
+  
 
   const [{ isLoading, apiData, serverError }] = useFecth();
   
@@ -36,7 +38,7 @@ const EditProfile = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (value) => {
-      value = await Object.assign(value, { profile: file||apiData?.profile|| "" });
+      value = await Object.assign(value, { profile: file ||apiData?.profile|| "" });
 
       const updatePromise = updateUser(value);
       toast.promise(updatePromise, {
@@ -55,11 +57,6 @@ const EditProfile = () => {
     setFile(base64);
   };
 
-  const logout = () => {
-   localStorage.removeItem("token")
-
-    navigate("/");
-  };
 
   if (isLoading)
     return (
@@ -141,10 +138,10 @@ const EditProfile = () => {
             <div className="text-center py-10">
               <span>
                 <Link
-                  onClick={logout}
+                  onClick={()=>navigate('/homepage')}
                   className=" px-2 text-red-500 font-medium"
                 >
-                  Logout
+                 Home
                 </Link>
               </span>
             </div>

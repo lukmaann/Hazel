@@ -7,6 +7,7 @@ import multer from "multer";
 import morgan from "morgan";
 import connectdb from "./database/conn.js";
 import router from "./Router/LoginRoutes.js";
+import userRouter from "./Router/UserRoutes.js"
 
 dotenv.config()
 const app=express();
@@ -25,6 +26,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use('/api',router)
+app.use('/api',userRouter)
 
 
 connectdb().then(()=>{

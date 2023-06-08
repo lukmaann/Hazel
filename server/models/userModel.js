@@ -18,6 +18,10 @@ export const UserSchema=new mongoose.Schema({
         required:true,
         unique:true
     },
+    friends:{
+        type:Array,
+        default:[]
+    },
     firstName:String,
     lastName:String,
     mobile:Number,

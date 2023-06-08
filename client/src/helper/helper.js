@@ -8,7 +8,7 @@ export const getUsername=async()=>{
   const token=localStorage.getItem("token");
   if(!token) return Promise.reject("session expired!!");
   let decode=jwt_decode(token);
-  console.log(decode);
+ 
   return decode;
 
 }
@@ -48,7 +48,7 @@ export const registerUser = async (credentials) => {
         userEmail: email,
         text: msg,
       });
-      console.log(msg);
+      // console.log(msg);
       return Promise.resolve(msg);
     }
   } catch (error) {
@@ -69,7 +69,7 @@ export const loginUser = async ({ username, password }) => {
 };
 
 export const updateUser = async (body) => {
-  console.log(body)
+  // console.log(body)
 
   try {
     const token = localStorage.getItem("token");
@@ -127,4 +127,16 @@ export const resetPassword=async({username,password})=>{
     } catch (error) {
         return Promise.reject({error})
     }
+}
+
+export const getUserFriends=async(id)=>{
+  try {
+    const token=localStorage.getItem('token');
+    const {data,status}=await axios.get(`api/${id}/friends`,{headers:{Authorization:`Bearer ${token}`}})
+    return {data,status}
+   
+  } catch (error) {
+    return {error:"cant get friends"}
+  }
+
 }
