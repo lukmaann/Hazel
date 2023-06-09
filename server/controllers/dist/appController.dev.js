@@ -161,26 +161,29 @@ var login = function login(req, res) {
               username: username
             }).then(function (user) {
               bcrypt.compare(password, user.password).then(function (match) {
-                if (!match) res.status(400).send({
-                  err: "Invalid password"
-                }); // --------------------create token------------------------
+                if (!match) {
+                  return res.status(400).send({
+                    err: "Invalid password"
+                  });
+                } else {
+                  // --------------------create token------------------------
+                  var payload = {
+                    userId: user._id,
+                    username: user.username
+                  };
+                  var secret = process.env.JWT_SECRET;
+                  var expiry = {
+                    expiresIn: "24h"
+                  };
 
-                var payload = {
-                  userId: user._id,
-                  username: user.username
-                };
-                var secret = process.env.JWT_SECRET;
-                var expiry = {
-                  expiresIn: "24h"
-                };
+                  var token = _jsonwebtoken["default"].sign(payload, secret, expiry);
 
-                var token = _jsonwebtoken["default"].sign(payload, secret, expiry);
-
-                return res.status(200).send({
-                  msg: "Login Succefull",
-                  username: user.username,
-                  token: token
-                });
+                  return res.status(200).send({
+                    msg: "Login Succefull",
+                    username: user.username,
+                    token: token
+                  });
+                }
               });
             })["catch"](function (err) {
               res.status(404).send({

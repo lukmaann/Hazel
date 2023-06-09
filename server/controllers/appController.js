@@ -89,7 +89,7 @@ export const login = async (req, res) => {
         bcrypt
           .compare(password, user.password)
           .then((match) => {
-            if (!match) res.status(400).send({ err: "Invalid password" });
+            if (!match) {return res.status(400).send({ err: "Invalid password" })}else{
             // --------------------create token------------------------
             const payload = {
               userId: user._id,
@@ -106,9 +106,9 @@ export const login = async (req, res) => {
               msg: "Login Succefull",
               username: user.username,
               token,
-            });
+            });}
           })
-          
+        
       })
       .catch((err) => {
         res.status(404).send({ err: "User Not Found" });
