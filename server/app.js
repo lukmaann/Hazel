@@ -7,7 +7,8 @@ import multer from "multer";
 import morgan from "morgan";
 import connectdb from "./database/conn.js";
 import router from "./Router/LoginRoutes.js";
-import userRouter from "./Router/UserRoutes.js"
+import userRouter from "./Router/UserRoutes.js";
+import postRouter from "./Router/PostRoutes.js"
 
 dotenv.config()
 const app=express();
@@ -27,7 +28,7 @@ app.get("/",(req,res)=>{
 
 app.use('/api',router)
 app.use('/api',userRouter)
-
+app.use('/api',postRouter)
 
 connectdb().then(()=>{
     app.listen(3000,()=>console.log("server connected to db started on port 3000"))
