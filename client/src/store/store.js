@@ -10,3 +10,9 @@ export const useAuthStore=create((set)=>({
     setUsername:(name)=>set((state)=>({auth:{...state.auth,username:name}})),
     setFriends:(data)=>set(()=>({friends:data}))
 }))
+
+export const useModal=create((set)=>({
+    modal:false,
+    setModal:(payload)=>set({modal:payload}),
+    
+}))

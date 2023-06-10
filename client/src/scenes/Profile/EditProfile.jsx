@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Avatar from "../../assets/profile.png";
 import Styles from "../../styles/username.module.css";
 import { Toaster, toast } from "react-hot-toast";
@@ -6,22 +5,16 @@ import { useFormik } from "formik";
 import { profileValidation } from "../../helper/validate";
 import { useState } from "react";
 import convertToBase64 from "../../helper/convert";
+import MenuItems from "../../components/widjets/menuItems";
 
 import useFecth from "../../hooks/fecth.hooks";
 import { updateUser } from "../../helper/helper";
-import { useNavigate } from "react-router-dom";
-
 
 const d = new Date();
 let year = d.getFullYear();
 
 const EditProfile = () => {
-  const navigate = useNavigate();
-  
-
   const [{ isLoading, apiData, serverError }] = useFecth();
-  
-
 
   const [file, setFile] = useState();
   const formik = useFormik({
@@ -38,7 +31,9 @@ const EditProfile = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (value) => {
-      value = await Object.assign(value, { profile: file ||apiData?.profile|| "" });
+      value = await Object.assign(value, {
+        profile: file || apiData?.profile || "",
+      });
 
       const updatePromise = updateUser(value);
       toast.promise(updatePromise, {
@@ -46,8 +41,6 @@ const EditProfile = () => {
         success: "update succefull",
         error: "cannot update",
       });
-
-      // console.log(value);
     },
   });
 
@@ -57,7 +50,6 @@ const EditProfile = () => {
     setFile(base64);
   };
 
-
   if (isLoading)
     return (
       <h1 className="flex justify-center items-center p-10">Loading...</h1>
@@ -65,6 +57,7 @@ const EditProfile = () => {
   if (serverError) return <h1>{serverError.message}</h1>;
   return (
     <div className="container mx-auto">
+      <MenuItems />
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
         position="top-center"
@@ -135,16 +128,7 @@ const EditProfile = () => {
                 Save
               </button>
             </div>
-            <div className="text-center py-10">
-              <span>
-                <Link
-                  onClick={()=>navigate('/homepage')}
-                  className=" px-2 text-red-500 font-medium"
-                >
-                 Home
-                </Link>
-              </span>
-            </div>
+            <div className="text-center py-10"></div>
           </form>
         </div>
       </div>

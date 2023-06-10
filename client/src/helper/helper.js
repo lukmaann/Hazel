@@ -140,3 +140,18 @@ export const getUserFriends=async(id)=>{
   }
 
 }
+
+
+export const uploadPost=async (details)=>{
+  try {
+    const {data,status}=await axios.post('/api/uploadpost',details);
+    if(status===201){
+ 
+      return Promise.resolve(data)
+    }
+    
+  } catch (error) {
+    return Promise.reject({error})
+  }
+
+}

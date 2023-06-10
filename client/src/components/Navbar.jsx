@@ -24,7 +24,7 @@ export default function Navbar() {
     return <h1 className="flex justify-center p-10">Loading...</h1>;
   if (serverError) return <h1>{serverError.message}</h1>;
   return (
-    <Disclosure as="nav" className="shadow-sm" style={{ background: "#FFFBEB" }}>
+    <Disclosure as="nav" className="shadow-sm" style={{ background: "#FEA1A1" }}>
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

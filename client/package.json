@@ -24,6 +24,7 @@
     "react-hot-toast": "^2.4.1",
     "react-loading": "^2.0.3",
     "react-router-dom": "^6.11.2",
+    "reactstrap": "^9.1.10",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
