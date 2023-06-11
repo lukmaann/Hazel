@@ -7,11 +7,12 @@ import Recovery from "./scenes/login/Recovery";
 import Register from "./scenes/login/Register";
 // import Reset from "./scenes/Reset";
 import Reset from "./scenes/login/Reset";
-import HomePage from "./scenes/Profile/HomePage"
-
+import HomePage from "./scenes/Profile/HomePage";
+import ExplorePage from "./scenes/explore/explore";
 // -----------------middlewares to protect routes------------
 import { AuthoriseUser } from "./middleware/auth";
 import { AuthoriseUsername } from "./middleware/auth";
+
 
 const Routes = createBrowserRouter([
   {
@@ -45,7 +46,10 @@ const Routes = createBrowserRouter([
   },
   {
     path:"/homepage",
-    element:<HomePage/>
+    element:<AuthoriseUser><HomePage/></AuthoriseUser>
+  },{
+    path:"/explore",
+    element:<AuthoriseUser><ExplorePage/></AuthoriseUser>
   }
 ]);
 

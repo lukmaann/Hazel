@@ -1,6 +1,5 @@
 import EditIcon from "@mui/icons-material/Edit";
 import ExploreIcon from "@mui/icons-material/Explore";
-import HomeIcon from '@mui/icons-material/Home';
 import AddIcon from "@mui/icons-material/Add";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +10,7 @@ import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png"
 
 const MenuItems = () => {
-  const [{isLoading,serverError,apiData}]=useFecth();
+  const [{apiData}]=useFecth();
   const {setModal}=useModal();
   const navigate = useNavigate();
 

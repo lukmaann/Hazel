@@ -11,8 +11,9 @@ import CreatePost from "../../components/CreatePost";
 import { Toaster } from "react-hot-toast";
 
 const HomePage = () => {
- 
+
 const {modal,setModal}=useModal();
+
   // const friends=useAuthStore(state=>state.friends)
 
   return (

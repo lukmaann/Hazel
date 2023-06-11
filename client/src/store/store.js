@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-labels */
 import {create} from "zustand"
 
 export const useAuthStore=create((set)=>({
@@ -15,4 +16,15 @@ export const useModal=create((set)=>({
     modal:false,
     setModal:(payload)=>set({modal:payload}),
     
+}))
+
+export const usePostStore=create((set)=>({
+    feedPosts:[],
+    setFeedPosts:(data)=>set({feedPosts:data})
+}))
+
+export const useUserStore=create((set)=>({
+    user:null,
+    setUser:(data)=>set({user:data})
+
 }))

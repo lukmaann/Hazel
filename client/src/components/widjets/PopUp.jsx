@@ -8,7 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 const PopUp=(props)=>{
     const {title,children,openPopup,setOpenPopup}=props;
 
-    return <Dialog open={openPopup}>
+    return <Dialog open={openPopup} >
         <DialogTitle >
         <div className="flex justify-between">
             {title}

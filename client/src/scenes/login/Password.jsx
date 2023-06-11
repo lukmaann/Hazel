@@ -7,11 +7,13 @@ import { passwordValidate } from "../../helper/validate";
 import { useAuthStore } from "../../store/store";
 import useFecth from "../../hooks/fecth.hooks";
 import { loginUser } from "../../helper/helper";
+import { useUserStore } from "../../store/store";
 // import { useEffect, useState } from "react";
 const d = new Date();
 let year = d.getFullYear();
 
 const Password = () => {
+  const setUser=useUserStore(state=>state.setUser)
   const navigate = useNavigate();
   const username = useAuthStore((state) => state.auth.username);
   const [{ isLoading, apiData, serverError }] = useFecth(`user/${username}`);
@@ -39,6 +41,8 @@ const Password = () => {
         let { token } = res;
         localStorage.setItem("token", token);
         navigate("/homepage");
+        setUser(apiData)
+
       });
       toast.promise(loginPromise, {
         loading: "loading",

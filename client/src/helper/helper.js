@@ -155,3 +155,16 @@ export const uploadPost=async (details)=>{
   }
 
 }
+export const getFeedPosts=async()=>{
+  const token=localStorage.getItem("token");
+  const {data,status}=await axios.get("/api/explore",{
+    headers:{Authorization:`Bearer ${token}`}
+  })
+  if(status===200){
+    // console.log(data);
+    return data
+    
+  }
+
+
+}

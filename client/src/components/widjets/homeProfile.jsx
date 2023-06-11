@@ -3,18 +3,11 @@ import Avatar from "../../assets/profile.png";
 import useFecth from "../../hooks/fecth.hooks";
 import { useState } from "react";
 
-
 const impressions = Math.floor(Math.random() * 10);
 const HomeProfile = () => {
-
-
   const [click, setclick] = useState(false);
-  
-  
-
 
   const [{ apiData, isLoading, serverError }] = useFecth();
- 
 
   if (serverError) return <h1>{serverError.message}</h1>;
 

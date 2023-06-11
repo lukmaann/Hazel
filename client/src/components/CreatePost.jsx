@@ -60,31 +60,31 @@ const CreatePost = () => {
           <div className="profile w-[70%] h-[270px]  text-center py-4">
             <label htmlFor="profile">
               <img
-                //   className={Styles.profile_img}
+                className="rounded-sm "
                 src={file || Avatar}
                 alt="Avatar"
-                className=""
               />
             </label>
             <input type="file" onChange={onUpload} id="profile" />
           </div>
         
-          <div className="w-[70%] ">
+          <div className="w-[70%] text-center ">
             <textarea
               type="text"
               {...formik.getFieldProps("caption")}
-              className=" p-1 w-[90%] h-32  m-2  focus: outline-none shadow-sm"
+              className=" p-1 w-[90%] h-14    focus: outline-none shadow-sm"
               placeholder="Write a caption"
             />
             <input
               type="text"
               placeholder="location"
+              autoComplete="OFF"
               className="p-1 w-[90%] m-2 focus:outline-none"
               {...formik.getFieldProps("location")}
             />
 
             <button
-              className="w-[70%] hover:bg-pink-50 rounded-xl my-3 h-8"
+              className="w-[90%] bg-[#38B6FF] hover:bg-black  rounded-xl my-3 font-bold  text-yellow-50p h-8"
               type="submit"
               
             >
