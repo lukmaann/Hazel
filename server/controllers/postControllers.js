@@ -17,7 +17,10 @@ export const createPost = async (req, res) => {
       likes: {},
       comments: [],
     });
+
     await newPost.save();
+    console.log(user);
+
 
     const post = await Post.find();
     res.status(201).json(post)
