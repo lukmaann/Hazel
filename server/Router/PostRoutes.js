@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createPost, getFeedPosts, getUserPosts, likePost } from "../controllers/postControllers.js"
+import { createPost, getFeedPosts, getUserPosts,commentOnPost, likePost } from "../controllers/postControllers.js"
 
 import auth from "../middlewre/auth.js"
 
@@ -18,6 +18,8 @@ router.route('/uploadpost').post(createPost)
 
 // ------------------------------patch-------
 router.route("/:id/like").patch(auth,likePost)
+router.route('/comment').patch(commentOnPost)
+
 
 
 export default router;
