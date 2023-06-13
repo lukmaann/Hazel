@@ -3,17 +3,17 @@ import { useFormik } from "formik";
 import convertToBase64 from "../helper/convert";
 import { useState } from "react";
 
-import useFecth from "../hooks/fecth.hooks";
-import { uploadPost } from "../helper/helper";
+import { uploadPosts } from "../helper/helper";
 import { toast,Toaster } from "react-hot-toast";
 // import { useNavigate } from "react-router-dom";
 import { useModal } from "../store/store";
-
+import { useUserStore } from "../store/store";
 
 const CreatePost = () => {
+  const user=useUserStore((state)=>state.user)
   const setModal=useModal((state)=>state.setModal)
 
-  const [{ apiData }] = useFecth();
+  
 
   const [file, setFile] = useState();
   const formik = useFormik({
@@ -26,12 +26,12 @@ const CreatePost = () => {
     validateOnChange: false,
     onSubmit: async (value) => {
       value = await Object.assign(value, { picturePath: file || "" });
-      value = await Object.assign(value, { userId: apiData?._id || "" });
-      const createPromise= uploadPost(value);
+      value = await Object.assign(value, { userId: user._id || "" });
+      const createPromise= uploadPosts(value);
       toast.promise(createPromise,{
         success:"Posted",
         loading:"Posting...",
-        error:"cant upload"
+        error:"Cant upload post"
       })
 
       createPromise.then(()=>{
@@ -84,7 +84,7 @@ const CreatePost = () => {
             />
 
             <button
-              className="w-[90%] bg-[#38B6FF] hover:bg-black  rounded-xl my-3 font-bold  text-yellow-50p h-8"
+              className="w-[90%] bg-[#38B6FF] text-white hover:bg-black  rounded-xl my-3 font-bold  text-yellow-50p h-8"
               type="submit"
               
             >

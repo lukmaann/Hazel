@@ -1,4 +1,4 @@
-
+import year from "../../helper/date";
 import Styles from "../../styles/username.module.css";
 import {Toaster, toast} from "react-hot-toast";
 import {useFormik} from "formik"
@@ -6,8 +6,7 @@ import {useNavigate} from "react-router-dom"
 import { resetPasswordValidation } from "../../helper/validate";
 import {useAuthStore} from "../../store/store"
 import { resetPassword } from "../../helper/helper";
-const d = new Date();
-let year = d.getFullYear();
+
 
 
 const Reset = () => {

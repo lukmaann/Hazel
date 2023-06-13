@@ -1,4 +1,5 @@
 import { Link} from "react-router-dom";
+import year from "../../helper/date";
 import Avatar from "../../assets/profile.png";
 import Styles from "../../styles/username.module.css";
 import {Toaster} from "react-hot-toast";
@@ -7,8 +8,6 @@ import { userValidate } from "../../helper/validate";
 import { useAuthStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 
-const d = new Date();
-let year = d.getFullYear();
 
 
 const Username = () => {

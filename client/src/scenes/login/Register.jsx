@@ -1,3 +1,4 @@
+import year from "../../helper/date";
 import { Link, useNavigate } from "react-router-dom";
 import Avatar from "../../assets/profile.png";
 import Styles from "../../styles/username.module.css";
@@ -8,8 +9,7 @@ import { useState } from "react";
 import convertToBase64 from "../../helper/convert";
 import { registerUser } from "../../helper/helper";
 
-const d = new Date();
-let year = d.getFullYear();
+
 
 
 const Register = () => {

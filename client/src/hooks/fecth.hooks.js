@@ -1,7 +1,7 @@
 import axios from "axios";
 axios.defaults.baseURL = "http://localhost:3000/";
 import { useEffect, useState } from "react";
-import { getUserFriends, getUsername } from "../helper/helper";
+import {  getUsername } from "../helper/helper";
 
 const useFecth = (query) => {
   const [getData, setData] = useState({
@@ -35,5 +35,7 @@ const useFecth = (query) => {
 
   return [getData, setData];
 };
+
+
 
 export default useFecth;

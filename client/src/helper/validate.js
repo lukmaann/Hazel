@@ -74,3 +74,16 @@ const emailverify=(errors={},value)=>{
 
     return errors
 }
+
+export const editProfileValidation=async (values)=>{
+    const errors=emailverify({},values);
+    mobileNumberVerify(errors,values)
+    
+    return errors
+}
+
+export const mobileNumberVerify=(errors={},value)=>{
+    if(! /^([+]\d{2}[ ])?\d{10}$/.test(value.mobile)){
+        errors.mobile=toast.error("invalid mobile number")
+    }
+}

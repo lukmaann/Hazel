@@ -2,24 +2,20 @@ import MenuItems from "../../components/widjets/menuItems"
 import PopUp from "../../components/widjets/PopUp"
 import { useModal } from "../../store/store"
 import CreatePost from "../../components/CreatePost"
-import { useEffect } from "react"
-import { getFeedPosts } from "../../helper/helper"
 import { usePostStore } from "../../store/store"
-
-
+import FeedPosts from "../../components/widjets/FeedPosts"
 
 const ExplorePage=()=>{
   const feedPosts=usePostStore(state=>state.feedPosts)
-  const setFeedPosts=usePostStore(state=>state.setFeedPosts)
-  useEffect(()=>{
-    const data=getFeedPosts();
-    console.log(data);
-
-  },[])
+  console.log(feedPosts.length);
+  
+  
     const {modal,setModal}=useModal(state=>state)
     return <div>
-    <h1 className="ml-[500]px">{feedPosts.length}</h1>
-    {/* <MenuItems/> */}
+    <MenuItems/>
+    <div className="ml-[20%] w-[60%] min-h-max">
+      <FeedPosts/>
+    </div>
     <PopUp openPopup={modal}
       setOpenPopup={setModal}
         title="Create Post"

@@ -60,7 +60,6 @@ export const loginUser = async ({ username, password }) => {
   try {
     if (username) {
       const { data } = await axios.post("/api/login", { username, password });
-      console.log(data);
       return Promise.resolve(data);
     }
   } catch (error) {
@@ -89,7 +88,7 @@ export const genrateOtp = async (username) => {
       data: { code },
       status,
     } = await axios.get("/api/genrateotp", {params:{ username:username }});
-    // console.log(code);
+   
     if (status === 201) {
       let {
         data: { email },
@@ -142,7 +141,7 @@ export const getUserFriends=async(id)=>{
 }
 
 
-export const uploadPost=async (details)=>{
+export const uploadPosts=async (details)=>{
   try {
     const {data,status}=await axios.post('/api/uploadpost',details);
     if(status===201){

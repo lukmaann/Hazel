@@ -1,4 +1,4 @@
-
+import year from "../../helper/date";
 import Styles from "../../styles/username.module.css";
 import {Toaster, toast} from "react-hot-toast";
 import {useFormik} from "formik"
@@ -8,8 +8,7 @@ import { useEffect, useState } from "react";
 import { genrateOtp, verifyOtp } from "../../helper/helper";
 import {useNavigate} from "react-router-dom"
 
-const d = new Date();
-let year = d.getFullYear();
+
 
 
 const Recovery = () => {

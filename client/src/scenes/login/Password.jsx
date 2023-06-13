@@ -1,29 +1,32 @@
-import { Link, useNavigate } from "react-router-dom";
 import Avatar from "../../assets/profile.png";
+import year from "../../helper/date";
 import Styles from "../../styles/username.module.css";
+import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
-import { passwordValidate } from "../../helper/validate";
+
+// -------------------------store data and custom hooks------------
 import { useAuthStore } from "../../store/store";
-import useFecth from "../../hooks/fecth.hooks";
-import { loginUser } from "../../helper/helper";
 import { useUserStore } from "../../store/store";
-// import { useEffect, useState } from "react";
-const d = new Date();
-let year = d.getFullYear();
+import { usePostStore } from "../../store/store";
+import useFecth from "../../hooks/fecth.hooks";
+import usePostFecth from "../../hooks/fecthpost.hooks";
+
+// ------------------------------helpers------------------
+import { passwordValidate } from "../../helper/validate";
+import { loginUser } from "../../helper/helper";
 
 const Password = () => {
-  const setUser=useUserStore(state=>state.setUser)
+  const setUser = useUserStore((state) => state.setUser);
+  const setPosts = usePostStore((state) => state.setPosts);
+
   const navigate = useNavigate();
   const username = useAuthStore((state) => state.auth.username);
   const [{ isLoading, apiData, serverError }] = useFecth(`user/${username}`);
-
-  // const[load,setload]=useState(true)
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setload(false)
-  //   }, 20000);
-  // });
+  const [{ postData, postisLoading }] = usePostFecth();
+  if (!postisLoading) {
+    setPosts(postData);
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -34,15 +37,14 @@ const Password = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (value) => {
-      console.log(value);
       const loginPromise = loginUser({ username, password: value.password });
 
-      loginPromise.then((res) => {
+      loginPromise.then(async (res) => {
         let { token } = res;
         localStorage.setItem("token", token);
-        navigate("/homepage");
-        setUser(apiData)
+        setUser(apiData);
 
+        navigate("/homepage");
       });
       toast.promise(loginPromise, {
         loading: "loading",
