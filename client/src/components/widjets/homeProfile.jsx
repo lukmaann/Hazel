@@ -29,7 +29,7 @@ const HomeProfile = () => {
             <button className="ml-24 ">
               <button
                 onClick={() => setShowNumber(!showNumber)}
-                className="border-black border mt-3 mx-3  rounded-2xl px-2 hover:text-gray-500p "
+                className="border-black border mt-3 mx-3  rounded-lg border-b-4 border-purple-600  px-2 hover:text-gray-500p "
               >
                 {showNumber ? user.mobile : "contact"}
               </button>

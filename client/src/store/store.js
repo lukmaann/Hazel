@@ -16,19 +16,34 @@ export const useAuthStore = create((set) => ({
 export const useModal = create((set) => ({
   modal: false,
   setModal: (payload) => set({ modal: payload }),
-  usernameModal:false,
-  setUsernameModal:(payload)=>set({usernameModal:payload})
+  usernameModal: false,
+  setUsernameModal: (payload) => set({ usernameModal: payload }),
 }));
-
-
 
 export const useUserStore = create(
   persist(
     (set) => ({
       user: {},
       setUser: (data) => set({ user: data }),
-      updateUserData:({firstName,lastName,email,profile,address,mobile})=>set((state)=>({user:{...state.user,firstName,lastName,email,profile,address,mobile}}))
-   
+      updateUserData: ({
+        firstName,
+        lastName,
+        email,
+        profile,
+        address,
+        mobile,
+      }) =>
+        set((state) => ({
+          user: {
+            ...state.user,
+            firstName,
+            lastName,
+            email,
+            profile,
+            address,
+            mobile,
+          },
+        })),
     }),
     {
       name: "UserData",
@@ -36,15 +51,14 @@ export const useUserStore = create(
   )
 );
 
-
-export const usePostStore=create(
+export const usePostStore = create(
   persist(
-    (set)=>({
-      feedPosts:[],
-      setPosts:(data)=>(set({feedPosts:data}))
+    (set) => ({
+      feedPosts: [],
+      setPosts: (data) => set({ feedPosts: data }),
     }),
     {
-      name:"Posts"
+      name: "Posts",
     }
   )
-)
+);

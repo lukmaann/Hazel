@@ -167,3 +167,18 @@ export const getFeedPosts=async()=>{
 
 
 }
+
+export const addComment=async(values)=>{
+  try {
+  const {status}=await axios.patch("/api/comment",values)
+  if(status===201){
+    Promise.resolve()
+    
+  }
+    
+  } catch (error) {
+    Promise.reject(error)
+  }
+  
+
+}

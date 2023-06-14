@@ -5,7 +5,8 @@
     backdrop-filter: blur(7.1px);
     border:1px solid rgba(255, 255, 255, 0.3);
     background-color: white;
-    @apply border border-gray-300 shadow-2xl shrink-0 h-5/6 w-[20%] shadow-inner py-10 px-4 min-w-max min-h-max;
+    @apply border border-gray-300 border-b-4 shadow-2xl shrink-0 h-5/6 w-[20%] shadow-inner py-10 px-4 min-w-max min-h-max;
+    @apply hover:border-black
 }
 .profile_img{
     @apply border-4 rounded-full w-[100px] h-[100px]  shadow-lg cursor-pointer;
@@ -13,12 +14,13 @@
 }
 
 .textbox{
-    @apply border-0 py-2 px-5 w-3/4 text-lg m-auto rounded-md shadow-sm;
-    @apply focus:outline-none border-purple-500 ;
+    @apply border border-b-4 border-black py-2 px-5 w-3/4 text-lg m-auto rounded-md shadow-sm;
+    @apply focus:outline-none focus:border-purple-500;
 }
 
 .btn{
-    @apply  border-2  border-pink-400 w-3/4 rounded-lg py-2
+    @apply  border border-b-4 border-black  w-3/4 rounded-lg py-2;
+  
 }
 
 .btn:hover{
@@ -28,4 +30,8 @@
 input[type="file"]{
     display: none;
 
+}
+
+.menuitems{
+    @apply m-3 w-11/12 items-center rounded-lg hover:bg-gray-100 h-10 gap-4 rounded-lg p-1 flex justify-start
 }

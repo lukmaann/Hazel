@@ -5,14 +5,16 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/store";
 import PopUp from "./PopUp";
+import Styles from "../../styles/username.module.css"
+
 // ------------------------components-----------
 import Logo from "./logo";
 import { useModal } from "../../store/store";
-import Avatar from "../../assets/profile.png"
+import Avatar from "../../assets/profile.png";
 
 const MenuItems = () => {
-  const user=useUserStore((state)=>state.user)
-  const {setModal,setUsernameModal,usernameModal}=useModal();
+  const user = useUserStore((state) => state.user);
+  const { setModal, setUsernameModal, usernameModal } = useModal();
   const navigate = useNavigate();
 
   const logout = () => {
@@ -27,16 +29,24 @@ const MenuItems = () => {
     <div className=" fixed bottom-0 bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen">
       <Logo />
       <div className="fixed bottom-0 border-gray-400 border-t">
-        <div className="  m-3 w-11/12 items-center hover:bg-gray-100 h-10 gap-4 rounded-l p-1 flex justify-start ">
+        <div className={Styles.menuitems}>
           <ExploreIcon />
-          <button onClick={()=>navigate('/explore')}>Explore</button>
+          <button onClick={() => navigate("/explore")}>Explore</button>
         </div>
 
-        <div className="  m-3 w-11/12 items-center hover:bg-gray-100 h-10 gap-4 rounded-l p-1 flex justify-start ">
+        <div className={Styles.menuitems}>
+
           <AddIcon />
-          <button onClick={()=>{user.firstName?setModal(true):setUsernameModal(true)}}>Create Post</button>
+          <button
+            onClick={() => {
+              user.firstName ? setModal(true) : setUsernameModal(true);
+            }}
+          >
+            Create Post
+          </button>
         </div>
-        <div className="  m-3 w-11/12 items-center hover:bg-gray-100 h-10 gap-4 rounded-l p-1 flex justify-start ">
+        <div className={Styles.menuitems}>
+
           <EditIcon />
           <button
             onClick={() => {
@@ -46,9 +56,14 @@ const MenuItems = () => {
             Edit Profile
           </button>
         </div>
-        <div className="  m-3 w-11/12 items-center hover:bg-gray-100 h-10 gap-4 rounded-l p-1 flex justify-start ">
+        <div className={Styles.menuitems}>
+
           {/* <HomeIcon /> */}
-          <img src={user.profile||Avatar} className="w-7 rounded-full h-7" alt="" />
+          <img
+            src={user.profile || Avatar}
+            className="w-7 rounded-full h-7"
+            alt=""
+          />
           <button
             onClick={() => {
               navigate("/homepage");
@@ -62,13 +77,22 @@ const MenuItems = () => {
           <button onClick={logout}>LogOut</button>
         </div>
       </div>
-      <PopUp openPopup={usernameModal} setOpenPopup={setUsernameModal} title="Update alert">
-      <div>
-        <h1>Before uploading post please update profile</h1>
-        <button onClick={()=>{navigate("/editprofile");
-        setUsernameModal(false)
-        
-        }} className="p-2 my-2  border rounded-lg bg-slate-400 hover:bg-slate-500">Update Now</button>
+      <PopUp
+        openPopup={usernameModal}
+        setOpenPopup={setUsernameModal}
+        title="Update alert"
+      >
+        <div>
+          <h1>Before uploading post please update profile</h1>
+          <button
+            onClick={() => {
+              navigate("/editprofile");
+              setUsernameModal(false);
+            }}
+            className="p-2 my-2  border rounded-lg bg-slate-400 hover:bg-slate-500"
+          >
+            Update Now
+          </button>
         </div>
       </PopUp>
     </div>
