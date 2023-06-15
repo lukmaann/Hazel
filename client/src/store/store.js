@@ -56,6 +56,19 @@ export const usePostStore = create(
     (set) => ({
       feedPosts: [],
       setPosts: (data) => set({ feedPosts: data }),
+      commentPost:({postId,comment})=>set(state=>({...state,feedPosts:state.feedPosts.map(item=>{
+        if(item._id===postId){
+          return {
+            ...item,
+            comments:[...item.comments,comment]
+          }
+
+        }else{
+          return item
+        }
+      })}))
+      
+     
     }),
     {
       name: "Posts",

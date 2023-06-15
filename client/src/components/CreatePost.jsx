@@ -8,8 +8,11 @@ import { toast,Toaster } from "react-hot-toast";
 // import { useNavigate } from "react-router-dom";
 import { useModal } from "../store/store";
 import { useUserStore } from "../store/store";
+import { usePostStore } from "../store/store";
 
 const CreatePost = () => {
+
+  const setPosts=usePostStore(state=>state.setPosts)
   const user=useUserStore((state)=>state.user)
   const setModal=useModal((state)=>state.setModal)
 
@@ -34,7 +37,12 @@ const CreatePost = () => {
         error:"Cant upload post"
       })
 
-      createPromise.then(()=>{
+      createPromise.then((data)=>{
+        setPosts(data)
+        
+        
+      
+
         setModal(false)
       })
   

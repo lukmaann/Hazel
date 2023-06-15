@@ -89,7 +89,7 @@ const MenuItems = () => {
               navigate("/editprofile");
               setUsernameModal(false);
             }}
-            className="p-2 my-2  border rounded-lg bg-slate-400 hover:bg-slate-500"
+            className={`${Styles.menuitems} w-max`} 
           >
             Update Now
           </button>

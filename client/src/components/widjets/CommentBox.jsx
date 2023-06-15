@@ -10,7 +10,7 @@ const CommentBox=(props)=>{
     const {postId,comments}=props
 
 
-    const updatePost=usePostStore(state=>state.updatePost)
+    const commentPost=usePostStore(state=>state.commentPost)
     const formik=useFormik({
         initialValues:{
             comment:""
@@ -28,7 +28,7 @@ const CommentBox=(props)=>{
            })
 
            commentPromise.then(()=>{
-            updatePost(value)
+            commentPost(value)
            })
         }
     })
