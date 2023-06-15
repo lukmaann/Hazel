@@ -75,7 +75,7 @@ export const likePost = async (req, res) => {
 
 export const commentOnPost = async (req, res) => {
   try {
-    const { comment, userId, postId } = req.body;
+    const { comment,  postId } = req.body;
     const post=await Post.findById(postId)
     const updatePost=await Post.findByIdAndUpdate(postId,{$push:{comments:comment}})
     res.status(201).send(updatePost.comments)
