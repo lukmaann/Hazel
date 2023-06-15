@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
 
     const user = (req.user = decodedToken);
 
-    res.json(decodedToken);
+    return res.json(decodedToken);
     next();
   } catch (error) {
     return res.status(401).json({ err: "Unauthorised User" });

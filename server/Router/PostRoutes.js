@@ -17,7 +17,7 @@ router.route('/uploadpost').post(createPost)
 
 
 // ------------------------------patch-------
-router.route("/:id/like").patch(auth,likePost)
+router.route("/like").patch(likePost)
 router.route('/comment').patch(commentOnPost)
 
 
