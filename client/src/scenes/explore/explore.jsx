@@ -9,6 +9,9 @@ const ExplorePage=()=>{
   
   
     const {modal,setModal}=useModal(state=>state)
+    if(feedPosts==null){
+     return <h1 className="flex justify-center p-10">Loading...</h1>;
+    }else{
     return <div>
     <MenuItems/>
     <div className="ml-[20%] w-[80%] min-h-max">
@@ -23,6 +26,7 @@ const ExplorePage=()=>{
         
       ><CreatePost/></PopUp>
     </div>
+    }
 }
 
 

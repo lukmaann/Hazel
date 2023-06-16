@@ -40,6 +40,7 @@ const EditProfile = () => {
       value = await Object.assign(value, {
         profile: file || user.profile || "",
       });
+      
    
 
       const updatePromise = updateUser(value);
@@ -51,7 +52,7 @@ const EditProfile = () => {
 
       updatePromise.then(()=>{
         updateUserData(value)
-        console.log("updated");
+        // console.log("updated");
      
 
       })

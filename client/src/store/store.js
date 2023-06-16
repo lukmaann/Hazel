@@ -56,19 +56,33 @@ export const usePostStore = create(
     (set) => ({
       feedPosts: [],
       setPosts: (data) => set({ feedPosts: data }),
-      commentPost:({postId,comment})=>set(state=>({...state,feedPosts:state.feedPosts.map(item=>{
-        if(item._id===postId){
-          return {
-            ...item,
-            comments:[...item.comments,comment]
-          }
-
-        }else{
-          return item
-        }
-      })}))
-      
-     
+      commentPost: ({ postId, comment }) =>
+        set((state) => ({
+          ...state,
+          feedPosts: state.feedPosts.map((item) => {
+            if (item._id === postId) {
+              return {
+                ...item,
+                comments: [...item.comments, comment],
+              };
+            } else {
+              return item;
+            }
+          }),
+        })),
+      likePost: (post) =>
+        set((state) => ({
+          feedPosts: state.feedPosts.map((item) => {
+            if (post._id === item._id) {
+              return {
+                ...item,
+                likes: post.likes,
+              };
+            } else {
+              return item;
+            }
+          }),
+        })),
     }),
     {
       name: "Posts",

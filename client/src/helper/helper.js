@@ -2,16 +2,15 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 // eslint-disable-next-line no-undef
-axios.defaults.baseURL="http://localhost:3000";
+axios.defaults.baseURL = "http://localhost:3000";
 
-export const getUsername=async()=>{
-  const token=localStorage.getItem("token");
-  if(!token) return Promise.reject("session expired!!");
-  let decode=jwt_decode(token);
- 
+export const getUsername = async () => {
+  const token = localStorage.getItem("token");
+  if (!token) return Promise.reject("session expired!!");
+  let decode = jwt_decode(token);
+
   return decode;
-
-}
+};
 
 export const authenticate = async (username) => {
   try {
@@ -23,9 +22,8 @@ export const authenticate = async (username) => {
 
 export const getUser = async (username) => {
   try {
-    const { data  } = await axios.get(`/api/user/${username}`);
-  
-   
+    const { data } = await axios.get(`/api/user/${username}`);
+
     return { data };
   } catch (error) {
     return { error: "password not match" };
@@ -35,7 +33,7 @@ export const getUser = async (username) => {
 export const registerUser = async (credentials) => {
   try {
     // console.log(credentials);
- 
+
     const {
       data: { msg },
       status,
@@ -72,7 +70,7 @@ export const updateUser = async (body) => {
 
   try {
     const token = localStorage.getItem("token");
-    
+
     const data = await axios.put("/api/updateUser", body, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -87,13 +85,13 @@ export const genrateOtp = async (username) => {
     const {
       data: { code },
       status,
-    } = await axios.get("/api/genrateotp", {params:{ username:username }});
-   
+    } = await axios.get("/api/genrateotp", { params: { username: username } });
+
     if (status === 201) {
       let {
         data: { email },
       } = await getUser(username);
-   
+
       let text = `Your Otp is ${code}`;
       await axios.post("/api/registerMail", {
         username,
@@ -109,76 +107,84 @@ export const genrateOtp = async (username) => {
   }
 };
 
-
-export const verifyOtp=async({username,code})=>{
-    try {
-        const {data,status}=await axios.get("/api/verifyOTP",{params:{username,code}})
-        return {data,status}
-    } catch (error) {
-        return Promise.reject({error})
-    }
-}
-
-export const resetPassword=async({username,password})=>{
-    try {
-        const {data,status}=await axios.put('/api/resetPassword',{username,password})
-        return Promise.resolve(data,status)
-    } catch (error) {
-        return Promise.reject({error})
-    }
-}
-
-export const getUserFriends=async(id)=>{
+export const verifyOtp = async ({ username, code }) => {
   try {
-    const token=localStorage.getItem('token');
-    const {data,status}=await axios.get(`api/${id}/friends`,{headers:{Authorization:`Bearer ${token}`}})
-    return {data,status}
-   
+    const { data, status } = await axios.get("/api/verifyOTP", {
+      params: { username, code },
+    });
+    return { data, status };
   } catch (error) {
-    return {error:"cant get friends"}
+    return Promise.reject({ error });
   }
+};
 
-}
-
-
-export const uploadPosts=async (details)=>{
+export const resetPassword = async ({ username, password }) => {
   try {
-    const {data,status}=await axios.post('/api/uploadpost',details);
-    if(status===201){
- 
-      return Promise.resolve(data)
-    }
-    
+    const { data, status } = await axios.put("/api/resetPassword", {
+      username,
+      password,
+    });
+    return Promise.resolve(data, status);
   } catch (error) {
-    return Promise.reject({error})
+    return Promise.reject({ error });
   }
+};
 
-}
-export const getFeedPosts=async()=>{
-  const token=localStorage.getItem("token");
-  const {data,status}=await axios.get("/api/explore",{
-    headers:{Authorization:`Bearer ${token}`}
-  })
-  if(status===200){
+export const getUserFriends = async (id) => {
+  try {
+    const token = localStorage.getItem("token");
+    const { data, status } = await axios.get(`api/${id}/friends`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return { data, status };
+  } catch (error) {
+    return { error: "cant get friends" };
+  }
+};
+
+export const uploadPosts = async (details) => {
+  try {
+    const { data, status } = await axios.post("/api/uploadpost", details);
+    if (status === 201) {
+      return Promise.resolve(data);
+    }
+  } catch (error) {
+    return Promise.reject({ error });
+  }
+};
+export const getFeedPosts = async () => {
+  const token = localStorage.getItem("token");
+  const { data, status } = await axios.get("/api/explore", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (status === 200) {
     // console.log(data);
-    return data
-    
+    return data;
   }
+};
 
-
-}
-
-export const addComment=async(values)=>{
+export const addComment = async (values) => {
   try {
-  const {status}=await axios.patch("/api/comment",values)
-  if(status===201){
-    Promise.resolve()
-    
-  }
-    
+    const { status } = await axios.patch("/api/comment", values);
+    if (status === 201) {
+      Promise.resolve();
+    }
   } catch (error) {
-    Promise.reject(error)
+    Promise.reject(error);
   }
-  
+};
+
+
+export const UpdateLikes=async (value)=>{
+  const {postId,userId}=value
+  try {
+    const token=localStorage.getItem('token')
+    const {data}=await axios.patch(`/api/like`,{userId,id:postId},{
+      headers:{Authorization:`Bearer ${token}`}
+    });
+    return data
+  } catch (error) {
+    Promise.reject(error.message)
+  }
 
 }

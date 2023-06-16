@@ -5,17 +5,34 @@ import Heart from "react-heart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "./CommentBox";
+import { usePostStore, useUserStore } from "../../store/store";
+import { UpdateLikes } from "../../helper/helper";
 
 const FeedPosts = (props) => {
   const {likes,caption,comments,postId,profile,firstName,picturePath}=props
   const [clickComment, setClickComment] = useState(false);
-  const [liked, setLiked] = useState(false);
-  // const feedPosts = usePostStore((state) => state.feedPosts);
-  const likeCount = Object.keys(likes).length;
+  const likePost=usePostStore(state=>state.likePost)
+
+
+  const loggedUser=useUserStore(state=>state.user)
+  let likeCount = Object.keys(likes).length;
+  const isLiked=Boolean(likes[loggedUser._id]);
+  const userId=loggedUser._id
+  
+
+  const LikePost=()=>{
+    const data=UpdateLikes({postId,userId});
+    data.then((post)=>{
+      likePost(post)
+    })
+   
+    
+   
+  }
 
   return (
     <div className="p-10 flex ">
-      <div className="w-[40%] h-[100vh] m-8 border-b-4 border border-gray-600 drop-shadow-sm bg-white rounded-lg">
+      <div className="w-[40%] h-[100vh] m-8 border-b-4  border border-gray-600 drop-shadow-sm bg-white rounded-lg">
         <div className="w-[100%] h-16  flex  items-center p-4 ">
           <img
             src={profile}
@@ -37,8 +54,8 @@ const FeedPosts = (props) => {
         <div className=" ">
           <div className="flex  items-center-center h-[110%] min-w-fit">
             <Heart
-              isActive={liked}
-              onClick={() => setLiked(!liked)}
+              isActive={isLiked}
+              onClick={LikePost}
               className="w-6 mt-2 ml-4"
             />
             <FontAwesomeIcon

@@ -89,7 +89,7 @@ const MenuItems = () => {
               navigate("/editprofile");
               setUsernameModal(false);
             }}
-            className={`${Styles.menuitems} w-max`} 
+            className={`${Styles.menuitems} w-max ml-0 bg-pink-400 border-b-4 border-black border`} 
           >
             Update Now
           </button>
