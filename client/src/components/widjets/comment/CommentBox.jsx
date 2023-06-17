@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useFormik } from "formik";
-import { usePostStore } from "../../store/store";
 import Comments from "./comments";
-
-import { addComment } from "../../helper/helper";
+import { usePostStore } from "../../../store/store";
+import { addComment } from "../../../helper/helper";
 import { Toaster, toast } from "react-hot-toast";
 const CommentBox=(props)=>{
 

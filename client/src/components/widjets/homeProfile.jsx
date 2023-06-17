@@ -2,9 +2,15 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Avatar from "../../assets/profile.png";
 import { useState } from "react";
 import { useUserStore } from "../../store/store";
-
+import Posts from "./posts/posts";
+import { usePostStore } from "../../store/store";
 const impressions = Math.floor(Math.random() * 10);
+
+
 const HomeProfile = () => {
+  const feedPosts=usePostStore(state=>state.feedPosts)
+  console.log(feedPosts);
+  
   const user = useUserStore((state) => state.user);
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
@@ -53,6 +59,12 @@ const HomeProfile = () => {
             </h1>
           )}
         </div>
+      </div>
+      
+      <div className="w-[100%] flex flex-wrap justify-center text-white h-min p-11">
+      {feedPosts.map((item,index)=>{
+        return <Posts key={index} picturePath={item.picturePath} likes={item.likes}/>
+      })}
       </div>
     </div>
   );

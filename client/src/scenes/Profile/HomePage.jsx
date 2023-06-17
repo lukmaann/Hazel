@@ -15,7 +15,7 @@ const HomePage = () => {
         position="top-center"
         reverseOrder={false}
       ></Toaster>
-      <div className="flex  h-screen ">
+      <div className="flex   h-screen ">
         <MenuItems />
         <HomeProfile />
       </div>

@@ -4,9 +4,9 @@ import { useState } from "react";
 import Heart from "react-heart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
-import CommentBox from "./CommentBox";
-import { usePostStore, useUserStore } from "../../store/store";
-import { UpdateLikes } from "../../helper/helper";
+import CommentBox from "../comment/CommentBox";
+import { usePostStore, useUserStore } from "../../../store/store";
+import { UpdateLikes } from "../../../helper/helper";
 
 const FeedPosts = (props) => {
   const {likes,caption,comments,postId,profile,firstName,picturePath}=props
@@ -21,6 +21,7 @@ const FeedPosts = (props) => {
   
 
   const LikePost=()=>{
+    console.log(typeof(likes));
     const data=UpdateLikes({postId,userId});
     data.then((post)=>{
       likePost(post)

@@ -2,7 +2,8 @@ import MenuItems from "../../components/widjets/menuItems"
 import PopUp from "../../components/widjets/PopUp"
 import { useModal } from "../../store/store"
 import CreatePost from "../../components/CreatePost"
-import FeedPosts from "../../components/widjets/FeedPosts"
+
+import FeedPosts from "../../components/widjets/posts/FeedPosts"
 import { usePostStore } from "../../store/store"
 const ExplorePage=()=>{
   const feedPosts=usePostStore(state=>state.feedPosts)
