@@ -61,10 +61,18 @@ const HomeProfile = () => {
         </div>
       </div>
       
-      <div className="w-[100%] flex flex-wrap justify-center text-white h-min p-11">
+      <div className="w-[100%] flex flex-wrap justify-center text-white h-min p-5">
+      <div className="flex justify-start flex-wrap w-[95%]">
       {feedPosts.map((item,index)=>{
+        if(user._id===item.userId){
         return <Posts key={index} picturePath={item.picturePath} likes={item.likes}/>
+
+
+        }
+        
       })}
+      </div>
+     
       </div>
     </div>
   );

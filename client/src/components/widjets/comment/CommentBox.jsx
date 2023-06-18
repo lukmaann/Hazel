@@ -23,7 +23,8 @@ const CommentBox=(props)=>{
            toast.promise(commentPromise,{
             success:"commented",
             loading:"commenting...",
-            error:"cannot comment"
+            error:"cannot comment",
+         
            })
 
            commentPromise.then(()=>{
@@ -36,7 +37,7 @@ const CommentBox=(props)=>{
     return <div className="w-[90%]">
     <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
-        position="top-center"
+        position="bottom-right"
         reverseOrder={false}
       ></Toaster>
     <form action="" onSubmit={formik.handleSubmit} className="flex items-center">

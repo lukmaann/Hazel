@@ -12,6 +12,7 @@ import ExplorePage from "./scenes/explore/explore";
 // -----------------middlewares to protect routes------------
 import { AuthoriseUser } from "./middleware/auth";
 import { AuthoriseUsername } from "./middleware/auth";
+import UserProfile from "./components/userPage";
 
 
 const Routes = createBrowserRouter([
@@ -50,6 +51,9 @@ const Routes = createBrowserRouter([
   },{
     path:"/explore",
     element:<AuthoriseUser><ExplorePage/></AuthoriseUser>
+  },{
+    path:"/user/id",
+    element:<AuthoriseUser><UserProfile/></AuthoriseUser>
   }
 ]);
 

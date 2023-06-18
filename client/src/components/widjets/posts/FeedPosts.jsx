@@ -7,11 +7,15 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../comment/CommentBox";
 import { usePostStore, useUserStore } from "../../../store/store";
 import { UpdateLikes } from "../../../helper/helper";
+import {  toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const FeedPosts = (props) => {
   const {likes,caption,comments,postId,profile,firstName,picturePath}=props
   const [clickComment, setClickComment] = useState(false);
-  const likePost=usePostStore(state=>state.likePost)
+  const likePost=usePostStore(state=>state.likePost);
+  const navigate = useNavigate();
+
 
 
   const loggedUser=useUserStore(state=>state.user)
@@ -21,18 +25,33 @@ const FeedPosts = (props) => {
   
 
   const LikePost=()=>{
-    console.log(typeof(likes));
+
     const data=UpdateLikes({postId,userId});
+    toast.promise(data,{
+      success:"",
+      loading:"",
+      error:""
+    },{
+      position:"bottom-right",
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+      
+    })
     data.then((post)=>{
       likePost(post)
     })
    
-    
+ 
    
   }
 
   return (
     <div className="p-10 flex ">
+          
+
       <div className="w-[40%] h-[100vh] m-8 border-b-4  border border-gray-600 drop-shadow-sm bg-white rounded-lg">
         <div className="w-[100%] h-16  flex  items-center p-4 ">
           <img
@@ -40,9 +59,9 @@ const FeedPosts = (props) => {
             className="w-10 h-10 border-2  mr-4 border-gray-300 rounded-full "
             alt="profile img"
           />
-          <h1 className="font-bold font-sans hover:text-gray-500 cursor-pointer">
+          <button onClick={()=>navigate("/user/id")} className="font-bold font-sans hover:text-gray-500 cursor-pointer">
             {firstName}{" "}
-          </h1>
+          </button>
           <h1 className="ml-[60%]">...</h1>
         </div>
         <div className="h-[78%] w-[100%] rounded-2xl flex text-white justify-center items-center">

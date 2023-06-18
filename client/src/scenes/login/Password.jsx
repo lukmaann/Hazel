@@ -44,7 +44,7 @@ const Password = () => {
         localStorage.setItem("token", token);
         setUser(apiData);
 
-        navigate("/homepage");
+        navigate("/explore");
       });
       toast.promise(loginPromise, {
         loading: "loading",
