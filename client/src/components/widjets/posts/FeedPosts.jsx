@@ -28,9 +28,9 @@ const FeedPosts = (props) => {
 
     const data=UpdateLikes({postId,userId});
     toast.promise(data,{
-      success:"",
-      loading:"",
-      error:""
+      success:isLiked?"🥹":"😁",
+      loading:isLiked?"Dislike?":"like?",
+      error:"Action abort"
     },{
       position:"bottom-right",
       style: {
@@ -49,7 +49,7 @@ const FeedPosts = (props) => {
   }
 
   return (
-    <div className="p-10 flex ">
+    <div className="p-10 flex flex-wrap  ">
     <Toaster position="bottom-right"/>
           
 

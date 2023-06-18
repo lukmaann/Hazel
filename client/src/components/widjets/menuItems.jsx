@@ -26,7 +26,7 @@ const MenuItems = () => {
   };
 
   return (
-    <div className=" fixed bottom-0 bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen">
+    <div className=" fixed bottom-0 bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen ">
       <Logo />
       <div className="fixed bottom-0 border-gray-400 border-t">
         <div className={Styles.menuitems}>
@@ -89,7 +89,7 @@ const MenuItems = () => {
               navigate("/editprofile");
               setUsernameModal(false);
             }}
-            className={`${Styles.menuitems} w-max ml-0 bg-pink-400 border-b-4 border-black border`} 
+            className={`${Styles.menuitems} w-max ml-0 bg-pink-400 border-b-4 border-black borde`} 
           >
             Update Now
           </button>
