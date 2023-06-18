@@ -7,7 +7,7 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../comment/CommentBox";
 import { usePostStore, useUserStore } from "../../../store/store";
 import { UpdateLikes } from "../../../helper/helper";
-import {  toast } from "react-hot-toast";
+import {  Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const FeedPosts = (props) => {
@@ -50,6 +50,7 @@ const FeedPosts = (props) => {
 
   return (
     <div className="p-10 flex ">
+    <Toaster position="bottom-right"/>
           
 
       <div className="w-[40%] h-[100vh] m-8 border-b-4  border border-gray-600 drop-shadow-sm bg-white rounded-lg">
@@ -59,7 +60,7 @@ const FeedPosts = (props) => {
             className="w-10 h-10 border-2  mr-4 border-gray-300 rounded-full "
             alt="profile img"
           />
-          <button onClick={()=>navigate("/user/id")} className="font-bold font-sans hover:text-gray-500 cursor-pointer">
+          <button onClick={()=>navigate("/user",{state:{id:firstName}})} className="font-bold font-sans hover:text-gray-500 cursor-pointer">
             {firstName}{" "}
           </button>
           <h1 className="ml-[60%]">...</h1>

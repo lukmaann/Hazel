@@ -91,13 +91,3 @@ export const usePostStore = create(
 );
 
 
-export const useUserPosts=create(
-  persist(
-    (set)=>({
-      userPosts:[],
-      setUserPosts:(data)=>set({userPosts:data})
-    }),{
-      name:"User Posts"
-    }
-  )
-)

@@ -52,7 +52,7 @@ const Routes = createBrowserRouter([
     path:"/explore",
     element:<AuthoriseUser><ExplorePage/></AuthoriseUser>
   },{
-    path:"/user/id",
+    path:"/user",
     element:<AuthoriseUser><UserProfile/></AuthoriseUser>
   }
 ]);
