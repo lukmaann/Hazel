@@ -44,7 +44,7 @@ const HomeProfile = () => {
 
           <div className="flex gap-4">
             <h1 className="text-xl mt-3 font-normal">
-              {user.friends.length} Connections 
+              {user.friends.length} Connections l
             </h1>
             <h1 className="text-xl mt-3 font-normal">{impressions} Views</h1>
           </div>
