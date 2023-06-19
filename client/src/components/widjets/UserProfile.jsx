@@ -33,6 +33,8 @@ const UserProfile = (props) => {
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>
+            <button className="text-lg mt-1 font-bold hover:bg-yellow-400 border border-b-4 border-black p-1  rounded-lg">Connect</button>
+
           </div>
           {click && (
             <button className="ml-24 ">
@@ -47,7 +49,7 @@ const UserProfile = (props) => {
 
           <div className="flex gap-4">
             <h1 className="text-xl mt-3 font-normal">
-              {user.friends.length} Friends{" "}
+              {user.friends.length} Connections{" "}
             </h1>
             <h1 className="text-xl mt-3 font-normal">{impressions} Views</h1>
           </div>
