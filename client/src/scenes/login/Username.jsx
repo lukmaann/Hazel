@@ -7,7 +7,7 @@ import {useFormik} from "formik"
 import { userValidate } from "../../helper/validate";
 import { useAuthStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../../assets/logo.png"
 
 
 const Username = () => {
@@ -40,7 +40,7 @@ const formik=useFormik({
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl font-bold text-pink-500 animate-bounce">Hazel!</h4>
+            <img src={logo} className="text-3xl font-bold "/>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
             Your Social Sphere Awaits!
             </span>

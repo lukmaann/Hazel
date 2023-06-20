@@ -17,7 +17,7 @@ const HomeProfile = () => {
 
   return (
     <div className="ml-64 flex flex-col items-center p-3 w-10/12">
-      <div className="w-11/12 h-1/3 flex items-center border-b">
+      <div className="w-11/12 h-1/3 flex items-center mr-0  border-b">
         <div className=" rounded-full h-32 w-32">
           <img
             className="rounded-full h-32 w-32 hover:cursor-pointer  hover:border-blue-400 border-4"
@@ -61,8 +61,8 @@ const HomeProfile = () => {
         </div>
       </div>
       
-      <div className="w-[100%] flex flex-wrap justify-center text-white h-min p-5">
-      <div className="flex justify-start flex-wrap w-[95%]">
+      <div className="w-[100%] mr-0 flex flex-wrap justify-center text-white h-min p-5">
+      <div className="flex justify-start gap-6 flex-wrap w-[95%]">
       {feedPosts.map((item,index)=>{
         if(user._id===item.userId){
         return <Posts key={index} picturePath={item.picturePath} likes={item.likes}/>

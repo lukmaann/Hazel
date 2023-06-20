@@ -47,11 +47,12 @@ const CommentBox=(props)=>{
         
     </form>
     <div className=" rounded-sm p-5">
-    <ul className="decoration-transparent border border-b-4 hover:border-b-black bg-white rounded-lg border-gray-500">
-    {comments.slice(0).reverse().map((item,index)=>{
-        if(index<=3){
+    <ul className="decoration-transparent border border-b-4 h-[350px]  hover:border-b-black bg-white rounded-lg overflow-y-auto border-gray-500">
+    {comments.length===0?<h1 className="p-2 flex justify-center items-center m-2"> Be the first to comment 😉</h1>
+    :comments.slice(0).reverse().map((item,index)=>{
+        
             return <Comments key={index} comment={item}/>
-        }
+        
     })}
 
     </ul>

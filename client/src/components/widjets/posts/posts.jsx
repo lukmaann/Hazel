@@ -5,7 +5,7 @@ const Posts = (props) => {
     const {picturePath,likes}=props
     const likeCount=Object.keys(likes).length
   return (
-    <div className="h-[250px] w-[250px] m-1 rounded-lg rounded-t-none border border-b-4 border-black">
+    <div className="h-[250px] w-[250px] m-1 rounded-lg rounded-t-none border border-b-4 hover:border-black border-gray-500">
       <div className="w-[100%] h-[85%]">
         <img src={picturePath} alt="" className="h-[100%] w-[100%]" />
       </div>
