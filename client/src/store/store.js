@@ -18,6 +18,8 @@ export const useModal = create((set) => ({
   setModal: (payload) => set({ modal: payload }),
   usernameModal: false,
   setUsernameModal: (payload) => set({ usernameModal: payload }),
+  logOutmodal:false,
+  setLogoutModal:(payload)=>set({logOutmodal:payload})
 }));
 
 export const useUserStore = create(
