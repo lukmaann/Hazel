@@ -44,7 +44,11 @@ const Password = () => {
         localStorage.setItem("token", token);
         setUser(apiData);
 
-        navigate("/explore");
+        if (!postisLoading) {
+          navigate('/explore')
+        }else{
+          toast.loading("Fetching Posts")
+        }
       });
       toast.promise(loginPromise, {
         loading: "loading",

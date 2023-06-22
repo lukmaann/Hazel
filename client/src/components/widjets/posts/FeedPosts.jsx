@@ -97,11 +97,11 @@ const FeedPosts = (props) => {
         </div>
       </div>
       <div className="w-[40%]">
-        <div className="mt-14  h-[20%]  overflow-hidden">
-          <h1 className="text-lg  capitalize">
+        <div className="mt-14 flex justify-center h-[20%]  overflow-hidden">
+          <h1 className="text-lg   bg-gray-100 border border-b-4 w-[80%] h-28 overflow-y-auto border-black px-3 rounded-lg">
             {" "}
-            <span className="text-gray-500">caption : </span>{" "}
-            {caption.slice(0,40)}
+            <span className="text-gray-500 ">Caption :</span>{" "}
+            {caption}
           </h1>
         </div>
         {clickComment && (

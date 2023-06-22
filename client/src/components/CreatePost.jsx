@@ -35,6 +35,8 @@ const CreatePost = () => {
         success:"Posted",
         loading:"Posting...",
         error:"Cant upload post"
+      },{
+        position:"bottom-right"
       })
 
       createPromise.then((data)=>{
