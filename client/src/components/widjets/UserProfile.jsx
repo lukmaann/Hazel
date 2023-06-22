@@ -31,6 +31,7 @@ const UserProfile = (props) => {
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>
+            <button className="bg-blue-400 px-2 text-white rounded-lg  border border-b-4 border-black  hover:bg-black " >Connect</button>
           </div>
           {click && (
             <button className="ml-24 ">
@@ -45,7 +46,7 @@ const UserProfile = (props) => {
 
           <div className="flex gap-4">
             <h1 className="text-xl mt-3 font-normal">
-              {user.friends.length} followers{" "}
+              {user.friends.length} Connections{" "}
             </h1>
             <h1 className="text-xl mt-3 font-normal">{impressions} Views</h1>
           </div>
@@ -71,6 +72,7 @@ const UserProfile = (props) => {
                   key={index}
                   picturePath={item.picturePath}
                   likes={item.likes}
+                  id={item._id}
                 />
               );
             }

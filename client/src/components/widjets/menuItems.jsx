@@ -26,7 +26,7 @@ const MenuItems = () => {
   };
 
   return (
-    <div className=" fixed bottom-0 bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen ">
+    <aside className=" fixed bottom-0 bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen ">
       <Logo />
       <div className="fixed bottom-0 border-gray-400 border-t">
         <div className={Styles.menuitems}>
@@ -96,7 +96,7 @@ const MenuItems = () => {
         </div>
       </PopUp>
       <></>
-    </div>
+    </aside>
   );
 };
 

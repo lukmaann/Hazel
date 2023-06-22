@@ -44,7 +44,7 @@ const HomeProfile = () => {
 
           <div className="flex gap-4">
             <h1 className="text-xl mt-3 font-normal">
-              {user.friends.length} Connections l
+              {user.friends.length} Connections 
             </h1>
             <h1 className="text-xl mt-3 font-normal">{impressions} Views</h1>
           </div>
@@ -65,7 +65,7 @@ const HomeProfile = () => {
       <div className="flex justify-start gap-6 flex-wrap w-[95%]">
       {feedPosts.map((item,index)=>{
         if(user._id===item.userId){
-        return <Posts key={index} picturePath={item.picturePath} likes={item.likes}/>
+        return <Posts key={index} picturePath={item.picturePath} likes={item.likes} id={item._id}/>
 
 
         }
