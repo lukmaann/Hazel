@@ -9,7 +9,6 @@ const impressions = Math.floor(Math.random() * 10);
 
 const HomeProfile = () => {
   const feedPosts=usePostStore(state=>state.feedPosts)
-  console.log(feedPosts);
   
   const user = useUserStore((state) => state.user);
   const [click, setclick] = useState(false);

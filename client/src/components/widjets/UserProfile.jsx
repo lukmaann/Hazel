@@ -19,7 +19,7 @@ const UserProfile = (props) => {
 
 
   const makeConnection=()=>{
-    addFriends({userId:loggedUser._id,friendsId:user._id})
+    addFriends({id:loggedUser._id,friendId:user._id})
 
   }
 

@@ -24,6 +24,8 @@ const usernameVerify=(error={},value)=>{
 
 }
 
+
+
 export const passwordValidate=async (values)=>{
     const errors=passwordverify({},values);
     return errors

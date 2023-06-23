@@ -27,8 +27,10 @@ const CreatePost = () => {
     enableReinitialize:true,
     validateOnBlur: false,
     validateOnChange: false,
+
+    
     onSubmit: async (value) => {
-      value = await Object.assign(value, { picturePath: file || "" });
+      value = await Object.assign(value, { picturePath: file });
       value = await Object.assign(value, { userId: user._id || "" });
       const createPromise= uploadPosts(value);
       toast.promise(createPromise,{
