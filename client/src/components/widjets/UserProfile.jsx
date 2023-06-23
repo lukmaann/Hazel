@@ -4,17 +4,24 @@ import Avatar from "../../assets/profile.png";
 import { useState } from "react";
 
 import Posts from "./posts/posts";
-import { usePostStore } from "../../store/store";
+import { addFriends } from "../../helper/helper";
+import { usePostStore, useUserStore } from "../../store/store";
 const impressions = Math.floor(Math.random() * 10);
 
 const UserProfile = (props) => {
   const { user } = props;
   const feedPosts = usePostStore((state) => state.feedPosts);
+  const loggedUser=useUserStore(state=>state.user)
 
-  console.log(feedPosts);
 
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
+
+
+  const makeConnection=()=>{
+    addFriends({userId:loggedUser._id,friendsId:user._id})
+
+  }
 
   return (
     <div className="ml-64 flex flex-col items-center p-3 w-[80%]">
@@ -31,7 +38,7 @@ const UserProfile = (props) => {
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>
-            <button className="bg-blue-400 px-2 text-white rounded-lg  border border-b-4 border-black  hover:bg-black " >Connect</button>
+            <button onClick={makeConnection} className="bg-blue-400 px-2 text-white rounded-lg  border border-b-4 border-black  hover:bg-black " >Connect</button>
           </div>
           {click && (
             <button className="ml-24 ">

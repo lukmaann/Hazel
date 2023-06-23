@@ -188,3 +188,19 @@ export const UpdateLikes=async (value)=>{
   }
 
 }
+
+export const addFriends=async(value)=>{
+
+  try {
+    const {userId,friendsId}=value
+    const token=localStorage.getItem("token");
+    const {data,status}=await axios.patch(`api/addFriends`,{userId,friendsId},
+    {headers:{Authorization:`Brearer ${token}`}}
+    )
+
+    console.log(status);
+  } catch (error) {
+    return Promise.reject(error)
+  }
+
+}
