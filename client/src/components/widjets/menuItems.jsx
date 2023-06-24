@@ -5,7 +5,7 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/store";
 import PopUp from "./PopUp";
-import Styles from "../../styles/username.module.css"
+import Styles from "../../styles/username.module.css";
 
 // ------------------------components-----------
 import Logo from "./logo";
@@ -35,7 +35,6 @@ const MenuItems = () => {
         </div>
 
         <div className={Styles.menuitems}>
-
           <AddIcon />
           <button
             onClick={() => {
@@ -46,7 +45,6 @@ const MenuItems = () => {
           </button>
         </div>
         <div className={Styles.menuitems}>
-
           <EditIcon />
           <button
             onClick={() => {
@@ -57,7 +55,6 @@ const MenuItems = () => {
           </button>
         </div>
         <div className={Styles.menuitems}>
-
           {/* <HomeIcon /> */}
           <img
             src={user.profile || Avatar}
@@ -89,7 +86,7 @@ const MenuItems = () => {
               navigate("/editprofile");
               setUsernameModal(false);
             }}
-            className={`${Styles.menuitems} w-max ml-0 bg-pink-400 border-b-4 border-black borde`} 
+            className={`${Styles.menuitems} w-max ml-0 bg-pink-400 border-b-4 border-black borde`}
           >
             Update Now
           </button>
