@@ -98,8 +98,8 @@ const FeedPosts = (props) => {
         </div>
       </div>
       <div className="w-[40%]">
-        <div className="mt-14 flex justify-center h-[20%]  overflow-hidden">
-          <h1 className="text-lg   bg-gray-100 border border-b-4 w-[80%] h-28 overflow-y-auto border-black px-3 rounded-lg">
+        <div className="mt-12 flex justify-center h-[20%]  overflow-hidden">
+          <h1 className="text-lg   bg-white  w-[90%] h-28 overflow-y-auto  px-3 rounded-lg">
             {" "}
             <span className="text-gray-500 ">Caption :</span>{" "}
             {caption}
