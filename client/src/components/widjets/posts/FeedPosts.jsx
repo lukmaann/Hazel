@@ -93,7 +93,7 @@ const FeedPosts = (props) => {
             />
           </div>
           <h2 className=" px-5 mt-1 text-lg w-fit   select-none">
-            {likeCount} <span className="font-bold">likes</span>
+            {likeCount} <span className="font-bold">like</span>
           </h2>
         </div>
       </div>
