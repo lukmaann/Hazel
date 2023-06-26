@@ -9,9 +9,10 @@ import { usePostStore, useUserStore } from "../../../store/store";
 import { UpdateLikes } from "../../../helper/helper";
 import {  Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const FeedPosts = (props) => {
-  const {likes,caption,comments,postId,profile,firstName,picturePath}=props
+  const {likes,caption,comments,postId,profile,firstName,picturePath,postUserId}=props
   const [clickComment, setClickComment] = useState(false);
   const likePost=usePostStore(state=>state.likePost);
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ const FeedPosts = (props) => {
           <button onClick={()=>navigate("/user",{state:{id:firstName}})} className="font-bold font-sans hover:text-gray-500 cursor-pointer">
             {firstName}{" "}
           </button>
-          <h1 className="ml-[60%]">...</h1>
+          {postUserId===userId ? <DeleteIcon className="ml-[60%]"/> :<h1 className="ml-[60%]">...</h1>}
         </div>
         <div className="h-[78%] w-[100%] rounded-2xl flex text-white justify-center items-center">
           <img

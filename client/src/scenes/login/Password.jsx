@@ -72,7 +72,7 @@ const Password = () => {
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl  font-bold capitalize  text-yellow-600">
+            <h4 className="text-4xl  font-bold capitalize  ">
               {" "}
               {apiData?.username}
             </h4>

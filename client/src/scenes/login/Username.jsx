@@ -40,7 +40,7 @@ const formik=useFormik({
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass}>
           <div className="title flex flex-col items-center">
-            <img src={logo} className="text-3xl font-bold "/>
+            <img src={logo} className="text-3xl font-bold w-[200px]"/>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
             Your Social Sphere Awaits!
             </span>

@@ -15,10 +15,9 @@ const ExplorePage = () => {
     return (
       <div>
         <MenuItems />
-        <div className="ml-[20%] w-[80%] min-h-max">
+        <div className="ml-[20%] w-[80%] flex flex-col-reverse min-h-max">
           {feedPosts
-            .slice(0)
-            .reverse()
+            
             .map((item, index) => {
               return (
                 <FeedPosts
@@ -30,6 +29,7 @@ const ExplorePage = () => {
                   postId={item._id}
                   firstName={item.firstName}
                   profile={item.profile}
+                  postUserId={item.userId}
                 />
               );
             })}
