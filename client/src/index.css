@@ -10,7 +10,8 @@
 
   body{
     /* background: bla; */
-    /* background-image: url(./assets/background1.jpg); */
+    /* background-image: url(./assets/background1.png); */
+   
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   user-select: none;
   

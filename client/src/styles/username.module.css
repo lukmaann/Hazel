@@ -10,7 +10,7 @@
 }
 .profile_img{
     @apply border-4 rounded-full w-[100px] h-[100px]  shadow-lg cursor-pointer;
-    @apply hover:border-blue-300
+    @apply hover:border-yellow-400
 }
 
 .textbox{
