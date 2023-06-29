@@ -77,7 +77,7 @@ const EditProfile = () => {
       <div className="flex items-center justify-center h-screen">
         <div className={`${Styles.glass} h-[550px] `} >
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl font-bold text-purple-500">Edit Profile</h4>
+            <h4 className="text-4xl font-bold">Edit Profile</h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
               nice!!!
             </span>

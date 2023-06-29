@@ -77,7 +77,7 @@ const Password = () => {
               {apiData?.username}
             </h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
-              Glad You are Back!!
+              Welcome Back!!
             </span>
           </div>
           <form className="py-1" onSubmit={formik.handleSubmit}>

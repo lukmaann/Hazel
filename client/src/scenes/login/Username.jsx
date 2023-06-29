@@ -1,57 +1,64 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import year from "../../helper/date";
-import Avatar from "../../assets/profile.png";
 import Styles from "../../styles/username.module.css";
-import {Toaster} from "react-hot-toast";
-import {useFormik} from "formik"
+import { Toaster } from "react-hot-toast";
+import { useFormik } from "formik";
 import { userValidate } from "../../helper/validate";
 import { useAuthStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/logo.png"
-
+import logo from "../../assets/logo.png";
 
 const Username = () => {
-  const setUsername=useAuthStore(state=>state.setUsername)
-  const navigate=useNavigate();
+  const setUsername = useAuthStore((state) => state.setUsername);
+  const navigate = useNavigate();
 
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+    },
+    validate: userValidate,
 
-
-
-
-
-const formik=useFormik({
-  initialValues:{
-    username:''
-  },
-  validate:userValidate,
-
-  validateOnBlur:false,
-  validateOnChange:false,
-  onSubmit:async value=>{
-    setUsername(value.username);
-    navigate('/password')
-
-  }
-})
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (value) => {
+      setUsername(value.username);
+      navigate("/password");
+    },
+  });
 
   return (
     <div className="container p-10 mx-auto">
-    <Toaster toastOptions={{style:{background:"#D2D2C0"}}} position="top-center" reverseOrder={false}></Toaster>
+      <Toaster
+        toastOptions={{ style: { background: "#D2D2C0" } }}
+        position="top-center"
+        reverseOrder={false}
+      ></Toaster>
       <div className="flex items-center justify-center h-screen">
-        <div className={Styles.glass}>
+        <div
+          className={`${Styles.glass} rounded-r-none border border-b-4 hover:border-black border-x-gray-400`}
+        >
           <div className="title flex flex-col items-center">
-            <img src={logo} className="text-3xl font-bold w-[200px]"/>
+            <img src={logo} className="text-3xl font-bold w-[200px]" />
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
-            Your Social Sphere Awaits!
+              Your Social Sphere Awaits!
             </span>
           </div>
           <form className="py-1" onSubmit={formik.handleSubmit}>
             <div className="profile flex justify-center py-4">
-              <img className={Styles.profile_img} src={Avatar} alt="Avatar" />
+              {/* <img className={Styles.profile_img} src={Avatar} alt="Avatar" /> */}
             </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
-              <input type="text" {...formik.getFieldProps("username")} className={Styles.textbox} autoComplete="OFF" placeholder="Username" />
-              <button className={Styles.btn}   type="submit">Lets Go  </button>
+              <input
+                type="text"
+                {...formik.getFieldProps("username")}
+                id="username"
+                className={Styles.textbox}
+                autoComplete="OFF"
+                placeholder="Username"
+              />
+              <button className={Styles.btn} type="submit">
+                Lets Go{" "}
+              </button>
             </div>
             <div className="text-center py-10">
               <span>
@@ -63,9 +70,21 @@ const formik=useFormik({
             </div>
           </form>
         </div>
-    
+        <div>
+          <div className={`${Styles.home} relative flex`}>
+          
+      
+            <button className=" absolute rounded-sm  text-white px-2 bottom-2 right-2    hover:underline">
+              {" "}
+             
+              About Us ↗
+            </button>
+          </div>
+        </div>
       </div>
-      <footer className="text-center text-sm text-gray-600 py-2">©{year} Lukn Developments || All right reserved</footer>
+      <footer className="text-center text-sm text-gray-600 py-2">
+        ©{year} Lukn Developments || All right reserved
+      </footer>
     </div>
   );
 };

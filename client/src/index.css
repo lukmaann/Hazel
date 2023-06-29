@@ -6,13 +6,16 @@
 
   *>*{
     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    scroll-behavior: smooth;
   }
 
   body{
-    /* background: bla; */
+    /* background: black; */
     /* background-image: url(./assets/background1.png); */
    
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+ 
   user-select: none;
   
 
