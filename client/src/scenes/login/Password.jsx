@@ -45,9 +45,9 @@ const Password = () => {
         setUser(apiData);
 
         if (!postisLoading) {
-          navigate('/explore')
-        }else{
-          toast.loading("Fetching Posts")
+          navigate("/explore");
+        } else {
+          toast.loading("Fetching Posts");
         }
       });
       toast.promise(loginPromise, {
@@ -112,7 +112,7 @@ const Password = () => {
         </div>
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
-        ©{year} Lukn Developments || All right reserved
+        ©{year} Hazel || All right reserved
       </footer>
     </div>
   );

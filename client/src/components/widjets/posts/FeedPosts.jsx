@@ -96,9 +96,9 @@ const FeedPosts = (props) => {
           </h2>
         </div>
       </div>
-      <div className="w-[40%]">
+      <div className="w-[40%] ">
         <div className="mt-12 flex justify-center h-[20%]  overflow-hidden">
-          <h1 className="text-lg   bg-white w-[90%] h-28 overflow-y-auto border-black px-3 rounded-lg">
+          <h1 className="text-base   bg-white w-[90%] h-28 overflow-y-auto border-black px-3 rounded-lg">
             {" "}
             <span className="text-gray-500 ">Caption :</span>{" "}
             {caption}

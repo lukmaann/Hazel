@@ -17,7 +17,7 @@ const Posts = (props) => {
         setOver(true);
       }}
       onMouseOut={() => setOver(false)}
-      className="h-[250px] w-[250px] m-1 rounded-lg rounded-t-none border border-b-4 hover:border-black border-gray-500"
+      className="h-[250px] w-[250px] m-1 rounded-lg rounded-t-sm border border-b-4 hover:border-black border-gray-500"
     >
       <div className="w-[100%] h-[85%]">
         <img src={picturePath} alt="" className="h-[100%] w-[100%] " />

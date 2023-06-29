@@ -60,11 +60,11 @@ const Username = () => {
                 Lets Go{" "}
               </button>
             </div>
-            <div className="text-center py-10">
+            <div className="text-center  mt-32 bg-black rounded-xl py-1  text-white">
               <span>
                 Not a Member?
-                <Link to="/register" className=" text-red-500 font-medium">
-                  register
+                <Link to="/register" className=" text-red-500 px-2 hover:underline  font-bold">
+                  Register
                 </Link>
               </span>
             </div>
@@ -83,7 +83,7 @@ const Username = () => {
         </div>
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
-        ©{year} Lukn Developments || All right reserved
+        ©{year} Hazel  All right reserved
       </footer>
     </div>
   );
