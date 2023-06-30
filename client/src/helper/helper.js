@@ -197,8 +197,11 @@ export const addFriends=async(value)=>{
     const {data,status}=await axios.patch(`/api/addFriends`,{id,friendId},
     {headers:{Authorization:`Brearer ${token}`}}
     )
+    if(status===200){
+      return Promise.resolve(data)
+    }
+   
 
-    console.log(data);
   } catch (error) {
     return Promise.reject(error)
   }
