@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Avatar from "../../assets/profile.png";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
@@ -35,7 +35,7 @@ const UserProfile = (props) => {
     })
 
     friendpromise.then((data)=>{
-      // console.log(data);
+      console.log(data);
       setUserFriends(data)
     })
    

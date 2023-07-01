@@ -12,7 +12,7 @@ router.route("/user/:username").get(getUser)
 router.route('/:id/friends').get(auth,getUserFriends)
 
 /* UPDATE */
-router.route('/:id/:friendsId').patch(auth,addRemoveFriend)
+router.route('/addFriends').patch(auth,addRemoveFriend)
 
 
 export default router;
