@@ -44,7 +44,7 @@ export const addRemoveFriend = async (req, res) => {
     );
     const formattedFriends = friends.map(
       ({ _id }) => {
-        return  _id ;
+        return [_id] ;
       }
     );
 
