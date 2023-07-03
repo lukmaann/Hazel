@@ -10,7 +10,7 @@ const UserPage=()=>{
     const userName=location.state.id
     const [{apiData,isLoading,serverError}]=useFecth(`user/${userName}`);
 
-    
+
 
     const navigate=useNavigate();
     if(userName===loggedUser.firstName){

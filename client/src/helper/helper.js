@@ -198,7 +198,10 @@ export const addFriends=async(value)=>{
     {headers:{Authorization:`Brearer ${token}`}}
     )
     if(status===200){
+      console.log(typeof(data));
+      console.log(data);
       return Promise.resolve(data)
+
     }
    
 

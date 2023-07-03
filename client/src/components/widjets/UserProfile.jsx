@@ -1,56 +1,39 @@
 /* eslint-disable react/prop-types */
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Avatar from "../../assets/profile.png";
-import {  useState } from "react";
+import { useState } from "react";
 
 import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
 import { usePostStore, useUserStore } from "../../store/store";
-import {toast,Toaster} from "react-hot-toast"
+import { toast, Toaster } from "react-hot-toast";
 const impressions = Math.floor(Math.random() * 10);
-
 
 const UserProfile = (props) => {
   const { user } = props;
-  
+
   const feedPosts = usePostStore((state) => state.feedPosts);
-  const loggedUser=useUserStore(state=>state.user)
-  const [userFriends,setUserFriends]=useState(user.friends)
-  
-
- 
-
+  const loggedUser = useUserStore((state) => state.user);
 
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
+  console.log(user.friends.length);
 
-
-  const makeConnection=()=>{
-    const friendpromise=addFriends({id:loggedUser._id,friendId:user._id})
-    toast.promise(friendpromise,{
-      loading:"wait",
-      success:"done",
-      error:"error"
-
-    })
-
-    friendpromise.then((data)=>{
-      console.log(data);
-      setUserFriends(data)
-    })
-   
-  
-   
-    
-   
-
-
-
-  }
+  const makeConnection = () => {
+    const friendpromise = addFriends({
+      id: loggedUser._id,
+      friendId: user._id,
+    });
+    toast.promise(friendpromise, {
+      loading: "wait",
+      success: "done",
+      error: "error",
+    });
+  };
 
   return (
     <div className="ml-64 flex flex-col items-center p-3 w-[80%]">
-         <Toaster
+      <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
         position="top-center"
         reverseOrder={false}
@@ -69,9 +52,12 @@ const UserProfile = (props) => {
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>
-            <button onClick={()=>{
-              makeConnection(userFriends.includes(loggedUser._id)?"friend":"not")
-            }} className="bg-gray-500 px-2 text-white rounded-lg  border border-b-4 border-black  hover:bg-black " >{userFriends.includes(loggedUser._id)?"Disconnect" : "connect"}</button>
+            <button
+              onClick={makeConnection}
+              className="bg-gray-500 px-2 text-white rounded-lg  border border-b-4 border-black  hover:bg-black "
+            >
+              {user.friends.includes(loggedUser._id) ? "Disconnect" : "connect"}
+            </button>
           </div>
           {click && (
             <button className="ml-24 ">
@@ -86,7 +72,7 @@ const UserProfile = (props) => {
 
           <div className="flex gap-4">
             <h1 className="text-xl mt-3 font-normal">
-              {userFriends.length} Connections{" "}
+              {user.friends.length} Connections{" "}
             </h1>
             <h1 className="text-xl mt-3 font-normal">{impressions} Views</h1>
           </div>

@@ -13,6 +13,7 @@ import CreatePost from "../../components/CreatePost";
 import { useUserStore } from "../../store/store";
 
 import { updateUser } from "../../helper/helper";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -20,6 +21,7 @@ const EditProfile = () => {
   const {modal,setModal}=useModal(state=>state)
   const user=useUserStore((state)=>state.user)
   const updateUserData=useUserStore((state)=>state.updateUserData)
+  const navigate=useNavigate()
  
 
   const [file, setFile] = useState();
@@ -52,6 +54,8 @@ const EditProfile = () => {
 
       updatePromise.then(()=>{
         updateUserData(value)
+        navigate('/homepage')
+        
         // console.log("updated");
      
 
