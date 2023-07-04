@@ -1,9 +1,8 @@
 import Avatar from "../../assets/profile.png";
-import year from "../../helper/date"
+import year from "../../helper/date";
 import Styles from "../../styles/username.module.css";
-import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
-import {editProfileValidation } from "../../helper/validate";
+import { editProfileValidation } from "../../helper/validate";
 import { useState } from "react";
 import convertToBase64 from "../../helper/convert";
 import MenuItems from "../../components/widjets/menuItems";
@@ -13,16 +12,11 @@ import CreatePost from "../../components/CreatePost";
 import { useUserStore } from "../../store/store";
 
 import { updateUser } from "../../helper/helper";
-import { useNavigate } from "react-router-dom";
-
-
 
 const EditProfile = () => {
-  const {modal,setModal}=useModal(state=>state)
-  const user=useUserStore((state)=>state.user)
-  const updateUserData=useUserStore((state)=>state.updateUserData)
-  const navigate=useNavigate()
- 
+  const { modal, setModal } = useModal((state) => state);
+  const user = useUserStore((state) => state.user);
+  const updateUserData = useUserStore((state) => state.updateUserData);
 
   const [file, setFile] = useState();
   const formik = useFormik({
@@ -42,25 +36,10 @@ const EditProfile = () => {
       value = await Object.assign(value, {
         profile: file || user.profile || "",
       });
-      
-   
 
-      const updatePromise = updateUser(value);
-      toast.promise(updatePromise, {
-        loading: "updating user....",
-        success: "update succefull",
-        error: "cannot update",
-      });
+      updateUser(value);
 
-      updatePromise.then(()=>{
-        updateUserData(value)
-        navigate('/homepage')
-        
-        // console.log("updated");
-     
-
-      })
-  
+      updateUserData(value);
     },
   });
 
@@ -73,13 +52,9 @@ const EditProfile = () => {
   return (
     <div className="container mx-auto">
       <MenuItems />
-      <Toaster
-        toastOptions={{ style: { background: "#D2D2C0" } }}
-        position="top-center"
-        reverseOrder={false}
-      ></Toaster>
+
       <div className="flex items-center justify-center h-screen">
-        <div className={`${Styles.glass} h-[550px] `} >
+        <div className={`${Styles.glass} h-[550px] `}>
           <div className="title flex flex-col items-center">
             <h4 className="text-4xl font-bold">Edit Profile</h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
@@ -147,11 +122,11 @@ const EditProfile = () => {
           </form>
         </div>
         <PopUp openPopup={modal} setOpenPopup={setModal} title="Create Post">
-        <CreatePost />
-      </PopUp>
+          <CreatePost />
+        </PopUp>
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
-        ©{year} Lukn Developments || All right reserved
+        ©{year} Hazel || All right reserved
       </footer>
     </div>
   );
