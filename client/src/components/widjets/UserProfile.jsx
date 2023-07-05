@@ -17,7 +17,7 @@ const UserProfile = (props) => {
 
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
-  console.log(user.friends.length);
+   
 
   const makeConnection = () => {
     const friendpromise = addFriends({
@@ -29,6 +29,9 @@ const UserProfile = (props) => {
       success: "done",
       error: "error",
     });
+    friendpromise.then((data)=>{
+      console.log(data);
+    })
   };
 
   return (
