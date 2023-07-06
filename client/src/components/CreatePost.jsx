@@ -5,13 +5,13 @@ import { useState } from "react";
 
 import { uploadPosts } from "../helper/helper";
 import { toast,Toaster } from "react-hot-toast";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../store/store";
 import { useUserStore } from "../store/store";
 import { usePostStore } from "../store/store";
 
 const CreatePost = () => {
-
+  const navigate=useNavigate();
   const setPosts=usePostStore(state=>state.setPosts)
   const user=useUserStore((state)=>state.user)
   const setModal=useModal((state)=>state.setModal)
@@ -42,12 +42,14 @@ const CreatePost = () => {
       })
 
       createPromise.then((data)=>{
+        setModal(false)
         setPosts(data)
+        navigate('/explore')
         
         
       
 
-        setModal(false)
+      
       })
   
    

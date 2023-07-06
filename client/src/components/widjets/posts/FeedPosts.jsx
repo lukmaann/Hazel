@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const FeedPosts = (props) => {
   const {likes,caption,comments,postId,profile,firstName,picturePath}=props
-  const [clickComment, setClickComment] = useState(false);
+  const [clickComment, setClickComment] = useState(true);
   const likePost=usePostStore(state=>state.likePost);
   const navigate = useNavigate();
 

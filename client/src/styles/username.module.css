@@ -42,7 +42,7 @@ input[type="file"]{
     @apply m-3 w-11/12 items-center rounded-lg  h-10 gap-4 rounded-lg p-1 flex justify-start
 }
 .menuitems:hover{
-    @apply bg-yellow-400 border border-black border-b-4 text-black
+    @apply bg-slate-400 border border-black border-b-4 text-black
 }
 
 .home{

@@ -9,6 +9,7 @@ const UserPage=()=>{
     const loggedUser=useUserStore(state=>state.user);
     const userName=location.state.id
     const [{apiData,isLoading,serverError}]=useFecth(`user/${userName}`);
+    
 
 
 

@@ -11,6 +11,14 @@ const Posts = (props) => {
 
   const { picturePath, likes,postUserId } = props;
   const likeCount = Object.keys(likes).length;
+  
+  const delPost=()=>{
+    console.log("del");
+  }
+
+
+
+
   return (
     <div
       onMouseOver={() => {
@@ -27,7 +35,7 @@ const Posts = (props) => {
           <Heart className="w-5 " onClick={() => {}} isActive={true} />
           <h1 className="text-black px-2">{likeCount}</h1>
         </div>
-        {over && postUserId===loggedUser._id && <DeleteIcon  className="text-black" />}
+        {over && postUserId===loggedUser._id && <DeleteIcon onClick={delPost}  className="text-black" />}
       </div>
     </div>
   );

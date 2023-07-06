@@ -17,7 +17,7 @@ const UserProfile = (props) => {
 
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
-   
+   console.log(user.friends);
 
   const makeConnection = () => {
     const friendpromise = addFriends({

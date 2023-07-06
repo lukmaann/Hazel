@@ -174,39 +174,36 @@ export const addComment = async (values) => {
   }
 };
 
-
-export const UpdateLikes=async (value)=>{
-  const {postId,userId}=value
+export const UpdateLikes = async (value) => {
+  const { postId, userId } = value;
   try {
-    const token=localStorage.getItem('token')
-    const {data}=await axios.patch(`/api/like`,{userId,id:postId},{
-      headers:{Authorization:`Bearer ${token}`}
-    });
-    return data
+    const token = localStorage.getItem("token");
+    const { data } = await axios.patch(
+      `/api/like`,
+      { userId, id: postId },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return data;
   } catch (error) {
-    Promise.reject(error.message)
+    Promise.reject(error.message);
   }
+};
 
-}
-
-export const addFriends=async(value)=>{
-
+export const addFriends = async (value) => {
   try {
-    const {id,friendId}=value
-    const token=localStorage.getItem("token");
-    const {data,status}=await axios.patch(`/api/addFriends`,{id,friendId},
-    {headers:{Authorization:`Brearer ${token}`}}
-    )
-    if(status===200){
-      console.log(typeof(data));
-      console.log(data);
-      return Promise.resolve(data)
-
+    const { id, friendId } = value;
+    const token = localStorage.getItem("token");
+    const { data, status } = await axios.patch(
+      `/api/addFriends`,
+      { id, friendId },
+      { headers: { Authorization: `Brearer ${token}` } }
+    );
+    if (status === 200) {
+      return Promise.resolve(data);
     }
-   
-
   } catch (error) {
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-
-}
+};
