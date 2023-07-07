@@ -45,7 +45,7 @@ const EditProfile = () => {
 
   const onUpload = async (e) => {
     const base64 = await convertToBase64(e.target.files[0]);
-    console.log(base64);
+
     setFile(base64);
   };
 
@@ -126,7 +126,7 @@ const EditProfile = () => {
         </PopUp>
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
-        ©{year} Hazel || All right reserved
+        ©{year} Hazel || All right reserve
       </footer>
     </div>
   );
