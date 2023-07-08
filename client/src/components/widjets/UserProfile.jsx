@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
-import PersonAddDisabledIcon from '@mui/icons-material/PersonAddDisabled';
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import Avatar from "../../assets/profile.png";
 import {  useState } from "react";
 
@@ -69,7 +69,7 @@ const UserProfile = (props) => {
     <div className="ml-64 flex flex-col items-center p-3 w-[80%]">
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
-        position="top-center"
+        position="bottom-right"
         reverseOrder={false}
       ></Toaster>
 
@@ -88,9 +88,8 @@ const UserProfile = (props) => {
             </button>
             <button
               onClick={makeConnection}
-              className="bg-gray-500 px-2 text-white rounded-lg  border border-b-4 border-black  hover:bg-black "
             >
-              {isfriend ?  <PersonAddDisabledIcon/>:<PersonAddAlt1Icon/> }
+              {isfriend ?  <PersonRemoveIcon/>:<PersonAddAlt1Icon/> }
             </button>
           </div>
           {click && (

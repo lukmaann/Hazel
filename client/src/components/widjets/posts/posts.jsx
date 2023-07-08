@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import Heart from "react-heart";
-import { useUserStore } from "../../../store/store";
+import { usePostStore, useUserStore } from "../../../store/store";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Posts = (props) => {
   const loggedUser=useUserStore(state=>state.user)
+  const delpost=usePostStore(state=>state.delPost)
 
   const [over, setOver] = useState(false);
 
-  const { picturePath, likes,postUserId } = props;
+  const { picturePath, likes,postUserId ,id} = props;
   const likeCount = Object.keys(likes).length;
   
   const delPost=()=>{
-    console.log("del");
+    delpost(id)
   }
 
 

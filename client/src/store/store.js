@@ -101,6 +101,12 @@ export const usePostStore = create(
             }
           }),
         })),
+
+        delPost:(payload)=>set((state)=>({
+          feedPosts:state.feedPosts.filter((posts)=>{
+            return posts._id!==payload
+          })
+        }))
     }),
     {
       name: "Posts",

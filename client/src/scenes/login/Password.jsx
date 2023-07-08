@@ -59,7 +59,7 @@ const Password = () => {
   });
 
   if (isLoading)
-    return <h1 className="flex justify-center p-10">Loading...</h1>;
+    return <h1 className="flex justify-center p-10"></h1>;
   if (serverError) return <h1>{serverError.message}</h1>;
 
   return (

@@ -54,7 +54,7 @@ const FeedPosts = (props) => {
     <Toaster position="bottom-right"/>
           
 
-      <div className="w-[40%] h-[90vh] m-8 border-b-4  border border-gray-600 drop-shadow-sm bg-white rounded-lg">
+      <div className="w-[40%] h-[100vh] m-8 border-b-4  border border-gray-600 drop-shadow-sm bg-white rounded-lg">
         <div className="w-[100%] h-16  flex  items-center p-4 ">
           <img
             src={profile}
@@ -86,13 +86,13 @@ const FeedPosts = (props) => {
               }}
               className={
                 clickComment
-                  ? "mt-2 mx-3 text-2xl  text-yellow-400 drop-shadow-sm"
+                  ? "mt-2 mx-3 text-2xl  text-gray-800 drop-shadow-sm"
                   : "mt-2 mx-3 text-2xl text-black"
               }
             />
           </div>
           <h2 className=" px-5 mt-1 text-lg w-fit   select-none">
-            {likeCount} <span className="font-bold">like</span>
+            {likeCount} <span className="font-semibold">likes</span>
           </h2>
         </div>
       </div>
