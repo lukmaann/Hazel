@@ -3,22 +3,30 @@ import { useState } from "react";
 import Heart from "react-heart";
 import { usePostStore, useUserStore } from "../../../store/store";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import { deletepost } from "../../../helper/helper";
+import { toast, Toaster } from "react-hot-toast";
 const Posts = (props) => {
-  const loggedUser=useUserStore(state=>state.user)
-  const delpost=usePostStore(state=>state.delPost)
+  const loggedUser = useUserStore((state) => state.user);
+  const delpost = usePostStore((state) => state.delPost);
 
   const [over, setOver] = useState(false);
 
-  const { picturePath, likes,postUserId ,id} = props;
+  const { picturePath, likes, postUserId, id } = props;
   const likeCount = Object.keys(likes).length;
-  
-  const delPost=()=>{
-    delpost(id)
-  }
 
+  const delPost = () => {
+    const delpostpromise = deletepost(id);
 
+    toast.promise(delpostpromise, {
+      loading: "deleting",
+      success: "Post deleted",
+      error: "error",
+    });
 
+    delpostpromise.then(() => {
+      delpost(id);
+    });
+  };
 
   return (
     <div
@@ -36,7 +44,10 @@ const Posts = (props) => {
           <Heart className="w-5 " onClick={() => {}} isActive={true} />
           <h1 className="text-black px-2">{likeCount}</h1>
         </div>
-        {over && postUserId===loggedUser._id && <DeleteIcon onClick={delPost}  className="text-black" />}
+        <Toaster></Toaster>
+        {over && postUserId === loggedUser._id && (
+          <DeleteIcon onClick={delPost} className="text-black" />
+        )}
       </div>
     </div>
   );

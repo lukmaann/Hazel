@@ -207,3 +207,13 @@ export const addFriends = async (value) => {
     return Promise.reject(error);
   }
 };
+
+export const deletepost= async (id)=>{
+  try {
+    
+    const {data}=await axios.post('/api/delpost',{id});
+    Promise.resolve(data)
+  } catch (error) {
+    return Promise.reject(error)
+  }
+}
