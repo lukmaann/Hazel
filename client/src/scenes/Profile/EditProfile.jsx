@@ -66,7 +66,7 @@ const EditProfile = () => {
               <label htmlFor="profile">
                 <img
                   className={Styles.profile_img}
-                  src={user.profile || file || Avatar}
+                  src={file || user.profile  || Avatar}
                   alt="Avatar"
                 />
               </label>
