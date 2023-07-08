@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import PersonAddDisabledIcon from '@mui/icons-material/PersonAddDisabled';
 import Avatar from "../../assets/profile.png";
-import { useState } from "react";
+import {  useState } from "react";
 
 import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
@@ -14,10 +16,21 @@ const UserProfile = (props) => {
 
   const feedPosts = usePostStore((state) => state.feedPosts);
   const loggedUser = useUserStore((state) => state.user);
+  const updateLogfriends=useUserStore((state)=>state.updateFriends);
 
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
-   console.log(user.friends);
+  const [friends,setFriends]=useState(user.friends)
+
+
+    const isfriend=loggedUser.friends.includes(user._id);
+    
+
+  
+
+  
+
+
 
   const makeConnection = () => {
     const friendpromise = addFriends({
@@ -30,7 +43,25 @@ const UserProfile = (props) => {
       error: "error",
     });
     friendpromise.then((data)=>{
-      console.log(data);
+      if(isfriend){
+        setFriends((prev)=>{
+          return prev.filter((f)=>{
+            return f!==loggedUser._id
+          })
+        })
+      }else{
+        setFriends((prev)=>{
+          return [...prev,loggedUser._id]
+        })
+      }
+    
+      
+   
+    
+      updateLogfriends(data);
+
+      
+      
     })
   };
 
@@ -59,7 +90,7 @@ const UserProfile = (props) => {
               onClick={makeConnection}
               className="bg-gray-500 px-2 text-white rounded-lg  border border-b-4 border-black  hover:bg-black "
             >
-              {user.friends.includes(loggedUser._id) ? "Disconnect" : "connect"}
+              {isfriend ?  <PersonAddDisabledIcon/>:<PersonAddAlt1Icon/> }
             </button>
           </div>
           {click && (
@@ -75,7 +106,7 @@ const UserProfile = (props) => {
 
           <div className="flex gap-4">
             <h1 className="text-xl mt-3 font-normal">
-              {user.friends.length} Connections{" "}
+              {friends.length} Connections{" "}
             </h1>
             <h1 className="text-xl mt-3 font-normal">{impressions} Views</h1>
           </div>

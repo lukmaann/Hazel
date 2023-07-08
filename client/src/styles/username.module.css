@@ -7,7 +7,7 @@
     backdrop-filter: blur(7.1px);
     /* border:1px solid rgba(255, 255, 255, 0.3); */
     background-color: white;
-    @apply   shrink-0 h-5/6 w-[20%]  py-10 px-4 min-w-max min-h-max;
+    @apply   shrink-0 h-[550px] w-[20%]  py-10 px-4 min-w-max min-h-max;
     @apply hover:border-black
 }
 .profile_img{
@@ -49,6 +49,6 @@ input[type="file"]{
     background-image: url("homeimg.png") ;
     background-repeat: no-repeat;
     background-size: cover;
-    @apply h-[500px] w-[325px] rounded-r-2xl border-b-4 border-gray-500 
+    @apply h-[550px] w-[325px] rounded-r-2xl border-b-4 border-gray-500 
 
 }

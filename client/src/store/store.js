@@ -36,6 +36,7 @@ export const useUserStore = create(
         profile,
         address,
         mobile,
+        
       }) =>
         set((state) => ({
           user: {
@@ -46,9 +47,22 @@ export const useUserStore = create(
             profile,
             address,
             mobile,
+           
+
           },
         })),
+
+
+        updateFriends:(payload)=>set((state)=>({
+          user:{
+            ...state.user,
+            friends:payload
+          }
+        })),
+
     }),
+
+    
     {
       name: "UserData",
     }
