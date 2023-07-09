@@ -217,3 +217,16 @@ export const deletepost= async (id)=>{
     return Promise.reject(error)
   }
 }
+
+export const getAllUsers=async ()=>{
+  try {
+
+    const {data,status}= await axios.get('/api/users');
+    if(status===200){
+      return Promise.resolve(data)
+    }
+    
+  } catch (error) {
+    return Promise.reject(error)
+  }
+}

@@ -115,3 +115,15 @@ export const usePostStore = create(
 );
 
 
+
+export const AllUsersStore= create(
+  persist(
+    (set)=>({
+      Users:[],
+      SetUsers:(payload)=>set({Users:payload})
+    }),
+    {
+      name:"AllUsers"
+    }
+  )
+)

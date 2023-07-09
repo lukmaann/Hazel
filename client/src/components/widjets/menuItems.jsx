@@ -11,6 +11,9 @@ import Styles from "../../styles/username.module.css";
 import Logo from "./logo";
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
+import SideUserBox from "./SideUser/SideUserBox";
+
+
 
 const MenuItems = () => {
   const user = useUserStore((state) => state.user);
@@ -18,9 +21,11 @@ const MenuItems = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("UserData");
-    localStorage.removeItem("Posts");
+    // localStorage.removeItem("token");
+    // localStorage.removeItem("UserData");
+    // localStorage.removeItem("Posts");
+    // localStorage.removeItem("AllUsers")
+    localStorage.clear()
 
     navigate("/");
   };
@@ -30,24 +35,14 @@ const MenuItems = () => {
       <Logo />
 
       <div className="fixed bottom-0 w-1/6 ">
-      <div className="text-center w-[100%]  ">
-        <h1 className="border border-black mx-4">Suggestions</h1>
-      </div>
-      <div className=" h-[35vh] my-4   overflow-x-hidden overflow-visible">
-      <div  >
-          <ExploreIcon />
-          <button onClick={() => navigate("/explore")}>Explore</button>
-        </div>
-       
-       
-
-        
-      </div>
-     
-
-      <hr className="border- border-double  border-black"/>
       
-        <div className={Styles.menuitems} >
+        <SideUserBox/>
+      
+       
+
+        <hr className="border- border-double  border-black" />
+
+        <div className={Styles.menuitems}>
           <ExploreIcon />
           <button onClick={() => navigate("/explore")}>Explore</button>
         </div>
