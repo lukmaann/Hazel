@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import EditIcon from "@mui/icons-material/Edit";
 import ExploreIcon from "@mui/icons-material/Explore";
 import AddIcon from "@mui/icons-material/Add";
@@ -11,6 +12,7 @@ import Styles from "../../styles/username.module.css";
 import Logo from "./logo";
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
+import FriendsBox from "./friends/friendsBox";
 
 const MenuItems = () => {
   const user = useUserStore((state) => state.user);
@@ -24,12 +26,10 @@ const MenuItems = () => {
   };
 
   return (
-    <aside className=" fixed bottom-0 bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen ">
+    <aside className=" fixed bottom-0 h-[100vh] bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen ">
       <Logo />
-
+      <FriendsBox />
       <div className="fixed bottom-0 w-1/6 ">
-        
-
         <hr className="border- border-double  border-black" />
 
         <div className={Styles.menuitems}>
