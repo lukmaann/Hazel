@@ -4,7 +4,7 @@ import Heart from "react-heart";
 import { usePostStore, useUserStore } from "../../../store/store";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { deletepost } from "../../../helper/helper";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 const Posts = (props) => {
   const loggedUser = useUserStore((state) => state.user);
   const delpost = usePostStore((state) => state.delPost);
@@ -44,9 +44,9 @@ const Posts = (props) => {
           <Heart className="w-5 " onClick={() => {}} isActive={true} />
           <h1 className="text-black px-2">{likeCount}</h1>
         </div>
-        <Toaster></Toaster>
+        
         {over && postUserId === loggedUser._id && (
-          <DeleteIcon onClick={delPost} className="text-black" />
+          <DeleteIcon onClick={delPost} className="text-black hover:cursor-pointer" />
         )}
       </div>
     </div>

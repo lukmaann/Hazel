@@ -13,13 +13,24 @@
   body{
     /* background: black; */
     /* background-image: url(./assets/background1.png); */
+
    
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
  
   user-select: none;
+
   
 
   
     
     
   }
+ 
+  body::-webkit-scrollbar{
+    display: none;
+  }
+
+
+.noscrollbar::-webkit-scrollbar{
+  display: none;
+}
