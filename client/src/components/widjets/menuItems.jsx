@@ -11,9 +11,6 @@ import Styles from "../../styles/username.module.css";
 import Logo from "./logo";
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
-import SideUserBox from "./SideUser/SideUserBox";
-
-
 
 const MenuItems = () => {
   const user = useUserStore((state) => state.user);
@@ -21,11 +18,7 @@ const MenuItems = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    // localStorage.removeItem("token");
-    // localStorage.removeItem("UserData");
-    // localStorage.removeItem("Posts");
-    // localStorage.removeItem("AllUsers")
-    localStorage.clear()
+    localStorage.clear();
 
     navigate("/");
   };
@@ -35,10 +28,7 @@ const MenuItems = () => {
       <Logo />
 
       <div className="fixed bottom-0 w-1/6 ">
-      
-        <SideUserBox/>
-      
-       
+        
 
         <hr className="border- border-double  border-black" />
 

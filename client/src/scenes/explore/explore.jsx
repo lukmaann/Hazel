@@ -5,6 +5,7 @@ import CreatePost from "../../components/CreatePost";
 
 import FeedPosts from "../../components/widjets/posts/FeedPosts";
 import { usePostStore } from "../../store/store";
+import UserBox from "../../components/widjets/SideUser/usersBox";
 const ExplorePage = () => {
   const feedPosts = usePostStore((state) => state.feedPosts);
 
@@ -15,7 +16,8 @@ const ExplorePage = () => {
     return (
       <div>
         <MenuItems />
-        <div className="ml-[20%] w-[80%] flex flex-col-reverse min-h-max">
+        <UserBox/>
+        <div className="ml-[20%] w-[80%]  pt-12 flex flex-col-reverse min-h-max">
           {feedPosts
             
             .map((item, index) => {

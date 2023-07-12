@@ -48,6 +48,7 @@ const FeedPosts = (props) => {
   return (
     <div className="p-10 flex flex-wrap  ">
       <Toaster position="bottom-right" />
+      
 
       <div className="w-[60vh] h-[100vh] m-8 border-b-4  border border-gray-600 drop-shadow-sm bg-white rounded-lg">
         <div className="w-[100%] h-16 flex  items-center p-4 ">
