@@ -27,15 +27,15 @@ const Username = () => {
   });
 
   return (
-    <div>
+    <div >
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
         position="top-center"
         reverseOrder={false}
       ></Toaster>
-      <div className="flex items-center   justify-center h-screen">
+      <div className="flex items-center justify-center h-screen">
         <div
-          className={`${Styles.glass} max-sm:rounded-2xl rounded-r-none  border border-b-4 hover:border-black border-x-gray-400`}
+          className={`${Styles.glass} rounded-r-none border border-b-4 hover:border-black border-x-gray-400`}
         >
           <div className="title flex flex-col items-center">
             <img src={logo} className="text-3xl font-bold w-[200px]" />
@@ -44,7 +44,9 @@ const Username = () => {
             </span>
           </div>
           <form className="py-1" onSubmit={formik.handleSubmit}>
-            <div className="profile flex justify-center py-4"></div>
+            <div className="profile flex justify-center py-4">
+              {/* <img className={Styles.profile_img} src={Avatar} alt="Avatar" /> */}
+            </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
               <input
                 type="text"
@@ -61,27 +63,27 @@ const Username = () => {
             <div className="text-center  mt-32 bg-black rounded-xl py-1  text-white">
               <span>
                 Not a Member?
-                <Link
-                  to="/register"
-                  className=" text-red-500 px-2 hover:underline  font-bold"
-                >
+                <Link to="/register" className=" text-red-500 px-2 hover:underline  font-bold">
                   Register
                 </Link>
               </span>
             </div>
           </form>
         </div>
-        <div className="max-sm:hidden">
-          <div className={`${Styles.home} relative flex `}>
+        <div>
+          <div className={`${Styles.home} relative flex`}>
+          
+      
             <button className=" absolute rounded-sm  text-white px-2 bottom-2 right-2    hover:underline">
               {" "}
+             
               About Us ↗
             </button>
           </div>
         </div>
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
-        ©{year} Hazel All rights reserved
+        ©{year} Hazel  All right reserved
       </footer>
     </div>
   );

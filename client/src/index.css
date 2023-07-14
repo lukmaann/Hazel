@@ -15,6 +15,8 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 
   user-select: none;
+  padding: 0;
+  margin: 0;
 }
 
 body::-webkit-scrollbar {
@@ -24,3 +26,4 @@ body::-webkit-scrollbar {
 .noscrollbar::-webkit-scrollbar {
   display: none;
 }
+
