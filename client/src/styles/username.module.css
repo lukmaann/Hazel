@@ -1,55 +1,49 @@
-.glass{
-    background: rgba(255, 255, 255, 0.55);
-    border-radius: 16px;
-    /* box-shadow: 0px 4px 30px #4747470b; */
-  /* background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
 
-    backdrop-filter: blur(7.1px);
-    /* border:1px solid rgba(255, 255, 255, 0.3); */
-    background-color: white;
-    @apply   shrink-0 h-[550px] w-[20%]  py-10 px-4 min-w-max min-h-max;
-    @apply hover:border-black
+  backdrop-filter: blur(7.1px);
+  background-color: white;
+  @apply shrink-0 h-[550px] w-[20%]  py-10 px-4 min-w-max min-h-max;
+  @apply hover:border-black;
 }
-.profile_img{
-    @apply border-4 rounded-full w-[100px] h-[100px]  shadow-lg cursor-pointer;
-    @apply hover:border-yellow-400
+.profile_img {
+  @apply border-4 rounded-full w-[100px] h-[100px]  shadow-lg cursor-pointer;
+  @apply hover:border-yellow-400;
 }
 
-.textbox{
-    @apply border border-b-4 border-black py-2 px-5 w-3/4 text-lg   m-auto rounded-md shadow-sm;
-    
+.textbox {
+  @apply border border-b-4 border-black py-2 px-5 w-3/4 text-lg   m-auto rounded-md shadow-sm;
 }
 
-.textbox:focus{
-    @apply outline-none border-black border-2;
+.textbox:focus {
+  @apply outline-none border-black border-2;
 }
 
-.btn{
-    @apply  border border-b-4 border-black text-black bg-yellow-400 w-3/4 rounded-lg py-2;
+.btn {
+  @apply border border-b-4 border-black text-black bg-yellow-400 w-3/4 rounded-lg py-2;
+}
+
+.btn:hover {
+  @apply border-2 border-b-4 bg-yellow-400;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.menuitems {
+  @apply m-3 w-11/12 items-center rounded-lg  h-10 gap-4 rounded-lg p-1 flex justify-start;
+}
+.menuitems:hover {
+  @apply bg-slate-400 border border-black border-b-4 text-black;
+}
+
+.home {
+  background-image: url("homeimg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   
+
+  @apply h-[550px] w-[325px] rounded-r-2xl border-b-4 border-gray-500 ;
 }
-
-.btn:hover{
-    @apply border-2 border-b-4 bg-yellow-400
-}
-
-input[type="file"]{
-    display: none;
-
-}
-
-.menuitems{
-    @apply m-3 w-11/12 items-center rounded-lg  h-10 gap-4 rounded-lg p-1 flex justify-start
-}
-.menuitems:hover{
-    @apply bg-slate-400 border border-black border-b-4 text-black
-}
-
-.home{
-    background-image: url("homeimg.png") ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    @apply h-[550px] w-[325px] rounded-r-2xl border-b-4 border-gray-500 
-
-}
-

@@ -9,7 +9,7 @@ import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
 import { usePostStore, useUserStore } from "../../store/store";
 import { toast, Toaster } from "react-hot-toast";
-const impressions = Math.floor(Math.random() * 10);
+const impressions = Math.floor(Math.random() * 20);
 
 const UserProfile = (props) => {
   const { user } = props;

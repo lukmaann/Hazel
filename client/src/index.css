@@ -1,36 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rubik:wght@400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* > * {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
 
-  *>*{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    scroll-behavior: smooth;
-  }
-
-  body{
-    /* background: black; */
-    /* background-image: url(./assets/background1.png); */
-
-   
+body {
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
- 
+
   user-select: none;
+}
 
-  
+body::-webkit-scrollbar {
+  display: none;
+}
 
-  
-    
-    
-  }
- 
-  body::-webkit-scrollbar{
-    display: none;
-  }
-
-
-.noscrollbar::-webkit-scrollbar{
+.noscrollbar::-webkit-scrollbar {
   display: none;
 }
