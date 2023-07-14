@@ -126,7 +126,7 @@ const EditProfile = () => {
         </PopUp>
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
-        ©{year} Hazel || All rights reserved
+        ©{year} Hazel || All right reserved
       </footer>
     </div>
   );
