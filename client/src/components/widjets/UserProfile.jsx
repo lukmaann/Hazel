@@ -103,7 +103,7 @@ const UserProfile = (props) => {
             </button>
           )}
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 ">
             <h1 className="text-xl mt-3 font-normal">
               {friends.length} Connections{" "}
             </h1>
