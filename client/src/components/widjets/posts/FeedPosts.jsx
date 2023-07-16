@@ -16,6 +16,7 @@ const FeedPosts = (props) => {
   const [clickComment, setClickComment] = useState(true);
   const likePost = usePostStore((state) => state.likePost);
   const navigate = useNavigate();
+  
 
   const loggedUser = useUserStore((state) => state.user);
   let likeCount = Object.keys(likes).length;
@@ -24,6 +25,16 @@ const FeedPosts = (props) => {
 
   const LikePost = () => {
     const data = UpdateLikes({ postId, userId });
+    
+    
+
+  
+
+  
+   
+    
+   
+  
     toast.promise(
       data,
       {
@@ -41,7 +52,9 @@ const FeedPosts = (props) => {
       }
     );
     data.then((post) => {
+     
       likePost(post);
+      
     });
   };
 
