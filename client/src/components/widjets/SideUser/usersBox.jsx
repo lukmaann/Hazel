@@ -16,7 +16,7 @@ const UserBox = () => {
     });
   }, []);
 
-  return <div className=" px-10  border-black py-2  bg-white  w-[80%] flex  justify-start p items-center ml-[20%] fixed z-10 h-[15vh]  ">
+  return <div className=" px-10  border-black py-2  bg-white  w-[80%] flex  justify-start p items-center ml-[20%]  h-[15vh]  ">
     {
       Users.map((item,index)=>{
         if(loggedUser._id!==item._id){
@@ -25,6 +25,7 @@ const UserBox = () => {
 
       })
     }
+ 
   </div>;
 };
 

@@ -21,7 +21,7 @@
 }
 
 .btn {
-  @apply border border-b-4 border-black text-black bg-yellow-400 w-3/4 rounded-lg py-2;
+  @apply border border-b-4 border-black text-black bg-yellow-400 w-3/4 rounded-lg py-2 ;
 }
 
 .btn:hover {
@@ -33,10 +33,10 @@ input[type="file"] {
 }
 
 .menuitems {
-  @apply m-3 w-11/12 items-center rounded-lg  h-10 gap-4 rounded-lg p-1 flex justify-start;
+  @apply m-3 w-11/12 items-center  rounded-lg  h-10 gap-4 rounded-lg p-1 flex justify-start;
 }
 .menuitems:hover {
-  @apply bg-slate-400 border border-black border-b-4 text-black;
+  @apply animate-pulse border border-black border-b-4 text-black;
 }
 
 .home {
@@ -46,4 +46,30 @@ input[type="file"] {
   
 
   @apply h-[550px] w-[325px] rounded-r-2xl border-b-4 border-gray-500 ;
+}
+
+
+.menuaside{
+  @apply fixed bottom-0 h-[100vh] bg-white text-black pl-3 flex flex-col w-1/5 h-screen 
+
+}
+
+.menubox{
+  @apply fixed bottom-0 w-1/6
+}
+
+@media (max-width:600px){
+  .menuaside{
+    @apply flex-row w-[100vw] h-[7vh] border-t fixed 
+  }
+
+  .menubox{
+    @apply flex 
+  }
+  .menuitems{
+    @apply mx-5
+  }
+  .menuitems button{
+    @apply hidden
+  }
 }

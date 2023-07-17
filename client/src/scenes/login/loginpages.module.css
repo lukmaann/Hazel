@@ -1,0 +1,10 @@
+.logincontainer{
+
+    @apply rounded-r-none border border-b-4 hover:border-black border-x-gray-400 
+}
+
+@media (max-width:600px){
+    .logincontainer{
+        @apply rounded-lg w-[100vw] h-[100vh] flex flex-col justify-center items-center border-0
+    }
+}

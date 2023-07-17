@@ -11,8 +11,10 @@ const FriendsBox = () => {
     <div  className={`w-[100%] h-[40%] mt-20 my-3   overflow-auto noscrollbar `}>
       {Users.map((item, index) => {
         if (loggedUser.friends.includes(item._id)) {
+          
           return <FriendsUnit key={index} img={item.profile} name={item.firstName} />;
         }
+        
       })}
     </div>
   );

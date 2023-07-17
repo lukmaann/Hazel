@@ -7,6 +7,7 @@ import { userValidate } from "../../helper/validate";
 import { useAuthStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import Style from "./loginpages.module.css"
 
 const Username = () => {
   const setUsername = useAuthStore((state) => state.setUsername);
@@ -33,9 +34,9 @@ const Username = () => {
         position="top-center"
         reverseOrder={false}
       ></Toaster>
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-screen ">
         <div
-          className={`${Styles.glass} rounded-r-none border border-b-4 hover:border-black border-x-gray-400`}
+          className={`${Styles.glass} ${Style.logincontainer} `}
         >
           <div className="title flex flex-col items-center">
             <img src={logo} className="text-3xl font-bold w-[200px]" />
@@ -71,7 +72,7 @@ const Username = () => {
           </form>
         </div>
         <div>
-          <div className={`${Styles.home} relative flex`}>
+          <div className={`${Styles.home} relative flex max-sm:hidden`}>
           
       
             <button className=" absolute rounded-sm  text-white px-2 bottom-2 right-2    hover:underline">

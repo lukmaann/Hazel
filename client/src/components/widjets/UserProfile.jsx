@@ -1,36 +1,28 @@
 /* eslint-disable react/prop-types */
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
-import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
+import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import Avatar from "../../assets/profile.png";
-import {  useState } from "react";
+import { useState } from "react";
 
 import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
 import { usePostStore, useUserStore } from "../../store/store";
 import { toast, Toaster } from "react-hot-toast";
-const impressions = Math.floor(Math.random() * 20);
+const impressions = Math.floor(Math.random() * 10);
 
 const UserProfile = (props) => {
   const { user } = props;
 
   const feedPosts = usePostStore((state) => state.feedPosts);
   const loggedUser = useUserStore((state) => state.user);
-  const updateLogfriends=useUserStore((state)=>state.updateFriends);
+  const updateLogfriends = useUserStore((state) => state.updateFriends);
 
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
-  const [friends,setFriends]=useState(user.friends)
+  const [friends, setFriends] = useState(user.friends);
 
-
-    const isfriend=loggedUser.friends.includes(user._id);
-    
-
-  
-
-  
-
-
+  const isfriend = loggedUser.friends.includes(user._id);
 
   const makeConnection = () => {
     const friendpromise = addFriends({
@@ -42,27 +34,21 @@ const UserProfile = (props) => {
       success: "done",
       error: "error",
     });
-    friendpromise.then((data)=>{
-      if(isfriend){
-        setFriends((prev)=>{
-          return prev.filter((f)=>{
-            return f!==loggedUser._id
-          })
-        })
-      }else{
-        setFriends((prev)=>{
-          return [...prev,loggedUser._id]
-        })
+    friendpromise.then((data) => {
+      if (isfriend) {
+        setFriends((prev) => {
+          return prev.filter((f) => {
+            return f !== loggedUser._id;
+          });
+        });
+      } else {
+        setFriends((prev) => {
+          return [...prev, loggedUser._id];
+        });
       }
-    
-      
-   
-    
-      updateLogfriends(data);
 
-      
-      
-    })
+      updateLogfriends(data);
+    });
   };
 
   return (
@@ -86,10 +72,8 @@ const UserProfile = (props) => {
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>
-            <button
-              onClick={makeConnection}
-            >
-              {isfriend ?  <PersonRemoveIcon/>:<PersonAddAlt1Icon/> }
+            <button onClick={makeConnection}>
+              {isfriend ? <PersonRemoveIcon /> : <PersonAddAlt1Icon />}
             </button>
           </div>
           {click && (

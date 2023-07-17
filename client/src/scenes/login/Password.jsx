@@ -4,6 +4,7 @@ import Styles from "../../styles/username.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
+import Style from "./loginpages.module.css"
 
 // -------------------------store data and custom hooks------------
 import { useAuthStore } from "../../store/store";
@@ -70,7 +71,7 @@ const Password = () => {
         reverseOrder={false}
       ></Toaster>
       <div className="flex items-center justify-center h-screen">
-        <div className={Styles.glass}>
+        <div className={`${Styles.glass} ${Style.logincontainer}`}>
           <div className="title flex flex-col items-center">
             <h4 className="text-4xl  font-bold capitalize  ">
               {" "}

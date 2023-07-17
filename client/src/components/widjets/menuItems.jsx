@@ -26,19 +26,20 @@ const MenuItems = () => {
   };
 
   return (
-    <aside className=" fixed bottom-0 h-[100vh] bg-white border-r border-blue-200 text-black pl-3 flex flex-col w-1/5 h-screen ">
-      <Logo />
+    <aside className={`${Styles.menuaside}`}>
+      <Logo  />
       <FriendsBox />
-      <div className="fixed bottom-0 w-1/6 ">
-        <hr className="border- border-double  border-black" />
+      <div className={`${Styles.menubox}`}>
 
         <div className={Styles.menuitems}>
-          <ExploreIcon />
+          <ExploreIcon onClick={() => navigate("/explore")}/>
           <button onClick={() => navigate("/explore")}>Explore</button>
         </div>
 
         <div className={Styles.menuitems}>
-          <AddIcon />
+          <AddIcon onClick={() => {
+              user.firstName ? setModal(true) : setUsernameModal(true);
+            }} />
           <button
             onClick={() => {
               user.firstName ? setModal(true) : setUsernameModal(true);
@@ -48,7 +49,9 @@ const MenuItems = () => {
           </button>
         </div>
         <div className={Styles.menuitems}>
-          <EditIcon />
+          <EditIcon onClick={() => {
+              navigate("/editprofile");
+            }}/>
           <button
             onClick={() => {
               navigate("/editprofile");
@@ -72,8 +75,8 @@ const MenuItems = () => {
             Profile
           </button>
         </div>
-        <div className="  m-3 w-11/12 items-center hover:bg-gray-100 h-10 gap-4 rounded-l p-1 flex justify-start ">
-          <ArrowOutwardIcon />
+        <div className={` ${Styles.menuitems} m-3 w-11/12 items-center hover:bg-gray-100 h-10 gap-4 rounded-l p-1 flex justify-start` }>
+          <ArrowOutwardIcon onClick={logout}/>
           <button onClick={logout}>LogOut</button>
         </div>
       </div>

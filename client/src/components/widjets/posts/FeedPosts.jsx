@@ -83,13 +83,14 @@ const FeedPosts = (props) => {
             className="h-[100%] select-none  border-gray-500 w-[100%]"
             alt=""
           />
+          
         </div>
         <div className=" h-[10%]">
           <div className="flex  items-center h-[100%] justify-between px-5  min-w-fit">
             <Heart
               isActive={isLiked}
               onClick={LikePost}
-              className="w-6 mt-2 ml-4"
+              className="w-6 mt-2 ml-4  "
             />
             <h2 className="  mt-1 text-sm w-fit  select-none">
                 <span className="font-semibold ">
