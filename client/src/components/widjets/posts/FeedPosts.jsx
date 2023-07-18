@@ -7,7 +7,7 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../comment/CommentBox";
 import { usePostStore, useUserStore } from "../../../store/store";
 import { UpdateLikes } from "../../../helper/helper";
-import { Toaster, toast } from "react-hot-toast";
+
 import { useNavigate } from "react-router-dom";
 
 const FeedPosts = (props) => {
@@ -15,55 +15,35 @@ const FeedPosts = (props) => {
     props;
   const [clickComment, setClickComment] = useState(true);
   const likePost = usePostStore((state) => state.likePost);
+  const [onpost, setonpost] = useState(false);
   const navigate = useNavigate();
-  
 
   const loggedUser = useUserStore((state) => state.user);
   let likeCount = Object.keys(likes).length;
   const isLiked = Boolean(likes[loggedUser._id]);
   const userId = loggedUser._id;
+  const [liked, setliked] = useState(isLiked);
+  const [likecounts, setlikecounts] = useState(likeCount);
 
   const LikePost = () => {
     const data = UpdateLikes({ postId, userId });
-    
-    
+    liked ? setlikecounts(likecounts - 1) : setlikecounts(likecounts + 1);
+    setliked(!liked);
 
-  
-
-  
-   
-    
-   
-  
-    toast.promise(
-      data,
-      {
-        success: isLiked ? "🥹" : "😁",
-        loading: isLiked ? "Dislike?" : "like?",
-        error: "Action abort",
-      },
-      {
-        position: "bottom-right",
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      }
-    );
     data.then((post) => {
-     
       likePost(post);
-      
     });
   };
 
   return (
     <div className="p-10 flex flex-wrap   bg-white ">
-      <Toaster position="bottom-right" />
-      
-
-      <div className="w-[60vh] h-[100vh] mx-8 border-2 border-black drop-shadow-sm bg-white rounded">
+      <div
+        className={
+          onpost
+            ? "w-[80vw]"
+            : "w-[60vh] h-[100vh] mx-8 border-2 border-black drop-shadow-sm bg-white rounded"
+        }
+      >
         <div className="w-[100%] h-[10%]  border-black flex  items-center p-4 ">
           <img
             src={profile}
@@ -77,26 +57,26 @@ const FeedPosts = (props) => {
             {firstName}{" "}
           </button>
         </div>
-        <div className="h-[80%] w-[100%]  bg-white flex text-white justify-center items-center">
+        <div className="h-[80%] w-[100%]   bg-white flex text-white justify-center items-center">
           <img
             src={picturePath}
-            className="h-[100%] select-none border-b-2 border-black w-[90%]"
+            onClick={() => {
+              setonpost(!onpost);
+            }}
+            className="h-[90%] object-cover  select-none  border-black w-[90%]"
             alt=""
           />
-          
         </div>
         <div className=" h-[10%]">
-          <div className="flex  items-center h-[100%] justify-between px-5  min-w-fit">
+          <div className="flex  items-center h-[100%] justify-around px-5  min-w-fit">
             <Heart
-              isActive={isLiked}
+              isActive={liked}
               onClick={LikePost}
               className="w-6 mt-2 ml-4  "
             />
             <h2 className="  mt-1 text-sm w-fit  select-none">
-                <span className="font-semibold ">
-                  {likeCount} Likes
-                </span>
-              </h2>
+              <span className="font-semibold ">{likecounts} Likes</span>
+            </h2>
 
             <FontAwesomeIcon
               icon={faComment}
@@ -112,15 +92,11 @@ const FeedPosts = (props) => {
           </div>
         </div>
       </div>
-      <div className="w-[40%] ">
+      <div className={onpost ? "hidden" : "w-[40%] "}>
         <div className="mt-12 flex justify-center h-[20%]   overflow-hidden">
           <h1 className="text-base   bg-white w-[90%] h-28 overflow-y-auto border-black px-3 rounded-lg">
             {" "}
-            <span className="text-gray-700 ">
-              
-              Caption :
-            </span>{" "}
-            {caption}
+            <span className="text-gray-700 ">Caption :</span> {caption}
           </h1>
         </div>
         {clickComment && (

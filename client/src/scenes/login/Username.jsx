@@ -84,7 +84,7 @@ const Username = () => {
         </div>
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
-        ©{year} Hazel  All right reserved
+        ©{year} Lukn Developments  All right reserved
       </footer>
     </div>
   );
