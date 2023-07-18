@@ -59,15 +59,15 @@ const FeedPosts = (props) => {
   };
 
   return (
-    <div className="p-10 flex flex-wrap  ">
+    <div className="p-10 flex flex-wrap   bg-white ">
       <Toaster position="bottom-right" />
       
 
-      <div className="w-[60vh] h-[100vh] m-8 border-b-4  border border-gray-600 drop-shadow-sm bg-white rounded-lg">
-        <div className="w-[100%] h-16 flex  items-center p-4 ">
+      <div className="w-[60vh] h-[100vh] mx-8 border-2 border-black drop-shadow-sm bg-white rounded">
+        <div className="w-[100%] h-[10%]  border-black flex  items-center p-4 ">
           <img
             src={profile}
-            className="w-10 h-10 border-2  mr-4 border-gray-300 rounded-full "
+            className=" h-10 border-2 w-10  mr-4 border-gray-300 rounded-full "
             alt="profile img"
           />
           <button
@@ -77,10 +77,10 @@ const FeedPosts = (props) => {
             {firstName}{" "}
           </button>
         </div>
-        <div className="h-[80%] w-[100%] border-b  border-gray-400 rounded-2xl flex text-white justify-center items-center">
+        <div className="h-[80%] w-[100%]  bg-white flex text-white justify-center items-center">
           <img
             src={picturePath}
-            className="h-[100%] select-none  border-gray-500 w-[100%]"
+            className="h-[100%] select-none border-b-2 border-black w-[90%]"
             alt=""
           />
           

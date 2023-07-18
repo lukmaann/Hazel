@@ -6,7 +6,7 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/store";
 import PopUp from "./PopUp";
-import Styles from "../../styles/username.module.css";
+import Styles from "../Components.module.css";
 
 // ------------------------components-----------
 import Logo from "./logo";
