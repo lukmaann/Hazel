@@ -63,7 +63,11 @@ const FeedPosts = (props) => {
             onClick={() => {
               setonpost(!onpost);
             }}
-            className="h-[90%] object-cover  select-none  border-black w-[90%]"
+            className={
+              onpost
+                ? "w-[70%]"
+                : "h-[90%] object-cover  select-none  border-black w-[90%]"
+            }
             alt=""
           />
         </div>
