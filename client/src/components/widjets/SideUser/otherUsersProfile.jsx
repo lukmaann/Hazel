@@ -10,14 +10,14 @@ const UsersProfile = (props) => {
       onClick={() => navigate("/user", { state: { id: name } })}
       className=" w-[10%]  h-[90%] my-4  flex justify-center flex-col  px-3 items-center hover:cursor-pointer"
     >
-      <div className="h-[50px] w-[50px] rounded-full ">
+      <div className="h-[70px] w-[70px] rounded-full mt-[20px] ">
         <img
           src={img}
-          className=" hover:border-purple-500  shadow-lg rounded-full h-[50px] border-2 border-black w-[50px]  p-1  "
+          className=" hover:border-purple-500  shadow-lg rounded-full h-[100%] border-2  w-[100%]    "
           alt=""
         />
       </div>
-      <t className="capitalize text-xs mt-1"> {name}</t>
+      <t className="font-semibold text-xs  mt-2"> {name}</t>
     </div>
   );
 };

@@ -16,25 +16,22 @@ const ExplorePage = () => {
     return (
       <div>
         <MenuItems />
-        <UserBox/>
+        <UserBox />
         <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max ">
-          {feedPosts
-            
-            .map((item, index) => {
-              return (
-                <FeedPosts
-                  key={index}
-                  caption={item.caption}
-                  likes={item.likes}
-                  picturePath={item.picturePath}
-                  comments={item.comments}
-                  postId={item._id}
-                  firstName={item.firstName}
-                  profile={item.profile}
-                  postUserId={item.userId}
-                />
-              );
-            })}
+          {feedPosts.map((item, index) => {
+            return (
+              <FeedPosts
+                key={index}
+                caption={item.caption}
+                likes={item.likes}
+                picturePath={item.picturePath}
+                comments={item.comments}
+                postId={item._id}
+                postUserId={item.userId}
+                location={item.location}
+              />
+            );
+          })}
         </div>
         <PopUp openPopup={modal} setOpenPopup={setModal} title="Create Post">
           <CreatePost />
