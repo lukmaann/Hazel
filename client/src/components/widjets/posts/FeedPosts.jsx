@@ -28,7 +28,7 @@ const FeedPosts = (props) => {
 
   const likePost = usePostStore((state) => state.likePost);
   const { Users } = AllUsersStore((state) => state);
-  const [onpost, setonpost] = useState(false);
+  const [moreCaption, setMoreCaption] = useState(false);
   const navigate = useNavigate();
 
   const loggedUser = useUserStore((state) => state.user);
@@ -59,10 +59,8 @@ const FeedPosts = (props) => {
   };
 
   return (
-    <div className="p-10 flex flex-wrap  h-[120vh]  bg-white ">
-      <div
-        className={onpost ? "w-[80vw]" : "w-[35vw] h-[90%]  bg-white rounded"}
-      >
+    <div className="p-10 flex flex-wrap  h-min  bg-white ">
+      <div className={"w-[35vw] h-[90%]  bg-white rounded"}>
         <div className="w-[100%] h-[10%]  flex  items-center p-4 ">
           <img
             src={profile}
@@ -82,13 +80,8 @@ const FeedPosts = (props) => {
         <div className="h-[90%] w-[100%]   bg-white flex text-white justify-center items-center">
           <img
             src={picturePath}
-            onClick={() => {
-              setonpost(!onpost);
-            }}
             className={
-              onpost
-                ? "w-[50%] h-[100%]  rounded-lg select-none shadow-lg shadow-black  border-black "
-                : "h-[100%] object-cover rounded-lg select-none   border-black w-[90%]"
+              "h-[100%] object-cover rounded-lg select-none   border-black w-[90%]"
             }
             alt=""
           />
@@ -118,7 +111,7 @@ const FeedPosts = (props) => {
             <h2 className=" w-[100%]  mt-1 text-sm font-bold px-10 select-none">
               {likecounts} Likes
             </h2>
-            <div className="h-[40%] overflow-y-auto flex noscrollbar">
+            <div className=" h-min overflow-y-auto  flex noscrollbar">
               <h1 className="px-10 font-thin text-sm">
                 <span
                   onClick={() =>
@@ -128,13 +121,22 @@ const FeedPosts = (props) => {
                 >
                   {firstName}
                 </span>{" "}
-                {caption}
+                {moreCaption ? caption : caption.slice(0, 90)}{" "}
+                <span
+                  onClick={() => {
+                    setMoreCaption(!moreCaption);
+                  }}
+                  className="text-gray-500 "
+                ><br></br>
+                  {" "}
+                  {moreCaption ? "Show less ↗" : "Show more..."}
+                </span>
               </h1>
             </div>
           </div>
         </div>
       </div>
-      <div className={onpost ? "hidden" : "w-[40%] h-[90%]"}>
+      <div className={"w-[40%] mt-20 h-[90%]"}>
         <div className=" flex justify-center h-[20%]   overflow-hidden"></div>
         {clickComment && (
           <div className="w-[100%] h-[100%]  flex justify-center">
