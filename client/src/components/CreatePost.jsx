@@ -64,7 +64,7 @@ const CreatePost = () => {
   };
   
     return (
-      <div className="h-[70vh] w-[45vh]  flex flex-col items-center">
+      <div className="h-[70vh] w-[45vh]  flex flex-col items-center max-sm:w-[100%] max-sm:h-[80%]">
        <Toaster toastOptions={{style:{background:"#D2D2C0"}}} position="top-center" reverseOrder={false}></Toaster>
         <form
           action=""

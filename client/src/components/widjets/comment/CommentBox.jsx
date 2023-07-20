@@ -47,11 +47,11 @@ const CommentBox = (props) => {
           id=""
           placeholder="Write a comment"
           {...formik.getFieldProps("comment")}
-          className="h-[20%] border-2 border-b-4 focus:outline-none border-black border-r-0 rounded-sm w-[70%] p-1 ml-5"
+          className="h-[20%] border-2 border-b-4 focus:outline-none border-black border-r-0 rounded-sm w-[70%] p-1 ml-5 "
         ></textarea>
         <button
           type="submit"
-          className="  border-2  border-l-0 rounded-r-md  bg-yellow-400 border-b-4 border-black py-4 w-[20%]"
+          className="  border-2  border-l-0 rounded-r-md  bg-yellow-400 border-b-4 border-black py-4 w-[20%] max-sm:rounded-none"
         >
           Add
         </button>

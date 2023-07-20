@@ -75,8 +75,8 @@ const FeedPosts = (props) => {
 
 
   return (
-    <div className="p-10 flex flex-wrap  h-min  bg-white ">
-      <div className={"w-[35vw] h-[90%]  bg-white rounded"}>
+    <div className="p-10 flex flex-wrap  h-min  bg-white max-sm:w-[100vw] max-sm:p-0">
+      <div className={"w-[35vw] h-[90%] border bg-white rounded max-sm:w-[100vw]"}>
         <div className="w-[100%] h-[10%]  flex  items-center p-4 ">
           <img
             src={profile}
@@ -155,7 +155,7 @@ const FeedPosts = (props) => {
           </div>
         </div>
       </div>
-      <div className={"w-[40%] mt-20 h-[90%]"}>
+      <div className={"w-[40%] mt-20 h-[90%] max-sm:w-[100%] max-sm:mt-10"}>
         <div className=" flex justify-center h-[20%]   overflow-hidden"></div>
         {clickComment && (
           <div className="w-[100%] h-[100%]  flex justify-center">
