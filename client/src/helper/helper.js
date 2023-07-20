@@ -2,7 +2,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 // eslint-disable-next-line no-undef
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://hazelsocialappbackend.onrender.com/" ||"http://localhost:3000";
 
 export const getUsername = async () => {
   const token = localStorage.getItem("token");

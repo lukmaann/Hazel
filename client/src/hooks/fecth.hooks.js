@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3000/";
+axios.defaults.baseURL = "https://hazelsocialappbackend.onrender.com/"||"http://localhost:3000/";
 import { useEffect, useState } from "react";
 import {  getUsername } from "../helper/helper";
 

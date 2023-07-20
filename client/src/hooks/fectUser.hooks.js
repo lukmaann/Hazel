@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-axios.defaults.baseURL = "http://localhost:3000/";
+axios.defaults.baseURL = "https://hazelsocialappbackend.onrender.com/"||"http://localhost:3000/";
+
 
 
 
