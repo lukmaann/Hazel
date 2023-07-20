@@ -76,7 +76,7 @@ const FeedPosts = (props) => {
 
   return (
     <div className="p-10 flex flex-wrap  h-min  bg-white max-sm:w-[100vw] max-sm:p-0">
-      <div className={"w-[35vw] h-[90%] border bg-white rounded max-sm:w-[100vw]"}>
+      <div className={"w-[35vw] h-[90%]  bg-white rounded max-sm:w-[100vw] "}>
         <div className="w-[100%] h-[10%]  flex  items-center p-4 ">
           <img
             src={profile}

@@ -17,7 +17,7 @@ const ExplorePage = () => {
       <div>
         <MenuItems />
         <UserBox />
-        <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max max-sm:ml-0 ">
+        <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max max-sm:ml-0 max-sm:w-[100vw] ">
           {feedPosts.map((item, index) => {
             return (
               <FeedPosts

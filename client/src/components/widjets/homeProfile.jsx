@@ -63,7 +63,7 @@ const HomeProfile = () => {
       </div>
       
       <div className="w-[100%] mr-0 flex flex-wrap justify-center text-white h-min p-5 max-sm:p-0">
-      <div className="flex justify-around gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-0 max-sm:mt-10">
+      <div className="flex justify-start gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-1 max-sm:mt-10">
       {feedPosts.map((item,index)=>{
         if(user._id===item.userId){
         return <Posts key={index} picturePath={item.picturePath} postUserId={item.userId} likes={item.likes} id={item._id}/>

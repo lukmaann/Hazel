@@ -27,31 +27,21 @@ const MenuItems = () => {
 
   return (
     <aside className={`${Styles.menuaside} `}>
-      <Logo  />
+      <Logo />
       <FriendsBox />
-      <div className={`${Styles.menubox}`}>
-
+      <div className={`${Styles.menubox} `}>
         <div className={Styles.menuitems}>
-          <ExploreIcon onClick={() => navigate("/explore")}/>
+          <ExploreIcon onClick={() => navigate("/explore")} />
           <button onClick={() => navigate("/explore")}>Explore</button>
         </div>
 
+       
         <div className={Styles.menuitems}>
-          <AddIcon onClick={() => {
-              user.firstName ? setModal(true) : setUsernameModal(true);
-            }} />
-          <button
+          <EditIcon
             onClick={() => {
-              user.firstName ? setModal(true) : setUsernameModal(true);
-            }}
-          >
-            Create Post
-          </button>
-        </div>
-        <div className={Styles.menuitems}>
-          <EditIcon onClick={() => {
               navigate("/editprofile");
-            }}/>
+            }}
+          />
           <button
             onClick={() => {
               navigate("/editprofile");
@@ -61,11 +51,27 @@ const MenuItems = () => {
           </button>
         </div>
         <div className={Styles.menuitems}>
-          {/* <HomeIcon /> */}
+          <AddIcon
+            onClick={() => {
+              user.firstName ? setModal(true) : setUsernameModal(true);
+            }}
+          />
+          <button
+            onClick={() => {
+              user.firstName ? setModal(true) : setUsernameModal(true);
+            }}
+          >
+            Create Post
+          </button>
+        </div>
+        <div className={Styles.menuitems}>
           <img
             src={user.profile || Avatar}
-            className="w-7 rounded-full h-7"
+            className="w-7 rounded-full h-7 "
             alt=""
+            onClick={() => {
+              navigate("/homepage");
+            }}
           />
           <button
             onClick={() => {
@@ -75,8 +81,10 @@ const MenuItems = () => {
             Profile
           </button>
         </div>
-        <div className={` ${Styles.menuitems} m-3 w-11/12 items-center hover:bg-gray-100 h-10 gap-4 rounded-l p-1 flex justify-start` }>
-          <ArrowOutwardIcon onClick={logout}/>
+        <div
+          className={` ${Styles.menuitems}   items-center  h-10  rounded-l flex`}
+        >
+          <ArrowOutwardIcon onClick={logout} />
           <button onClick={logout}>LogOut</button>
         </div>
       </div>

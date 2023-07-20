@@ -34,19 +34,20 @@ const Posts = (props) => {
         setOver(true);
       }}
       onMouseOut={() => setOver(false)}
-      className="h-[250px] w-[250px] m-1  border rounded-s max-sm:w-[100px] max-sm:h-[100px] hover:border-black border-gray-500"
+      className="h-[250px] w-[250px]  rounded-s max-sm:w-[110px] max-sm:h-[100px] hover:border-black border-gray-500"
     >
-      <div className="w-[100%] h-[85%]">
+      <div className="w-[100%] h-[85%] max-sm:h-[100%]">
         <img src={picturePath} alt="" className="h-[100%] w-[100%] " />
       </div>
-      <div className="px-1 flex items-center justify-between h-[15%]">
+      <div className="px-1 flex items-center justify-between h-[15%] ">
         <div className="flex">
-          <Heart className="w-5 max-sm:w-2" onClick={() => {}} isActive={true} />
-          <h1 className="text-black px-2 max-sm:text-sm">{likeCount}</h1>
+          <Heart className="w-5 max-sm:w-2 max-sm:hidden" onClick={() => {}} isActive={true} />
+          <h1 className="text-black px-2 max-sm:hidden">{likeCount}</h1>
         </div>
         
         {over && postUserId === loggedUser._id && (
-          <DeleteIcon onClick={delPost} className="text-black hover:cursor-pointer" />
+
+          <DeleteIcon onClick={delPost} className="text-black hover:cursor-pointer " />
         )}
       </div>
     </div>
