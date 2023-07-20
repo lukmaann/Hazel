@@ -58,6 +58,22 @@ const FeedPosts = (props) => {
     });
   };
 
+  const myconnection=Users.filter((item)=>{
+    return loggedUser.friends.includes(item._id)
+  })
+  
+  let friendliked=myconnection.filter((item)=>{
+    return likes[item._id]
+  })
+
+  if(friendliked.length==0){
+    friendliked=[{firstName:"lukmaan"}]
+  }
+ 
+  
+
+
+
   return (
     <div className="p-10 flex flex-wrap  h-min  bg-white ">
       <div className={"w-[35vw] h-[90%]  bg-white rounded"}>
@@ -109,8 +125,9 @@ const FeedPosts = (props) => {
             </div>
 
             <h2 className=" w-[100%]  mt-1 text-sm font-bold px-10 select-none">
-              {likecounts} Likes
+              {likecounts} Likes , also liked by {friendliked[0].firstName}
             </h2>
+          
             <div className=" h-min overflow-y-auto  flex noscrollbar">
               <h1 className="px-10 font-thin text-sm">
                 <span
@@ -132,7 +149,9 @@ const FeedPosts = (props) => {
                   {moreCaption ? "Show less ↗" : "Show more..."}
                 </span>
               </h1>
+              
             </div>
+
           </div>
         </div>
       </div>
