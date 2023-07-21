@@ -70,48 +70,46 @@ export const useUserStore = create(
 );
 
 export const usePostStore = create(
-  persist(
-    (set) => ({
-      feedPosts: [],
-      setPosts: (data) => set({ feedPosts: data }),
-      commentPost: ({ postId, comment }) =>
-        set((state) => ({
-          ...state,
-          feedPosts: state.feedPosts.map((item) => {
-            if (item._id === postId) {
-              return {
-                ...item,
-                comments: [...item.comments, comment],
-              };
-            } else {
-              return item;
-            }
-          }),
-        })),
-      likePost: (post) =>
-        set((state) => ({
-          feedPosts: state.feedPosts.map((item) => {
-            if (post._id === item._id) {
-              return {
-                ...item,
-                likes: post.likes,
-              };
-            } else {
-              return item;
-            }
-          }),
-        })),
+  (set) => ({
+    feedPosts: [],
+    setPosts: (data) => set({ feedPosts: data }),
+    commentPost: ({ postId, comment }) =>
+      set((state) => ({
+        ...state,
+        feedPosts: state.feedPosts.map((item) => {
+          if (item._id === postId) {
+            return {
+              ...item,
+              comments: [...item.comments, comment],
+            };
+          } else {
+            return item;
+          }
+        }),
+      })),
+    likePost: (post) =>
+      set((state) => ({
+        feedPosts: state.feedPosts.map((item) => {
+          if (post._id === item._id) {
+            return {
+              ...item,
+              likes: post.likes,
+            };
+          } else {
+            return item;
+          }
+        }),
+      })),
 
-        delPost:(payload)=>set((state)=>({
-          feedPosts:state.feedPosts.filter((posts)=>{
-            return posts._id!==payload
-          })
-        }))
-    }),
-    {
-      name: "Posts",
-    }
-  )
+      delPost:(payload)=>set((state)=>({
+        feedPosts:state.feedPosts.filter((posts)=>{
+          return posts._id!==payload
+        })
+      }))
+  }),
+  
+    
+
 );
 
 

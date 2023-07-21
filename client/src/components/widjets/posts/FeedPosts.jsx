@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Heart from "react-heart";
+import Avatar from "../../../assets/profile.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../comment/CommentBox";
@@ -79,7 +80,7 @@ const FeedPosts = (props) => {
       <div className={"w-[35vw] h-[90%]  bg-white rounded max-sm:w-[100vw] "}>
         <div className="w-[100%] h-[10%]  flex  items-center p-4 ">
           <img
-            src={profile}
+            src={profile||Avatar}
             className=" h-10 border-2 w-10  mr-4 border-gray-300 rounded-full "
             alt="profile img"
           />
