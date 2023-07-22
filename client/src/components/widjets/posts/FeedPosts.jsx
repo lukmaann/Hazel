@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Heart from "react-heart";
-import Avatar from "../../../assets/profile.png";
+import Avatar from "../../../assets/profile.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../comment/CommentBox";
@@ -59,24 +59,28 @@ const FeedPosts = (props) => {
     });
   };
 
-  const myconnection = Users.filter((item) => {
-    return loggedUser.friends.includes(item._id);
-  });
+  const myconnection=Users.filter((item)=>{
+    return loggedUser.friends.includes(item._id)
+  })
+  
+  let friendliked=myconnection.filter((item)=>{
+    return likes[item._id]
+  })
 
-  let friendliked = myconnection.filter((item) => {
-    return likes[item._id];
-  });
-
-  if (friendliked.length == 0) {
-    friendliked = [{ firstName: "lukmaan" }];
+  if(friendliked.length==0){
+    friendliked=[{username:"lukmaan"}]
   }
+ 
+  
+
+
 
   return (
     <div className="p-10 flex flex-wrap  h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
       <div className={"w-[35vw] h-[90%]  bg-white rounded max-sm:w-[100vw] "}>
         <div className="w-[100%] h-[10%]  flex  items-center p-4 ">
           <img
-            src={profile || Avatar}
+            src={profile||Avatar}
             className=" h-10 border-2 w-10  mr-4 border-gray-300 rounded-full "
             alt="profile img"
           />
@@ -122,10 +126,9 @@ const FeedPosts = (props) => {
             </div>
 
             <h2 className=" w-[100%]  mt-1 text-sm font-bold px-10 select-none">
-              {likecounts} Likes ,{" "}
-              {likecounts >= 2 && `also liked by ${friendliked[0].firstName}`}
+              {likecounts} Likes , {likeCount>1 && `also liked by ${friendliked[0].username}`}
             </h2>
-
+          
             <div className=" h-min overflow-y-auto  flex noscrollbar">
               <h1 className="px-10 font-thin text-sm">
                 <span
@@ -142,11 +145,14 @@ const FeedPosts = (props) => {
                     setMoreCaption(!moreCaption);
                   }}
                   className="text-gray-500 "
-                >
-                  <br></br> {moreCaption ? "Show less ↗" : "Show more..."}
+                ><br></br>
+                  {" "}
+                  {moreCaption ? "Show less ↗" : "Show more..."}
                 </span>
               </h1>
+              
             </div>
+
           </div>
         </div>
       </div>

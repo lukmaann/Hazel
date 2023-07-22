@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import EditIcon from "@mui/icons-material/Edit";
+import LogoutIcon from '@mui/icons-material/Logout';
 import ExploreIcon from "@mui/icons-material/Explore";
 import AddIcon from "@mui/icons-material/Add";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/store";
 import PopUp from "./PopUp";
@@ -83,7 +83,7 @@ const MenuItems = () => {
         <div
           className={` ${Styles.menuitems}   items-center  h-10  rounded-l flex`}
         >
-          <ArrowOutwardIcon onClick={logout} />
+          <LogoutIcon onClick={logout} />
           <button onClick={logout}>LogOut</button>
         </div>
       </div>
