@@ -14,7 +14,7 @@ const UserPage=()=>{
 
 
     const navigate=useNavigate();
-    if(userName===loggedUser.firstName){
+    if(userName===loggedUser.username){
         navigate('/homepage')
     }
 

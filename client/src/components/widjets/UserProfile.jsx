@@ -60,7 +60,7 @@ const UserProfile = (props) => {
       ></Toaster>
 
       <div className="w-11/12 h-1/3 flex items-center border-b">
-        <div className=" rounded-full h-32 w-32 max-sm:h-[80px] max-sm:w-[80px]">
+        <div className=" rounded-full h-32 w-32 max-sm:h-[20vw] max-sm:w-[20vw]">
           <img
             className="rounded-full h-32 w-32 hover:cursor-pointer max-sm:h-[100%] max-sm:w-[100%] hover:border-blue-400 border-4"
             src={user.profile || Avatar}
@@ -72,7 +72,7 @@ const UserProfile = (props) => {
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>
-            <button onClick={makeConnection}>
+            <button onClick={makeConnection} className="max-[350px]:fixed max-[350px]:top-[110px] max-[350px]:right-10">
               {isfriend ? <PersonRemoveIcon /> : <PersonAddAlt1Icon />}
             </button>
           </div>
@@ -87,7 +87,7 @@ const UserProfile = (props) => {
             </button>
           )}
 
-          <div className="flex gap-4 ">
+          <div className="flex gap-4 w-[55vw]">
           <h1 className="text-xl mt-3 font-normal max-sm:text-xs max-sm:font-bold">
               {friends.length} Connections{" "}
             </h1>
