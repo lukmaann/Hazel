@@ -12,7 +12,7 @@ const FriendsBox = () => {
       {Users.map((item, index) => {
         if (loggedUser.friends.includes(item._id)) {
           
-          return <FriendsUnit key={index} img={item.profile} name={item.firstName} />;
+          return <FriendsUnit key={index} img={item.profile} name={item.username} />;
         }
         
       })}
