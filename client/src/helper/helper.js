@@ -2,7 +2,8 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 // eslint-disable-next-line no-undef
-axios.defaults.baseURL = "https://hazelsocialappbackend.onrender.com/" ||"http://localhost:3000";
+axios.defaults.baseURL =
+  "https://hazelsocialappbackend.onrender.com/" || "http://localhost:3000";
 
 export const getUsername = async () => {
   const token = localStorage.getItem("token");
@@ -32,8 +33,6 @@ export const getUser = async (username) => {
 
 export const registerUser = async (credentials) => {
   try {
-    // console.log(credentials);
-
     const {
       data: { msg },
       status,
@@ -208,25 +207,22 @@ export const addFriends = async (value) => {
   }
 };
 
-export const deletepost= async (id)=>{
+export const deletepost = async (id) => {
   try {
-    
-    const {data}=await axios.post('/api/delpost',{id});
-    Promise.resolve(data)
+    const { data } = await axios.post("/api/delpost", { id });
+    Promise.resolve(data);
   } catch (error) {
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-}
+};
 
-export const getAllUsers=async ()=>{
+export const getAllUsers = async () => {
   try {
-
-    const {data,status}= await axios.get('/api/users');
-    if(status===200){
-      return Promise.resolve(data)
+    const { data, status } = await axios.get("/api/users");
+    if (status === 200) {
+      return Promise.resolve(data);
     }
-    
   } catch (error) {
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-}
+};

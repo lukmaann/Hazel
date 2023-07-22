@@ -1,4 +1,4 @@
-import Avatar from "../../assets/profile.png";
+import Avatar from "../../assets/profile2.png";
 import year from "../../helper/date";
 import Styles from "../../styles/username.module.css";
 import { useFormik } from "formik";

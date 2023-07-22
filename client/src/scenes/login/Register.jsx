@@ -1,6 +1,6 @@
 import year from "../../helper/date";
 import { Link, useNavigate } from "react-router-dom";
-import Avatar from "../../assets/profile.png";
+import Avatar from "../../assets/profile2.png";
 import Styles from "../../styles/username.module.css";
 import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
@@ -82,7 +82,7 @@ const Register = () => {
               <input
                 type="text"
                 {...formik.getFieldProps("username")}
-                className={Styles.textbox}
+                className={`${Styles.textbox} `}
                 autoComplete="OFF"
                 placeholder="Username"
               />
