@@ -34,7 +34,7 @@ const Posts = (props) => {
         setOver(true);
       }}
       onMouseOut={() => setOver(false)}
-      className="h-[250px] w-[250px]  rounded-s max-sm:w-[110px] max-sm:h-[100px] hover:border-black border-gray-500"
+      className="h-[250px] w-[250px] relative rounded-s max-sm:w-[110px] max-sm:h-[100px] hover:border-black border-gray-500"
     >
       <div className="w-[100%] h-[85%] max-sm:h-[100%]">
         <img src={picturePath} alt="" className="h-[100%] w-[100%] " />
@@ -47,7 +47,7 @@ const Posts = (props) => {
         
         {over && postUserId === loggedUser._id && (
 
-          <DeleteIcon onClick={delPost} className="text-black hover:cursor-pointer " />
+          <DeleteIcon onClick={delPost} className="text-black hover:cursor-pointer max-sm:absolute max-sm:top-1 max-sm:text-gray-400 " />
         )}
       </div>
     </div>
