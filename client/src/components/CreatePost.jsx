@@ -1,4 +1,4 @@
-import Avatar from "../assets/Upload.png";
+import Avatar from "../assets/upload.png"
 import { useFormik } from "formik";
 import convertToBase64 from "../helper/convert";
 import { useState } from "react";
