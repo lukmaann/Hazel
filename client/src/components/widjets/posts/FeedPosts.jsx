@@ -87,11 +87,11 @@ const FeedPosts = (props) => {
           <div className="h-12 w-20">
             <button
               onClick={() => navigate("/user", { state: { id: firstName } })}
-              className="font-bold font-sans hover:text-gray-500 cursor-pointer"
+              className="font-bold font-sans lowercase hover:text-gray-500 cursor-pointer"
             >
               {firstName}
             </button>
-            <h6 className="font-thin text-xs">{location}</h6>
+            <h6 className="font-thin lowercase text-xs">{location}</h6>
           </div>
         </div>
         <div className="h-[90%] w-[100%]   bg-white flex text-white justify-center items-center">
