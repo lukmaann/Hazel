@@ -66,7 +66,7 @@ const MenuItems = () => {
         <div className={Styles.menuitems}>
           <img
             src={user.profile || Avatar}
-            className="w-7 rounded-full h-7 "
+            className="w-7 rounded-full h-7 border-2 border-black "
             alt=""
             onClick={() => {
               navigate("/homepage");
