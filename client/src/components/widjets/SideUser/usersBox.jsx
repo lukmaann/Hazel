@@ -16,11 +16,11 @@ const UserBox = () => {
     });
   }, []);
 
-  return <div className=" px-10  border-black  pb-2 overflow-x-auto bg-white  w-[80%] flex  justify-start items-end  items-center ml-[20%]  h-[20vh] max-sm:w-[100vw] max-sm:ml-0  max-sm:p-0 noscrollbar ">
+  return <div className=" px-10  border-black  pb-2 overflow-x-auto   w-[80%] flex  justify-start items-end  items-center ml-[20%] z-10 h-[20vh] max-sm:w-[100vw] max-sm:ml-0  max-sm:p-0 noscrollbar ">
     {
       Users.map((item,index)=>{
         if(loggedUser._id!==item._id){
-          return <UsersProfile key={index} img={item.profile} name={item.firstName}/>
+          return <UsersProfile key={index} img={item.profile} name={item.username}/>
         }
 
       })

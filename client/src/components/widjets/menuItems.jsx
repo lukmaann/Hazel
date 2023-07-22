@@ -9,7 +9,6 @@ import PopUp from "./PopUp";
 import Styles from "../Components.module.css";
 
 // ------------------------components-----------
-import Logo from "./logo";
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
 import FriendsBox from "./friends/friendsBox";
