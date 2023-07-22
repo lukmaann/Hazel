@@ -126,7 +126,7 @@ const FeedPosts = (props) => {
             </div>
 
             <h2 className=" w-[100%]  mt-1 text-sm font-bold px-10 select-none">
-              {likecounts} Likes , {likeCount>1 && `also liked by ${friendliked[0].username}`}
+              {likecounts} {likeCount>1?"Likes":"Like"}  {likeCount>1 && `, also liked by ${friendliked[0].username}`}
             </h2>
           
             <div className=" h-min overflow-y-auto  flex noscrollbar">
