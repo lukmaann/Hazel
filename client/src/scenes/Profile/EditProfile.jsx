@@ -10,10 +10,11 @@ import PopUp from "../../components/widjets/PopUp";
 import { useModal } from "../../store/store";
 import CreatePost from "../../components/CreatePost";
 import { useUserStore } from "../../store/store";
-
+import { useNavigate } from "react-router-dom";
 import { updateUser } from "../../helper/helper";
 
 const EditProfile = () => {
+  const navigate=useNavigate()
   const { modal, setModal } = useModal((state) => state);
   const user = useUserStore((state) => state.user);
   const updateUserData = useUserStore((state) => state.updateUserData);
@@ -40,6 +41,7 @@ const EditProfile = () => {
       updateUser(value);
 
       updateUserData(value);
+      navigate('/homepage')
     },
   });
 

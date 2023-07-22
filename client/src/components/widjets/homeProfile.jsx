@@ -18,7 +18,7 @@ const HomeProfile = () => {
     <div className="ml-64 flex flex-col items-center p-3 w-10/12 max-sm:ml-0 max-sm:w-[100vw]">
       <div className="w-11/12 h-1/3 flex items-center flex-wrap  border-b max-sm:w-[100%] max-sm:h-[20%]">
        
-       <div className=" rounded-full h-32 w-32 max-sm:h-[80px] max-sm:w-[80px]">
+       <div className=" rounded-full h-32 w-32 max-sm:h-[20vw] max-sm:w-[20vw] ">
           <img
             className="rounded-full h-32 w-32 hover:cursor-pointer max-sm:h-[100%] max-sm:w-[100%] hover:border-blue-400 border-4"
             src={user.profile || Avatar}
@@ -43,7 +43,7 @@ const HomeProfile = () => {
             </button>
           )}
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 w-[55vw]">
             <h1 className="text-xl mt-3 font-normal max-sm:text-sm max-sm:font-bold">
               {user.friends.length} Connections 
             </h1>

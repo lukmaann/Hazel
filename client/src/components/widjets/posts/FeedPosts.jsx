@@ -45,7 +45,7 @@ const FeedPosts = (props) => {
   Users.map((item) => {
     if (item._id === postUserId) {
       profile = item.profile;
-      firstName = item.firstName;
+      firstName = item.username;
     }
   });
 
@@ -126,7 +126,7 @@ const FeedPosts = (props) => {
             </div>
 
             <h2 className=" w-[100%]  mt-1 text-sm font-bold px-10 select-none">
-              {likecounts} Likes , also liked by {friendliked[0].firstName}
+              {likecounts} Likes , {likecounts>=2 && `also liked by ${friendliked[0].firstName}`}
             </h2>
           
             <div className=" h-min overflow-y-auto  flex noscrollbar">
