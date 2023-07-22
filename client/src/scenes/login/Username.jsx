@@ -61,7 +61,7 @@ const Username = () => {
                 Lets Go{" "}
               </button>
             </div>
-            <div className="text-center  mt-32 bg-black rounded-xl py-1  text-white">
+            <div className="text-center  mt-32 bg-black rounded-xl py-1 w-[70%] text-white">
               <span>
                 Not a Member?
                 <Link to="/register" className=" text-red-500 px-2 hover:underline  font-bold">
