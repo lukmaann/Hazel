@@ -26,8 +26,8 @@ const MenuItems = () => {
   };
 
   return (
-    <aside className={`${Styles.menuaside} `}>
-      <Logo />
+    <aside className={`${Styles.menuaside} z-20`}>
+      
       <FriendsBox />
       <div className={`${Styles.menubox} `}>
         <div className={Styles.menuitems}>

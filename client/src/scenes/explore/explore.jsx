@@ -6,6 +6,7 @@ import CreatePost from "../../components/CreatePost";
 import FeedPosts from "../../components/widjets/posts/FeedPosts";
 import { usePostStore } from "../../store/store";
 import UserBox from "../../components/widjets/SideUser/usersBox";
+import Logo from "../../components/widjets/logo";
 const ExplorePage = () => {
   const feedPosts = usePostStore((state) => state.feedPosts);
 
@@ -15,6 +16,7 @@ const ExplorePage = () => {
   } else {
     return (
       <div>
+      <Logo />
         <MenuItems />
 
         <UserBox />
