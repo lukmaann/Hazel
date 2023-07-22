@@ -54,7 +54,7 @@ const EditProfile = () => {
       <MenuItems />
 
       <div className="flex items-center justify-center max-sm:w-[100vw]">
-        <div className={` h-[70vh] max-sm:mt-20`}>
+        <div className={` h-[100vh] max-sm:mt-20`}>
           <div className="title flex flex-col items-center">
             <h4 className="text-4xl font-bold">Edit Profile</h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
