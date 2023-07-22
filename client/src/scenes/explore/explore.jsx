@@ -11,11 +11,12 @@ const ExplorePage = () => {
 
   const { modal, setModal } = useModal((state) => state);
   if (feedPosts == null) {
-    return <h1 className="flex justify-center p-10">Loading...</h1>;
+    return <h1 className="flex justify-center p-10 ">Loading...</h1>;
   } else {
     return (
       <div>
         <MenuItems />
+
         <UserBox />
         <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max max-sm:ml-0 max-sm:w-[100vw] ">
           {feedPosts.map((item, index) => {
