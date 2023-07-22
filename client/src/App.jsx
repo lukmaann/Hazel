@@ -18,7 +18,7 @@ import UserProfile from "./components/userPage";
 const Routes = createBrowserRouter([
   {
     path: "/",
-    element: <>lukmaan</>,
+    element: <Username/>,
   },
   {
     path: "/password",
