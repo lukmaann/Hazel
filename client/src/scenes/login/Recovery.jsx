@@ -72,7 +72,7 @@ const resendOtp=()=>{
       <div className="flex items-center justify-center h-screen">
         <div className={`${Styles.glass} ${Style.logincontainer} rounded-lg`}>
           <div className="title flex flex-col py-10 items-center">
-            <h4 className="text-4xl font-bold ">Recover</h4>
+            <h4 className="text-4xl text-black font-bold ">Recover</h4>
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
               Enter 6 digit OTP sent to your email
             </span>
