@@ -46,7 +46,6 @@ const Username = () => {
           </div>
           <form className="py-1" onSubmit={formik.handleSubmit}>
             <div className="profile flex justify-center py-4">
-              {/* <img className={Styles.profile_img} src={Avatar} alt="Avatar" /> */}
             </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
               <input
