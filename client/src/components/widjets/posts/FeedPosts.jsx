@@ -98,7 +98,7 @@ const FeedPosts = (props) => {
           <img
             src={picturePath}
             className={
-              "h-[100%] object-cover rounded-lg select-none   border-black w-[90%] max-sm:w-[100%] max-sm:rounded-none"
+              "h-[100%] object-cover rounded-lg select-none   border-black w-[90%] "
             }
             alt=""
           />
