@@ -5,6 +5,6 @@
 
 @media (max-width:600px){
     .logincontainer{
-        @apply rounded-lg w-[90vw] h-[100vh] flex flex-col justify-center items-center border-0
+        @apply rounded-lg w-[90vw] h-[100vh] flex flex-col justify-center items-center border-0 
     }
 }
