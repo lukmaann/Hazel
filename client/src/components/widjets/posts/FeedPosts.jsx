@@ -86,7 +86,7 @@ const FeedPosts = (props) => {
           />
           <div className="h-12 w-20">
             <button
-              onClick={() => navigate("/user", { state: { id: firstName } })}
+              onClick={() => firstName===loggedUser.username?navigate("/homepage"):navigate("/user", { state: { id: firstName } })}
               className="font-bold font-sans lowercase hover:text-gray-500 cursor-pointer"
             >
               {firstName}

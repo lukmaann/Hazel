@@ -1,22 +1,18 @@
 import useFecth from "../hooks/fecth.hooks"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import MenuItems from "../components/widjets/menuItems";
 import UserProfile from "./widjets/UserProfile";
-import { useUserStore } from "../store/store";
 
 const UserPage=()=>{
     const location=useLocation();
-    const loggedUser=useUserStore(state=>state.user);
     const userName=location.state.id
     const [{apiData,isLoading,serverError}]=useFecth(`user/${userName}`);
+    
     
 
 
 
-    const navigate=useNavigate();
-    if(userName===loggedUser.username){
-        navigate('/homepage')
-    }
+   
 
     
 

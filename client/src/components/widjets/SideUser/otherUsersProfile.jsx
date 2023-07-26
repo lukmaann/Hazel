@@ -18,7 +18,7 @@ const UsersProfile = (props) => {
           alt=""
         />
       </div>
-      <t className="font-semibold text-xs  mt-2"> {name}</t>
+      <span className="font-semibold text-xs  mt-2"> {name}</span>
     </div>
   );
 };
