@@ -22,6 +22,7 @@ export const verifyUser = async (req, res, next) => {
 export const register = async (req, res) => {
   try {
     const { username, password, email, profile } = req.body;
+    
 
     // -----------check the user exists in db-----------
     const existsUser = new Promise((resolve, reject) => {

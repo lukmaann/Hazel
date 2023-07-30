@@ -3,3 +3,6 @@ client/node_modules
 client/.env
 server/.env
 
+
+# Local Netlify folder
+.netlify

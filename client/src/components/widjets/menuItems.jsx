@@ -84,7 +84,7 @@ const MenuItems = () => {
           className={` ${Styles.menuitems}   items-center  h-10  rounded-l flex`}
         >
           <LogoutIcon onClick={logout} />
-          <button onClick={logout}>LogOut</button>
+          <button  onClick={logout}>LogOut</button>
         </div>
       </div>
       <PopUp

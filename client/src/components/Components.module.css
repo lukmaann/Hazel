@@ -9,7 +9,7 @@
 }
 
 .menuaside {
-  @apply fixed  bottom-0 h-[100vh] bg-white text-black pl-3 flex flex-col w-1/5 h-screen;
+  @apply fixed  bottom-0 h-[100vh] bg-white text-black  flex flex-col w-1/5 h-screen;
 }
 
 .menubox {
@@ -26,11 +26,11 @@
   }
 
   .menubox {
-    @apply flex w-[100%] justify-between items-center;
+    @apply flex w-[100%]  justify-between items-center ;
   }
   
   .menuitems{
-    @apply w-[40px]
+    @apply w-[20%]
   }
   .menuitems button {
     @apply hidden;

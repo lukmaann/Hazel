@@ -109,7 +109,7 @@ const UserProfile = (props) => {
 
       <div className="w-[100%] mr-0 flex flex-wrap justify-center text-white h-min p-5 max-sm:p-0">
 
-      <div className="flex justify-items-start gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-2 max-sm:h-[100vh] max-sm:mt-10">
+      <div className="flex justify-items-start gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-0 max-sm:h-[100vh] max-sm:mt-0">
 
           {feedPosts.map((item, index) => {
             if (user._id === item.userId) {
