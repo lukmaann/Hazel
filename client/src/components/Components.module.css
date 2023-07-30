@@ -26,11 +26,11 @@
   }
 
   .menubox {
-    @apply flex w-[100%]  justify-between items-center ;
+    @apply flex w-[100%]  justify-evenly items-center ;
   }
   
   .menuitems{
-    @apply w-[20%]
+    @apply w-[10%]
   }
   .menuitems button {
     @apply hidden;
