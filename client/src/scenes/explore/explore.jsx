@@ -8,6 +8,7 @@ import { usePostStore } from "../../store/store";
 import UserBox from "../../components/widjets/SideUser/usersBox";
 import Logo from "../../components/widjets/logo";
 import SuggestionBox from "../../components/widjets/SideUser/suggestionBox";
+import NewUsersBox from "../../components/widjets/SideUser/newUsersBox";
 // import { Hidden } from "@mui/material";
 const ExplorePage = () => {
   const feedPosts = usePostStore((state) => state.feedPosts);
@@ -26,9 +27,23 @@ const ExplorePage = () => {
         <UserBox />
         
         <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max max-sm:ml-0 max-sm:w-[100vw] ">
-        {/* <SuggestionBox/> */}
+        {feedPosts.slice(2,-1).map((item, index) => {
+            return (
+              <FeedPosts
+                key={index}
+                caption={item.caption}
+                likes={item.likes}
+                picturePath={item.picturePath}
+                comments={item.comments}
+                postId={item._id}
+                postUserId={item.userId}
+                location={item.location}
+              />
+            );
+          })}
+        <NewUsersBox/>
         
-          {feedPosts.slice(0,-1).map((item, index) => {
+          {feedPosts.slice(0,2).map((item, index) => {
             return (
               <FeedPosts
                 key={index}

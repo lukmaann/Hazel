@@ -15,7 +15,7 @@ const SuggestedUsers=(props)=>{
     const updateLogfriends=useUserStore((state)=>state.updateFriends)
 
     
-    const {name,connections,profile,id}=props
+    const {name,connections,profile,id,caption}=props
    
     const filteredconnection=connections.filter((item)=>{
         return loggedUser.friends.includes(item)
@@ -44,7 +44,8 @@ const SuggestedUsers=(props)=>{
     <Toaster/>
     <img src={profile} onClick={()=>{navigate('/user',{state:{id:name}})}} className="w-[60%] h-[50%] rounded-full m-2  border-4 border-gray-100"/>
     <h1 className="font-semibold hover:cursor-pointer" >{name}</h1>
-    {filteredconnection.length>0?<h3 className="text-gray-400">{filteredconnection.length} mutuals</h3>:<h5 className="text-sm text-gray-400"> suggested for you</h5>}
+    {/* {caption } */}
+    {caption=="Newly Joined"?<h3 className="text-red-500 animate-pulse text-sm">New  </h3>: (filteredconnection.length>0?<h3 className="text-gray-400 text-sm">{filteredconnection.length} mutuals</h3>:<h5 className="text-sm text-gray-400"> suggested for you</h5>)}
     <button onClick={makeConnection} className="bg-yellow-400 p-1 w-[80%] rounded-md absolute bottom-1 my-2">Connect</button>
     
 
