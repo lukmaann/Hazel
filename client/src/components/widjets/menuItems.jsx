@@ -11,7 +11,7 @@ import Styles from "../Components.module.css";
 // ------------------------components-----------
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
-import FriendsBox from "./friends/friendsBox";
+// import FriendsBox from "./friends/friendsBox";
 
 const MenuItems = () => {
   const user = useUserStore((state) => state.user);
@@ -27,7 +27,7 @@ const MenuItems = () => {
   return (
     <aside className={`${Styles.menuaside} z-20`}>
       
-      <FriendsBox />
+      {/* <FriendsBox /> */}
       <div className={`${Styles.menubox} `}>
         <div className={Styles.menuitems}>
           <ExploreIcon onClick={() => navigate("/explore")} />

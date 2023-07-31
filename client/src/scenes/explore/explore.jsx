@@ -7,6 +7,8 @@ import FeedPosts from "../../components/widjets/posts/FeedPosts";
 import { usePostStore } from "../../store/store";
 import UserBox from "../../components/widjets/SideUser/usersBox";
 import Logo from "../../components/widjets/logo";
+import SuggestionBox from "../../components/widjets/SideUser/suggestionBox";
+// import { Hidden } from "@mui/material";
 const ExplorePage = () => {
   const feedPosts = usePostStore((state) => state.feedPosts);
 
@@ -16,12 +18,17 @@ const ExplorePage = () => {
   } else {
     return (
       <div>
-      <Logo />
+      
+      <Logo/>
+      
         <MenuItems />
 
         <UserBox />
+        
         <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max max-sm:ml-0 max-sm:w-[100vw] ">
-          {feedPosts.map((item, index) => {
+        {/* <SuggestionBox/> */}
+        
+          {feedPosts.slice(0,-1).map((item, index) => {
             return (
               <FeedPosts
                 key={index}
@@ -35,6 +42,24 @@ const ExplorePage = () => {
               />
             );
           })}
+          
+          <SuggestionBox/>
+          
+          {feedPosts.slice(-1).map((item, index) => {
+            return (
+              <FeedPosts
+                key={index}
+                caption={item.caption}
+                likes={item.likes}
+                picturePath={item.picturePath}
+                comments={item.comments}
+                postId={item._id}
+                postUserId={item.userId}
+                location={item.location}
+              />
+            );
+          })}
+          <h1 className="bg-white  text-xl p-5 z-10 ">Latest Post</h1>
         </div>
         <PopUp openPopup={modal} setOpenPopup={setModal} title="Create Post">
           <CreatePost />
