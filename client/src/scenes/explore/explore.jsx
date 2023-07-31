@@ -4,30 +4,129 @@ import { useModal } from "../../store/store";
 import CreatePost from "../../components/CreatePost";
 
 import FeedPosts from "../../components/widjets/posts/FeedPosts";
-import { usePostStore } from "../../store/store";
+
 import UserBox from "../../components/widjets/SideUser/usersBox";
 import Logo from "../../components/widjets/logo";
 import SuggestionBox from "../../components/widjets/SideUser/suggestionBox";
 import NewUsersBox from "../../components/widjets/SideUser/newUsersBox";
-// import { Hidden } from "@mui/material";
+import useFecth from "../../hooks/fecthpost.hooks";
+import { Skeleton } from "@mui/material";
 const ExplorePage = () => {
-  const feedPosts = usePostStore((state) => state.feedPosts);
+  const [{ postData, postisLoading }] = useFecth();
+  // const feedPosts = usePostStore((state) => state.feedPosts);
+  const feedPosts=postData
+  // const feedPosts = null;
 
   const { modal, setModal } = useModal((state) => state);
-  if (feedPosts == null) {
-    return <h1 className="flex justify-center p-10 ">Loading...</h1>;
-  } else {
+  if (postisLoading ||feedPosts == null) {
     return (
       <div>
       
-      <Logo/>
+        <Skeleton variant="rectangular" height={40} width={100} className="m-2  sm:hidden "/>
+        <div className="flex ml-[20vw] mt-0 max-sm:ml-0  overflow-hidden ">
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          
+        </div>
+        <div className="ml-[20vw] m-10 max-sm:ml-0 ">
+          <div className="flex gap-1 ml-[5vw] ">
+            <Skeleton variant="circular" height={50} width={50} />
+            <div>
+              <Skeleton height={20} width={70} />
+              <Skeleton height={20} width={50} />
+            </div>
+          </div>
+          <div>
+            <Skeleton
+              variant="rectangular  "
+              className="m-10 mt-5  w-[35vw] max-sm:w-[90vw] max-sm: max-sm:mx-5"
+              height={500}
+            />
+          </div>
+        </div>
+        <div className="ml-[20vw] m-10 max-sm:ml-0 ">
+          <div className="flex gap-1 ml-[5vw] ">
+            <Skeleton variant="circular" height={50} width={50} />
+            <div>
+              <Skeleton height={20} width={70} />
+              <Skeleton height={20} width={50} />
+            </div>
+          </div>
+          <div>
+            <Skeleton
+              variant="rectangular  "
+              className="m-10 mt-5  w-[35vw] max-sm:w-[90vw] max-sm: max-sm:mx-5"
+              height={500}
+            />
+          </div>
+        </div>
+        <div className="ml-[20vw] m-10 max-sm:ml-0 ">
+          <div className="flex gap-1 ml-[5vw] ">
+            <Skeleton variant="circular" height={50} width={50} />
+            <div>
+              <Skeleton height={20} width={70} />
+              <Skeleton height={20} width={50} />
+            </div>
+          </div>
+          <div>
+            <Skeleton
+              variant="rectangular  "
+              className="m-10 mt-5  w-[35vw] max-sm:w-[90vw] max-sm: max-sm:mx-5"
+              height={500}
+            />
+          </div>
+        </div>
+       
       
+
+        <MenuItems />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Logo />
+
         <MenuItems />
 
         <UserBox />
-        
+
         <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max max-sm:ml-0 max-sm:w-[100vw] ">
-        {feedPosts.slice(2,-1).map((item, index) => {
+          {feedPosts.slice(2, -1).map((item, index) => {
             return (
               <FeedPosts
                 key={index}
@@ -41,9 +140,9 @@ const ExplorePage = () => {
               />
             );
           })}
-        <NewUsersBox/>
-        
-          {feedPosts.slice(0,2).map((item, index) => {
+          <NewUsersBox />
+
+          {feedPosts.slice(0, 2).map((item, index) => {
             return (
               <FeedPosts
                 key={index}
@@ -57,9 +156,9 @@ const ExplorePage = () => {
               />
             );
           })}
-          
-          <SuggestionBox/>
-          
+
+          <SuggestionBox />
+
           {feedPosts.slice(-1).map((item, index) => {
             return (
               <FeedPosts

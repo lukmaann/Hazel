@@ -9,9 +9,7 @@ import Style from "./loginpages.module.css"
 // -------------------------store data and custom hooks------------
 import { useAuthStore } from "../../store/store";
 import { useUserStore } from "../../store/store";
-import { usePostStore } from "../../store/store";
 import useFecth from "../../hooks/fecth.hooks";
-import usePostFecth from "../../hooks/fecthpost.hooks";
 
 // ------------------------------helpers------------------
 import { passwordValidate } from "../../helper/validate";
@@ -19,15 +17,11 @@ import { loginUser } from "../../helper/helper";
 
 const Password = () => {
   const setUser = useUserStore((state) => state.setUser);
-  const setPosts = usePostStore((state) => state.setPosts);
 
   const navigate = useNavigate();
   const username = useAuthStore((state) => state.auth.username);
   const [{ isLoading, apiData, serverError }] = useFecth(`user/${username}`);
-  const [{ postData, postisLoading }] = usePostFecth();
-  if (!postisLoading) {
-    setPosts(postData);
-  }
+ 
 
   const formik = useFormik({
     initialValues: {
@@ -44,16 +38,13 @@ const Password = () => {
         let { token } = res;
         localStorage.setItem("token", token);
         setUser(apiData);
+        navigate("/explore")
 
-        if (!postisLoading) {
-          navigate("/explore");
-        } else {
-          toast.loading("Fetching Posts");
-        }
+      
       });
       toast.promise(loginPromise, {
         loading: "loading",
-        success: "loggedd in ",
+        success: "logged in ",
         error: "Password not match",
       });
     },
