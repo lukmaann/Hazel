@@ -36,8 +36,8 @@ const Posts = (props) => {
       onMouseOut={() => setOver(false)}
       className="h-[250px] w-[250px] relative rounded-s max-sm:w-[30vw] max-sm:h-[150px] border border-white"
     >
-      <div className="w-[100%] h-[85%] max-sm:h-[100%]">
-        <img src={picturePath} alt="" className="h-[100%] w-[100%] " />
+      <div className="w-[100%] h-[85%] max-sm:h-[100%] p-2">
+        <img src={picturePath} alt="" className="h-[100%] w-[100%] object-cover rounded-lg" />
       </div>
       <div className="px-1 flex items-center justify-between h-[15%] ">
         <div className="flex">
