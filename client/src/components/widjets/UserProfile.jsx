@@ -7,14 +7,19 @@ import { useState } from "react";
 
 import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
-import { usePostStore, useUserStore } from "../../store/store";
+import { useUserStore } from "../../store/store";
 import { toast, Toaster } from "react-hot-toast";
 const impressions = Math.floor(Math.random() * 10);
+import useFecth from "../../hooks/fecthpost.hooks";
 
 const UserProfile = (props) => {
   const { user } = props;
+  const [{postData}]=useFecth()
 
-  const feedPosts = usePostStore((state) => state.feedPosts);
+  const feedPosts=postData
+
+  // const feedPosts = usePostStore((state) => state.feedPosts);
+  
   const loggedUser = useUserStore((state) => state.user);
   const updateLogfriends = useUserStore((state) => state.updateFriends);
 
@@ -111,7 +116,7 @@ const UserProfile = (props) => {
 
       <div className="flex justify-items-start gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-0 max-sm:h-min max-sm:mt-0">
 
-          {feedPosts.map((item, index) => {
+          {feedPosts===null?<h1>loading</h1>: feedPosts.map((item, index) => {
             if (user._id === item.userId) {
               return (
                 <Posts
