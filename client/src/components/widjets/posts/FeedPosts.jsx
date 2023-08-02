@@ -83,6 +83,7 @@ const FeedPosts = (props) => {
             src={profile||Avatar}
             className=" h-10 border-2 w-10  mr-4 border-gray-300 rounded-full "
             alt="profile img"
+            onDoubleClick={LikePost}
           />
           <div className="h-12 w-20">
             <button
@@ -109,7 +110,7 @@ const FeedPosts = (props) => {
               <Heart
                 isActive={liked}
                 onClick={LikePost}
-                className="w-6 mt-2 ml-4  "
+                className="w-6 mt-2 ml-4 select-none "
               />
 
               <FontAwesomeIcon
