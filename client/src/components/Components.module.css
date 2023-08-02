@@ -30,8 +30,12 @@
   }
   
   .menuitems{
-    @apply w-[10%]
+    @apply w-[10%]  
   }
+  .menuitems:hover{
+    @apply animate-none border-0
+  }
+
   .menuitems button {
     @apply hidden;
   }

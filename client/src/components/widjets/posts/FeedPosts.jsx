@@ -39,6 +39,7 @@ const FeedPosts = (props) => {
   const [liked, setliked] = useState(isLiked);
   const [likecounts, setlikecounts] = useState(likeCount);
 
+
   let profile = "";
   let firstName = "";
 
@@ -70,20 +71,21 @@ const FeedPosts = (props) => {
   if(friendliked.length==0){
     friendliked=[{username:"lukmaan"}]
   }
- 
+
   
+
 
 
 
   return (
     <div className="p-10 flex flex-wrap  h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
       <div className={"w-[35vw] h-[90%]  bg-white rounded max-sm:w-[100vw] "}>
-        <div className="w-[100%] h-[10%]  flex  items-center p-4 ">
+        <div  className="w-[100%] h-[10%]  flex  items-center p-4 ">
           <img
             src={profile||Avatar}
             className=" h-10 border-2 w-10  mr-4 border-gray-300 rounded-full "
             alt="profile img"
-            onDoubleClick={LikePost}
+            
           />
           <div className="h-12 w-20">
             <button
@@ -102,6 +104,7 @@ const FeedPosts = (props) => {
               "h-[100%] object-cover rounded-lg select-none   border-black w-[90%] "
             }
             alt=""
+            
           />
         </div>
         <div className=" h-[20%]">
