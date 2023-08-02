@@ -4,15 +4,20 @@ import { useState } from "react";
 import { useUserStore } from "../../store/store";
 import Posts from "./posts/posts";
 import { usePostStore } from "../../store/store";
+import useFecth from "../../hooks/fecthpost.hooks";
 const impressions = Math.floor(Math.random() * 10);
+
 
 
 const HomeProfile = () => {
   const feedPosts=usePostStore(state=>state.feedPosts)
+  // const setPosts=usePostStore(state=>)
   
   const user = useUserStore((state) => state.user);
   const [click, setclick] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
+  const [{postData}]=useFecth()
+  // const feedPosts=postData
 
   return (
     <div className="ml-64 flex flex-col items-center p-3 w-10/12 max-sm:ml-0 max-sm:w-[100vw]">
@@ -64,7 +69,7 @@ const HomeProfile = () => {
       
       <div className="w-[100%] mr-0  flex flex-wrap  text-white h-min p-5 max-sm:p-0">
       <div className="flex justify-items-start gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-0 h-[100%] max-sm:mt-0">
-      {feedPosts.map((item,index)=>{
+      {feedPosts===null?<>loading</>:feedPosts.map((item,index)=>{
         if(user._id===item.userId){
         return <Posts key={index} picturePath={item.picturePath} postUserId={item.userId} likes={item.likes} id={item._id}/>
 

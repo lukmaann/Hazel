@@ -7,18 +7,18 @@ import { useState } from "react";
 
 import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
-import { useUserStore } from "../../store/store";
+import {usePostStore, useUserStore } from "../../store/store";
 import { toast, Toaster } from "react-hot-toast";
 const impressions = Math.floor(Math.random() * 10);
-import useFecth from "../../hooks/fecthpost.hooks";
+// import useFecth from "../../hooks/fecthpost.hooks";
 
 const UserProfile = (props) => {
   const { user } = props;
-  const [{postData}]=useFecth()
+  // const [{postData}]=useFecth()
 
-  const feedPosts=postData
+  // const feedPosts=postData
 
-  // const feedPosts = usePostStore((state) => state.feedPosts);
+  const feedPosts = usePostStore((state) => state.feedPosts);
   
   const loggedUser = useUserStore((state) => state.user);
   const updateLogfriends = useUserStore((state) => state.updateFriends);

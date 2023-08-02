@@ -44,7 +44,9 @@ const CreatePost = () => {
       createPromise.then((data)=>{
         setModal(false)
         setPosts(data)
+        
         navigate('/explore')
+        
         
         
       

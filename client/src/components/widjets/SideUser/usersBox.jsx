@@ -3,7 +3,8 @@ import { getAllUsers } from "../../../helper/helper";
 import { AllUsersStore, useUserStore } from "../../../store/store";
 import { useEffect } from "react";
 import UsersProfile from "./otherUsersProfile";
-import { LinearProgress } from "@mui/material";
+import { CircularProgress, LinearProgress } from "@mui/material";
+import {Skeleton} from "@mui/material";
 const UserBox = () => {
   const loggedUser = useUserStore((state) => state.user);
 
@@ -16,10 +17,54 @@ const UserBox = () => {
     });
   }, []);
 
+
   return <div className=" px-10  border-black bg pb-2 overflow-x-auto   w-[80%] flex  justify-start items-end  items-center ml-[20%]  h-min max-sm:w-[100vw] max-sm:ml-0  max-sm:p-0 noscrollbar ">
     {
 
-      Users.length===0?<LinearProgress className="mx-auto mt-10 w-[90vw]" />:
+      Users.length===0?<div >
+      <LinearProgress color="inherit" />
+      
+      <div className="flex">
+
+      <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+          <Skeleton
+            variant="circular"
+            height={70}
+            width={70}
+            className=" m-5 min-w-[70px]"
+          />
+      </div>
+
+          </div>:
       Users.map((item,index)=>{
         if(loggedUser.friends.includes(item._id) ){
          

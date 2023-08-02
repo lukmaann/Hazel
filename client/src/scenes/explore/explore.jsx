@@ -1,6 +1,6 @@
 import MenuItems from "../../components/widjets/menuItems";
 import PopUp from "../../components/widjets/PopUp";
-import { useModal } from "../../store/store";
+import { useModal, usePostStore } from "../../store/store";
 import CreatePost from "../../components/CreatePost";
 
 import FeedPosts from "../../components/widjets/posts/FeedPosts";
@@ -13,9 +13,17 @@ import useFecth from "../../hooks/fecthpost.hooks";
 import { Skeleton } from "@mui/material";
 const ExplorePage = () => {
   const [{ postData, postisLoading }] = useFecth();
-  // const feedPosts = usePostStore((state) => state.feedPosts);
-  const feedPosts=postData
+
+  const feedPosts = usePostStore((state) => state.feedPosts);
+  const setPosts=usePostStore((state)=>state.setPosts)
+  // const feedPosts=postData
+  setPosts(postData)
+  // console.log("dff");
   // const feedPosts = null;
+
+  
+
+ 
 
   const { modal, setModal } = useModal((state) => state);
   if (postisLoading ||feedPosts == null) {

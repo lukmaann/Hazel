@@ -7,9 +7,10 @@ import { useFormik } from "formik";
 import Style from "./loginpages.module.css"
 
 // -------------------------store data and custom hooks------------
-import { useAuthStore } from "../../store/store";
+import { useAuthStore, usePostStore } from "../../store/store";
 import { useUserStore } from "../../store/store";
 import useFecth from "../../hooks/fecth.hooks";
+import usePostFecth from "../../hooks/fecthpost.hooks";
 
 // ------------------------------helpers------------------
 import { passwordValidate } from "../../helper/validate";
@@ -20,7 +21,9 @@ const Password = () => {
 
   const navigate = useNavigate();
   const username = useAuthStore((state) => state.auth.username);
+  const setPosts=usePostStore((state)=>state.setPosts)
   const [{ isLoading, apiData, serverError }] = useFecth(`user/${username}`);
+  const [{postData}]=usePostFecth()
  
 
   const formik = useFormik({
@@ -38,6 +41,7 @@ const Password = () => {
         let { token } = res;
         localStorage.setItem("token", token);
         setUser(apiData);
+        await setPosts(postData)
         navigate("/explore")
 
       
