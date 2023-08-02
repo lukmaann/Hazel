@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import MenuItems from "../../components/widjets/menuItems";
 import PopUp from "../../components/widjets/PopUp";
 import { useModal, usePostStore } from "../../store/store";
@@ -11,13 +12,20 @@ import SuggestionBox from "../../components/widjets/SideUser/suggestionBox";
 import NewUsersBox from "../../components/widjets/SideUser/newUsersBox";
 import useFecth from "../../hooks/fecthpost.hooks";
 import { Skeleton } from "@mui/material";
+// import { useEffect, useState } from "react";
 const ExplorePage = () => {
   const [{ postData, postisLoading }] = useFecth();
 
   const feedPosts = usePostStore((state) => state.feedPosts);
-  const setPosts=usePostStore((state)=>state.setPosts)
+  // const setPosts=usePostStore((state)=>state.setPosts)
+  
   // const feedPosts=postData
-  setPosts(postData)
+  // setPosts(postData)
+  
+  
+ 
+
+
   // console.log("dff");
   // const feedPosts = null;
 

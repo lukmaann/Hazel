@@ -7,17 +7,15 @@ import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/store";
 import PopUp from "./PopUp";
 import Styles from "../Components.module.css";
-import RefreshIcon from '@mui/icons-material/Refresh';
 
 // ------------------------components-----------
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
-import { usePostStore } from "../../store/store";
-import useFecth from "../../hooks/fecthpost.hooks";
+
 // import FriendsBox from "./friends/friendsBox";
 
 const MenuItems = () => {
-  const [{postData}]=useFecth()
+  
   const user = useUserStore((state) => state.user);
   const { setModal, setUsernameModal, usernameModal } = useModal();
   const navigate = useNavigate();
@@ -27,10 +25,7 @@ const MenuItems = () => {
 
     navigate("/");
   };
-  const refresh=()=>{
-    console.log("hello");
-    window.location.reload(false)
-  }
+ 
 
   return (
     <aside className={`${Styles.menuaside} z-20`}>
@@ -88,12 +83,7 @@ const MenuItems = () => {
             Profile
           </button>
         </div>
-        <div
-          className={` ${Styles.menuitems} max-sm:fixed max-sm:top-0 max-sm:right-1   items-center  h-10  rounded-l flex`}
-        >
-          <RefreshIcon onClick={refresh} />
-          <button  onClick={refresh}>refresh</button>
-        </div>
+       
        
         <div
           className={` ${Styles.menuitems}   items-center  h-10  rounded-l flex`}
