@@ -226,3 +226,14 @@ export const getAllUsers = async () => {
     return Promise.reject(error);
   }
 };
+
+export const LoadServer=async()=>{
+  try {
+    const {data,status}=await axios.get('/api/load');
+    if(status===200){
+      return Promise.resolve(data)
+    }
+  } catch (error) {
+    return Promise.reject("cannot load server")
+  }
+}

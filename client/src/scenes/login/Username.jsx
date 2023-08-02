@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
 import year from "../../helper/date";
 import Styles from "../../styles/username.module.css";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
 import { userValidate } from "../../helper/validate";
 import { useAuthStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Style from "./loginpages.module.css"
+import { useEffect } from "react";
+import { LoadServer } from "../../helper/helper";
 
 const Username = () => {
   const setUsername = useAuthStore((state) => state.setUsername);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    const serverloader=LoadServer();
+
+    toast.promise(serverloader,{
+      loading:"Booting the servers..",
+      success:"Server started successfully..",
+      error:"cant load app please try later"
+    })
+  },[])
 
   const formik = useFormik({
     initialValues: {
