@@ -3,6 +3,11 @@ import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import otpGenerator from "otp-generator";
 
+
+//-----------------------------loadserver---------------
+export const LoadServer=async(req,res)=>{
+  res.status(200).send("sever started")
+}
 // ------------------------------verify user---------------------
 
 export const verifyUser = async (req, res, next) => {

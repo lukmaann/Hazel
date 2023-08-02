@@ -31,5 +31,5 @@ app.use('/api',userRouter)
 app.use('/api',postRouter)
 
 connectdb().then(()=>{
-    app.listen(process.env.PORT || 3000 ,()=>console.log("server connected to db started on port 3000"))
+    app.listen(process.env.PORT || 3000 ,()=>console.log("server connected to db and started "))
 })
