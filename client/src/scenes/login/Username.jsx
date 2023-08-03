@@ -18,9 +18,19 @@ const Username = () => {
   useEffect(()=>{
     const serverloader=LoadServer();
 
+    setTimeout(()=>{
+
+      toast.promise(serverloader,{
+        loading:"taking a bit longer ☹️",
+        success:"You can login now 😉",
+        error:"cant load app please try again"
+      })
+    
+    },4000)
+
     toast.promise(serverloader,{
-      loading:"Booting the servers..",
-      success:"Server started successfully..",
+      loading:"Booting Up the servers",
+      success:"Server started successfully",
       error:"cant load app please try later"
     })
   },[])

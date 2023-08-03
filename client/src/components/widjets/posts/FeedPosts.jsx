@@ -6,6 +6,9 @@ import Avatar from "../../../assets/profile.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../comment/CommentBox";
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import CloseIcon from '@mui/icons-material/Close';
+
 import {
   usePostStore,
   useUserStore,
@@ -30,6 +33,11 @@ const FeedPosts = (props) => {
   const likePost = usePostStore((state) => state.likePost);
   const { Users } = AllUsersStore((state) => state);
   const [moreCaption, setMoreCaption] = useState(false);
+  const [openMore,setOpenMore]=useState(false);
+
+
+
+
   const navigate = useNavigate();
 
   const loggedUser = useUserStore((state) => state.user);
@@ -80,10 +88,10 @@ const FeedPosts = (props) => {
   return (
     <div className="p-10 flex flex-wrap  h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
       <div className={"w-[35vw] h-[90%]  bg-white rounded max-sm:w-[100vw] "}>
-        <div  className="w-[100%] h-[10%]  flex  items-center p-4 ">
+        <div  className="w-[100%] h-[10%] relative flex items-center p-4 ">
           <img
             src={profile||Avatar}
-            className=" h-10 border-2 w-10  mr-4 border-gray-300 rounded-full "
+            className=" h-12 border-2 w-12  mr-4 border-gray-300 rounded-full "
             alt="profile img"
             
           />
@@ -95,6 +103,18 @@ const FeedPosts = (props) => {
               {firstName}
             </button>
             <h6 className="font-thin lowercase text-xs">{location}</h6>
+          </div>
+          <MoreHorizIcon onClick={()=>{setOpenMore(!openMore)}} className='absolute right-7'/>
+          <div className="absolute right-7">
+          {openMore&& <div className=" flex items-center bg-white border rounded-lg border-b-4 border-gray-500">
+          <button className="p-2 text-gray-500 hover:text-red-500 mr-2">Report post</button>
+          <CloseIcon onClick={()=>{setOpenMore(!openMore)}}/>
+          
+          
+
+            
+          </div>}
+          
           </div>
         </div>
         <div className="h-[90%] w-[100%]   bg-white flex text-white justify-center items-center">
