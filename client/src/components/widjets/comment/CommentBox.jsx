@@ -14,7 +14,7 @@ const CommentBox = (props) => {
     },
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit: async (value) => {
+    onSubmit: async (value,{resetForm}) => {
       value = await Object.assign(value, { postId: postId });
       const commentPromise = addComment(value);
 
@@ -26,7 +26,11 @@ const CommentBox = (props) => {
 
       commentPromise.then(() => {
         commentPost(value);
+        resetForm({values:""})
       });
+
+      
+
     },
   });
 

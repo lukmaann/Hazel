@@ -89,3 +89,15 @@ export const mobileNumberVerify=(errors={},value)=>{
         errors.mobile=toast.error("invalid mobile number")
     }
 }
+
+
+export const reportVerify=(error={},value)=>{
+    if(!value.reporttext){
+       error.reporttext= toast.error("enter the content")
+    }
+}
+
+export const reportValidation=async(value)=>{
+    const errors=reportVerify({},value);
+    return errors
+}

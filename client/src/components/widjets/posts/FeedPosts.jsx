@@ -8,6 +8,7 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import CommentBox from "../comment/CommentBox";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CloseIcon from '@mui/icons-material/Close';
+import PopUp from "../PopUp";
 
 import {
   usePostStore,
@@ -17,6 +18,7 @@ import {
 import { UpdateLikes } from "../../../helper/helper";
 
 import { useNavigate } from "react-router-dom";
+import ReportPost from "../../ReportPost";
 
 const FeedPosts = (props) => {
   const {
@@ -34,6 +36,7 @@ const FeedPosts = (props) => {
   const { Users } = AllUsersStore((state) => state);
   const [moreCaption, setMoreCaption] = useState(false);
   const [openMore,setOpenMore]=useState(false);
+  const [openReport,setOpenReport]=useState(false)
 
 
 
@@ -106,8 +109,8 @@ const FeedPosts = (props) => {
           </div>
           <MoreHorizIcon onClick={()=>{setOpenMore(!openMore)}} className='absolute right-7'/>
           <div className="absolute right-7">
-          {openMore&& <div className=" flex items-center bg-white border rounded-lg border-b-4 border-gray-500">
-          <button className="p-2 text-gray-500 hover:text-red-500 mr-2">Report post</button>
+          {openMore&& <div className="pr-2 flex items-center bg-white border rounded-lg   border-gray-500">
+          <button className="p-2 text-gray-500  " onClick={()=>{setOpenReport(!openReport)}}>Report Post</button>
           <CloseIcon onClick={()=>{setOpenMore(!openMore)}}/>
           
           
@@ -188,6 +191,13 @@ const FeedPosts = (props) => {
           </div>
         )}
       </div>
+      <PopUp
+        openPopup={openReport}
+        setOpenPopup={setOpenReport}
+        title="Report "
+      >
+       <ReportPost/>
+      </PopUp>
     </div>
   );
 };
