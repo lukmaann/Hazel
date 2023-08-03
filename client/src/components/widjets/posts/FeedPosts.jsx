@@ -94,7 +94,7 @@ const FeedPosts = (props) => {
         <div  className="w-[100%] h-[10%] relative flex items-center p-4 ">
           <img
             src={profile||Avatar}
-            className=" h-12 border-2 w-12  mr-4 border-gray-300 rounded-full "
+            className=" h-12 border-2 w-12 object-cover mr-4 border-gray-300 rounded-full "
             alt="profile img"
             
           />
@@ -196,7 +196,7 @@ const FeedPosts = (props) => {
         setOpenPopup={setOpenReport}
         title="Report "
       >
-       <ReportPost/>
+       <ReportPost userId={userId} postId={postId}/>
       </PopUp>
     </div>
   );

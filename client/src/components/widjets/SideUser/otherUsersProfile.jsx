@@ -14,7 +14,7 @@ const UsersProfile = (props) => {
       <div className="max-sm:h-[20vw] h-[70px] w-[70px] max-sm:w-[20vw] p-[3px]   bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500  justify-center items-center flex rounded-full  ">
         <img
           src={img||Avatar}
-          className=" border-white border-2  shadow-lg rounded-full h-[100%]   w-[100%]"
+          className=" border-white border-2 object-cover shadow-lg rounded-full h-[100%]   w-[100%]"
           alt=""
         />
       </div>

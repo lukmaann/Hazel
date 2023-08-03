@@ -12,6 +12,7 @@ import SuggestionBox from "../../components/widjets/SideUser/suggestionBox";
 import NewUsersBox from "../../components/widjets/SideUser/newUsersBox";
 import useFecth from "../../hooks/fecthpost.hooks";
 import { Skeleton } from "@mui/material";
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 // import { useEffect, useState } from "react";
 const ExplorePage = () => {
   const [{ postData, postisLoading }] = useFecth();
@@ -135,7 +136,10 @@ const ExplorePage = () => {
   } else {
     return (
       <div>
-        <Logo />
+        <div className="flex justify-between">
+          <Logo/>
+          <NotificationsActiveIcon className="m-5 sm:hidden"/>
+        </div>
 
         <MenuItems />
 

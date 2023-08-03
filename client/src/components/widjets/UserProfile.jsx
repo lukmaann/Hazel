@@ -64,10 +64,10 @@ const UserProfile = (props) => {
         reverseOrder={false}
       ></Toaster>
 
-      <div className="w-11/12 h-1/3 flex items-center border-b">
+      <div className="w-11/12 h-1/3 flex items-center mb-5">
         <div className=" rounded-full h-32 w-32 max-sm:h-[20vw] max-sm:w-[20vw]">
           <img
-            className="rounded-full h-32   w-32 hover:cursor-pointer max-sm:h-[100%] max-sm:w-[100%] hover:border-blue-400 border-4"
+            className="rounded-full h-32 object-cover  w-32 hover:cursor-pointer max-sm:h-[100%] max-sm:w-[100%] hover:border-blue-400 border-4"
             src={user.profile || Avatar}
           />
         </div>
@@ -106,13 +106,15 @@ const UserProfile = (props) => {
             </h1>
           ) : (
             <h1 className="text-l mt-3 font-bold cursor-pointer ">
-              Add details
+              
             </h1>
           )}
         </div>
       </div>
 
-      <div className="w-[100%] mr-0 flex flex-wrap justify-center text-white h-min p-5 max-sm:p-0">
+      <div className="w-[100%] mr-0 flex flex-wrap  text-white h-min p-5 max-sm:p-0">
+      <h1 className=" border px-10 rounded-md p-2 mb-5 bg-black">posts</h1>
+
 
       <div className="flex justify-items-start gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-0 max-sm:h-min max-sm:mt-0">
 

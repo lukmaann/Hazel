@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/store";
 import PopUp from "./PopUp";
 import Styles from "../Components.module.css";
-
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import Logo from "./logo";
 // ------------------------components-----------
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
@@ -29,6 +30,9 @@ const MenuItems = () => {
 
   return (
     <aside className={`${Styles.menuaside} z-20`}>
+    <div className="max-sm:hidden">
+    <Logo/>
+    </div>
       
       {/* <FriendsBox /> */}
       <div className={`${Styles.menubox} `}>
@@ -52,6 +56,14 @@ const MenuItems = () => {
             Edit Profile
           </button>
         </div>
+        <div className={`${Styles.menuitems} max-sm:hidden`}>
+         <NotificationsActiveIcon/>
+          <button
+            
+          >
+            Notification
+          </button>
+        </div>
         <div className={Styles.menuitems}>
           <AddIcon
             onClick={() => {
@@ -66,6 +78,7 @@ const MenuItems = () => {
             Create Post
           </button>
         </div>
+        
         <div className={Styles.menuitems}>
           <img
             src={user.profile || Avatar}

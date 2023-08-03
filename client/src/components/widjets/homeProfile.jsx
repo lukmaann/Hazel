@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Avatar from "../../assets/profile.png";
 import { useState } from "react";
@@ -21,11 +22,12 @@ const HomeProfile = () => {
 
   return (
     <div className="ml-64 flex flex-col items-center p-3 w-10/12 max-sm:ml-0 max-sm:w-[100vw]">
-      <div className="w-11/12 h-1/3 flex items-center flex-wrap  border-b max-sm:w-[100%] max-sm:h-[20%]">
+    
+      <div className="w-11/12 h-1/3 flex items-center flex-wrap mb-5 max-sm:w-[100%] max-sm:h-min">
        
        <div className=" rounded-full h-32 w-32 max-sm:h-[20vw] max-sm:w-[20vw] ">
           <img
-            className="rounded-full h-32 w-32 hover:cursor-pointer max-sm:h-[100%] max-sm:w-[100%] hover:border-blue-400 border-4"
+            className="rounded-full h-32 object-cover w-32 hover:cursor-pointer max-sm:h-[100%] max-sm:w-[100%] hover:border-blue-400 border-4"
             src={user.profile || Avatar}
           />
         </div>
@@ -68,6 +70,7 @@ const HomeProfile = () => {
       </div>
       
       <div className="w-[100%] mr-0  flex flex-wrap  text-white h-min p-5 max-sm:p-0">
+      <h1 className=" border px-10 rounded-md p-2 mb-5 bg-black">posts</h1>
       <div className="flex justify-items-start gap-6 flex-wrap w-[95%] max-sm:w-[100%] max-sm:gap-0 h-[100%] max-sm:mt-0">
       {feedPosts===null?<>loading</>:feedPosts.map((item,index)=>{
         if(user._id===item.userId){
