@@ -22,6 +22,10 @@ export const UserSchema=new mongoose.Schema({
         type:Array,
         default:[]
     },
+    savedPosts:{
+        type:Array,
+        default:[]
+    },
     firstName:String,
     lastName:String,
     mobile:Number,
