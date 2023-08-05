@@ -3,7 +3,7 @@ import { getAllUsers } from "../../../helper/helper";
 import { AllUsersStore, useUserStore } from "../../../store/store";
 import { useEffect } from "react";
 import UsersProfile from "./otherUsersProfile";
-import { CircularProgress, LinearProgress } from "@mui/material";
+import {  LinearProgress } from "@mui/material";
 import {Skeleton} from "@mui/material";
 const UserBox = () => {
   const loggedUser = useUserStore((state) => state.user);

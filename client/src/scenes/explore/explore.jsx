@@ -136,7 +136,7 @@ const ExplorePage = () => {
   } else {
     return (
       <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between sm:hidden">
           <Logo/>
           <NotificationsActiveIcon className="m-5 sm:hidden"/>
         </div>
@@ -149,7 +149,7 @@ const ExplorePage = () => {
           {feedPosts.slice(2, -1).map((item, index) => {
             return (
               <FeedPosts
-                key={index}
+                key={item._id}
                 caption={item.caption}
                 likes={item.likes}
                 picturePath={item.picturePath}

@@ -45,7 +45,7 @@ const CreatePost = () => {
         setModal(false)
         setPosts(data)
         
-        navigate('/explore')
+        navigate('/homepage')
         
         
         
@@ -100,7 +100,7 @@ const CreatePost = () => {
             />
 
             <button
-              className="w-[90%] bg-[#38B6FF] text-white hover:bg-black  rounded-xl my-3 font-bold  text-yellow-50p h-8"
+              className="w-[90%] bg-[#38B6FF]  text-white hover:bg-black  rounded-xl my-3 font-bold  text-yellow-50p h-8"
               type="submit"
               
             >

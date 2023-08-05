@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useFormik } from "formik"
 import { reportValidation } from "../helper/validate";
+import { postReport } from "../helper/helper";
+import { toast } from "react-hot-toast";
 
 
 
 const ReportPost=(props)=>{
-    const {userId,postId}=props
+    const {userId,postId,reportedById}=props
 
     const formik=useFormik({
         initialValues:{
@@ -17,9 +19,23 @@ const ReportPost=(props)=>{
         validateOnChange:false,
         onSubmit:async(value,{resetForm})=>{
             
-            console.log(value);
-            console.log(userId,postId);
-            resetForm({values:""})
+          
+            console.log(value.reporttext)
+            const reportpromise=postReport({reportContent:value.reporttext,userId,postId,reportedById})
+
+            toast.promise(reportpromise,{
+                loading:"reporting",
+                success:"report sent",
+                error:"server error"
+            })
+
+            reportpromise.then(()=>{
+
+                resetForm({values:""})
+                
+            }).catch((data)=>{
+                console.log(data);
+            })
             
             
         }

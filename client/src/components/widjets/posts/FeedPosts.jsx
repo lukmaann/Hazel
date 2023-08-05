@@ -124,7 +124,7 @@ const FeedPosts = (props) => {
           <img
             src={picturePath}
             className={
-              "h-[100%] object-cover rounded-lg select-none   border-black w-[90%] "
+              "h-[100%] max-h-[80vh] object-cover rounded-lg select-none   border-black w-[90%] "
             }
             alt=""
             
@@ -153,7 +153,7 @@ const FeedPosts = (props) => {
             </div>
 
             <h2 className=" w-[100%]  mt-1 text-sm font-bold px-10 select-none">
-              {likecounts} {likeCount>1?"Likes":"Like"}  {likeCount>1 && `, also liked by ${friendliked[0].username}`}
+              {likecounts} {likecounts>1?"Likes":"Like"}  {likecounts>1 && `, also liked by ${friendliked[0].username}`}
             </h2>
           
             <div className=" h-min overflow-y-auto  flex noscrollbar">
@@ -196,7 +196,7 @@ const FeedPosts = (props) => {
         setOpenPopup={setOpenReport}
         title="Report "
       >
-       <ReportPost userId={userId} postId={postId}/>
+       <ReportPost userId={postUserId} reportedById={userId} postId={postId}/>
       </PopUp>
     </div>
   );

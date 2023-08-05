@@ -237,3 +237,23 @@ export const LoadServer=async()=>{
     return Promise.reject("cannot load server")
   }
 }
+
+
+export const  postReport=async(values)=>{
+  const {reportedById,userId,postId,reportContent}=values
+  try {
+    const {data,status}=await axios.post('/api/reportpost',{reportedById,userId,postId,reportContent})
+    
+
+    
+
+
+    if(status===201){
+      Promise.resolve(data)
+    }else{
+      Promise.reject("data not correct")
+    }
+  } catch (error) {
+    return Promise.reject("server error")
+  }
+}
