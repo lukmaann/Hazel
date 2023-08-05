@@ -2,6 +2,7 @@ import userModel from "../models/userModel.js";
 import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import otpGenerator from "otp-generator";
+import Admin from "../models/AdminModel.js";
 
 
 //-----------------------------loadserver---------------
@@ -123,8 +124,52 @@ export const login = async (req, res) => {
     res.status(500).send({ err: "login error" });
   }
 };
+//-------------------------adminlogin--------------------
+
+export const adminLogin=async(req,res)=>{
+  try {
+
+    const {password}=req.body
+
+
+    Admin.findOne({adminName:"lukmaan"}).then((user)=>{
+      // adminpass=helloadmin
+
+      bcrypt.compare(password,user.password).then((match)=>{
+        if(!match) {
+          return res.status(400).send("invalid password")
+        }
+        const payload = {
+          userId: user._id,
+          username: user.username,
+        };
+        const secret = process.env.JWT_SECRET;
+        const expiry = {
+          expiresIn: "24h",
+        };
+
+        const token = jwt.sign(payload, secret, expiry);
+
+        return res.status(200).json({
+          username:user.adminName,
+          token
+        })
+
+       
+      })
+
+    })
+    
+  } catch (error) {
+    res.status(500).json({error})
+  }
+}
+
 
 // --------------------------generate OTP--------------
+
+
+
 
 export const generateOTP = async (req, res) => {
   req.app.locals.Otp = await otpGenerator.generate(6, {
@@ -246,3 +291,5 @@ export const resetPassword = async (req, res) => {
     return res.status(401).send({ err: "Unauthorised" });
   }
 };
+// --------------------------------------------------------------------------------
+

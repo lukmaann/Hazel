@@ -13,6 +13,7 @@ import ExplorePage from "./scenes/explore/explore";
 import { AuthoriseUser } from "./middleware/auth";
 import { AuthoriseUsername } from "./middleware/auth";
 import UserProfile from "./components/userPage";
+import AdminLogin from "./AdminModule/Adminlogin";
 
 
 const Routes = createBrowserRouter([
@@ -54,6 +55,10 @@ const Routes = createBrowserRouter([
   },{
     path:"/user",
     element:<AuthoriseUser><UserProfile/></AuthoriseUser>
+  },
+  {
+    path:"/admin",
+    element:<AdminLogin/>
   }
 ]);
 

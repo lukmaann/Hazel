@@ -14,6 +14,8 @@ router.route("/users").get(getAllUsers);
 
 router.route('/:id/friends').get(auth,getUserFriends)
 
+
+
 /* UPDATE */
 router.route('/addFriends').patch(auth,addRemoveFriend)
 
