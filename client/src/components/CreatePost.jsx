@@ -15,6 +15,7 @@ const CreatePost = () => {
   const setPosts=usePostStore(state=>state.setPosts)
   const user=useUserStore((state)=>state.user)
   const setModal=useModal((state)=>state.setModal)
+  const [isDisabled,setDisable]=useState(false)
 
   
 
@@ -40,6 +41,7 @@ const CreatePost = () => {
       },{
         position:"bottom-right"
       })
+      setDisable(true)
 
       createPromise.then((data)=>{
         setModal(false)
@@ -100,7 +102,9 @@ const CreatePost = () => {
             />
 
             <button
-              className="w-[90%] bg-[#38B6FF]  text-white hover:bg-black  rounded-xl my-3 font-bold  text-yellow-50p h-8"
+              className="w-[90%] bg-[#38B6FF]  text-white hover:bg-black  rounded-xl my-3 font-bold  text-yellow-50p h-8 disabled:cursor-not-allowed"
+              
+              disabled={isDisabled}
               type="submit"
               
             >

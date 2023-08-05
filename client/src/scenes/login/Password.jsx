@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
 import Style from "./loginpages.module.css"
+import { useState } from "react";
 
 // -------------------------store data and custom hooks------------
 import { useAuthStore, usePostStore } from "../../store/store";
@@ -24,6 +25,7 @@ const Password = () => {
   const setPosts=usePostStore((state)=>state.setPosts)
   const [{ isLoading, apiData, serverError }] = useFecth(`user/${username}`);
   const [{postData}]=usePostFecth()
+  const [isDisabled,setDisable]=useState(false)
  
 
   const formik = useFormik({
@@ -36,6 +38,7 @@ const Password = () => {
     validateOnChange: false,
     onSubmit: async (value) => {
       const loginPromise = loginUser({ username, password: value.password });
+      setDisable(true)
 
       loginPromise.then(async (res) => {
         let { token } = res;
@@ -92,7 +95,7 @@ const Password = () => {
                 autoComplete="OFF"
                 placeholder="Password"
               />
-              <button className={Styles.btn} type="submit">
+              <button className={`${Styles.btn} disabled:cursor-wait`} type="submit" disabled={isDisabled}>
                 Login
               </button>
             </div>

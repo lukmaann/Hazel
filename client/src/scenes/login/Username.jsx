@@ -8,12 +8,14 @@ import { useAuthStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Style from "./loginpages.module.css"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { LoadServer } from "../../helper/helper";
 
 const Username = () => {
   const setUsername = useAuthStore((state) => state.setUsername);
   const navigate = useNavigate();
+
+  const [isDisabled,setDisable]=useState(false)
 
   useEffect(()=>{
     const serverloader=LoadServer();
@@ -45,6 +47,7 @@ const Username = () => {
     validateOnChange: false,
     onSubmit: async (value) => {
       setUsername(value.username);
+      setDisable(true)
       navigate("/password");
     },
   });
@@ -78,7 +81,7 @@ const Username = () => {
                 autoComplete="OFF"
                 placeholder="Username"
               />
-              <button className={Styles.btn} type="submit">
+              <button className={`${Styles.btn} disabled:cursor-wait `} type="submit" disabled={isDisabled}>
                 Lets Go{" "}
               </button>
             </div>

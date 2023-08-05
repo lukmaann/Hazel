@@ -12,6 +12,8 @@ import { registerUser } from "../../helper/helper";
 const Register = () => {
   const navigate = useNavigate();
 
+  const [isDisabled,setDisable]=useState(false)
+
   const [file, setFile] = useState();
   const formik = useFormik({
     initialValues: {
@@ -26,6 +28,7 @@ const Register = () => {
     onSubmit: async (value) => {
       value = await Object.assign(value, { profile: file || "" });
       let registerPromise = registerUser(value);
+      setDisable(true)
       toast
         .promise(registerPromise, {
           loading: "creating user",
@@ -94,7 +97,7 @@ const Register = () => {
                 placeholder="password"
               />
 
-              <button className={Styles.btn} type="submit">
+              <button className={`${Styles.btn} disabled:cursor-not-allowed disabled:opacity-70`} type="submit"  disabled={isDisabled}>
                 Register
               </button>
             </div>
