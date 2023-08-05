@@ -15,7 +15,7 @@ router.route('/:userId/post').get(auth,getUserPosts)
 
 router.route('/uploadpost').post(createPost)
 router.route('/delpost').post(delpost)
-router.route('/reportPost').post(createReport)
+router.route('/reportpost').post(createReport)
 
 
 
