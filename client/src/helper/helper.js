@@ -257,3 +257,22 @@ export const  postReport=async(values)=>{
     return Promise.reject("server error")
   }
 }
+
+
+
+export const adminLogin=async(password)=>{
+  
+
+  
+  try {
+    const {data,status}=await axios.post('/api/adminlogin',{password:password})
+    
+    
+    
+    if(status===200){
+     return Promise.resolve({token:data.token})
+    }
+  } catch (error) {
+    return Promise.reject(error.response.status)
+  }
+}
