@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../store/store";
 import PopUp from "./PopUp";
 import Styles from "../Components.module.css";
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import LinkIcon from '@mui/icons-material/Link';
 import Logo from "./logo";
 // ------------------------components-----------
 import { useModal } from "../../store/store";
@@ -57,11 +57,11 @@ const MenuItems = () => {
           </button>
         </div>
         <div className={`${Styles.menuitems} max-sm:hidden`}>
-         <NotificationsActiveIcon/>
+         <LinkIcon/>
           <button
             
           >
-            Notification
+            My portfolio
           </button>
         </div>
         <div className={Styles.menuitems}>

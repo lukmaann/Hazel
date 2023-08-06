@@ -72,8 +72,11 @@ const Register = () => {
                   alt="Avatar"
                 />
               </label>
-              <input onChange={onUpload} type="file" id="profile" />
+              <input onChange={onUpload} type="file" id="profile" className="" />
+             
             </div>
+            
+              
             <div className="textbox flex flex-col justify-center items-center gap-3">
               <input
                 type="email"

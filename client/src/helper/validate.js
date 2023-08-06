@@ -4,9 +4,10 @@ import {authenticate} from "./helper"
 export const userValidate=async (values)=>{
     const errors=usernameVerify({},values);
 
-    if(values.username){
+    if(values.username && values.username!=="admin101" ){
+        
         const {status}=await authenticate(values.username);
-        if(status!=200){
+        if(   status!=200){
             errors.exists=toast.error("user not exists")
         }
 

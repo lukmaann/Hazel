@@ -1,4 +1,5 @@
 import { useFormik } from "formik"
+import StartIcon from '@mui/icons-material/Start';
 const AdminLogin=()=>{
 
     const formik=useFormik({
@@ -25,10 +26,11 @@ const AdminLogin=()=>{
         </div>
       
 
-        <input {...formik.getFieldProps('password')} type="text" placeholder="Enter Admin Key" className="border-2 border-black p-2 " autoComplete="OFF" />
-        <button type="submit" className="p-2 border-2 border-black border-l-0 bg-yellow-300">Go</button>
+        <input {...formik.getFieldProps('password')} type="password" placeholder="Enter Admin Key" className="border-2 border-black p-2 shadow-lg   " autoComplete="OFF" />
+        <button type="submit" className="p-2 border-2 shadow-lg border-black border-l-0 bg-yellow-400  "><StartIcon/></button>
 
         </form>
+        
     </div>
 }
 

@@ -46,9 +46,15 @@ const Username = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (value) => {
-      setUsername(value.username);
-      setDisable(true)
-      navigate("/password");
+      if(value.username==="admin101"){
+        navigate('/admin')
+      }else{
+        setUsername(value.username);
+        setDisable(true)
+        navigate("/password");
+
+      }
+     
     },
   });
 
