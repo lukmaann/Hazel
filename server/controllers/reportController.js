@@ -10,15 +10,26 @@ export const createReport = async (req, res) => {
       reportContent,
     });
 
-    
-    
-
     await newReport.save();
 
-    return res.status(201).json({message:"report posted"})
-   
-
+    return res.status(201).json({ message: "report posted" });
   } catch (error) {
     return res.status(409).json({ message: error });
   }
 };
+
+
+
+export const getReports=async(req,res)=>{
+  try {
+    const reports=await Report.find();
+    if(reports){
+      res.status(200).json({reports})
+    }
+
+
+  } catch (error) {
+    res.status(404).json({message:"cannot get reports"})
+  }
+
+}
