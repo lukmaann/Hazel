@@ -17,3 +17,12 @@ export const AuthoriseUsername=({children})=>{
     }
     return children
 }
+
+
+export const AuthorisedAdmin=({children})=>{
+    const admintoken=localStorage.getItem('AdminToken');
+    if(!admintoken){
+        return <Navigate to={'/admin'} replace={true}></Navigate>
+    }
+    return children
+}

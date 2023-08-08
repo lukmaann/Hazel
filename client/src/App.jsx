@@ -10,10 +10,11 @@ import Reset from "./scenes/login/Reset";
 import HomePage from "./scenes/Profile/HomePage";
 import ExplorePage from "./scenes/explore/explore";
 // -----------------middlewares to protect routes------------
-import { AuthoriseUser } from "./middleware/auth";
+import { AuthorisedAdmin, AuthoriseUser } from "./middleware/auth";
 import { AuthoriseUsername } from "./middleware/auth";
 import UserProfile from "./components/userPage";
 import AdminLogin from "./AdminModule/Adminlogin";
+import AdminPage from "./AdminModule/AdminPage";
 
 
 const Routes = createBrowserRouter([
@@ -59,6 +60,9 @@ const Routes = createBrowserRouter([
   {
     path:"/admin",
     element:<AdminLogin/>
+  },{
+    path:"/adminpage",
+    element:<AuthorisedAdmin><AdminPage/></AuthorisedAdmin>
   }
 ]);
 

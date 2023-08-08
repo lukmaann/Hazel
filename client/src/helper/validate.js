@@ -8,7 +8,7 @@ export const userValidate=async (values)=>{
         
         const {status}=await authenticate(values.username);
         if(   status!=200){
-            errors.exists=toast.error("user not exists")
+            errors.exists=toast.error("No User Found please Register")
         }
 
     }

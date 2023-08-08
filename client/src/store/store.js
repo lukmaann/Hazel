@@ -122,3 +122,11 @@ export const AllUsersStore= create(
     })
   
 )
+
+
+export const UseReportStore= create(
+  (set)=>({
+    Reports:[],
+    setReports:(payload)=>set({Reports:payload})
+  })
+)

@@ -63,3 +63,14 @@ export const getAllUsers=async (req,res)=>{
     res.status(404)
   }
 }
+
+export const getSingleUser=async(req,res)=>{
+  try {
+    const {userId}=req.body;
+    const user=await User.findById(userId)
+    const {friends,lastName,firstName,mobile,address,savedPosts,...rest}=Object.assign({},user.toJSON())
+    res.status(200).json(rest)
+  } catch (error) {
+    res.status(404).json({error})
+  }
+}

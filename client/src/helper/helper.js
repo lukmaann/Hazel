@@ -227,52 +227,81 @@ export const getAllUsers = async () => {
   }
 };
 
-export const LoadServer=async()=>{
+export const LoadServer = async () => {
   try {
-    const {data,status}=await axios.get('/api/load');
-    if(status===200){
-      return Promise.resolve(data)
+    const { data, status } = await axios.get("/api/load");
+    if (status === 200) {
+      return Promise.resolve(data);
     }
   } catch (error) {
-    return Promise.reject("cannot load server")
+    return Promise.reject("cannot load server");
   }
+};
+
+export const postReport = async (values) => {
+  const { reportedById, userId, postId, reportContent } = values;
+  try {
+    const { data, status } = await axios.post("/api/reportpost", {
+      reportedById,
+      userId,
+      postId,
+      reportContent,
+    });
+
+    if (status === 201) {
+      Promise.resolve(data);
+    } else {
+      Promise.reject("data not correct");
+    }
+  } catch (error) {
+    return Promise.reject("server error");
+  }
+};
+
+export const adminLogin = async (password) => {
+  try {
+    const { data, status } = await axios.post("/api/adminlogin", {
+      password: password,
+    });
+
+    if (status === 200) {
+      return Promise.resolve({ token: data.token });
+    }
+  } catch (error) {
+    return Promise.reject(error.response.status);
+  }
+};
+
+
+
+
+export const getAllReports=async()=>{
+try {
+  const {data,status}=await axios.get("/api/getreports");
+  // console.log(data.reports);
+  
+
+  if(status===200){
+    return Promise.resolve(data.reports)
+  }
+
+} catch (error) {
+  return Promise.reject("Cant get reports")
 }
 
 
-export const  postReport=async(values)=>{
-  const {reportedById,userId,postId,reportContent}=values
-  try {
-    const {data,status}=await axios.post('/api/reportpost',{reportedById,userId,postId,reportContent})
-    
 
-    
-
-
-    if(status===201){
-      Promise.resolve(data)
-    }else{
-      Promise.reject("data not correct")
-    }
-  } catch (error) {
-    return Promise.reject("server error")
-  }
 }
 
-
-
-export const adminLogin=async(password)=>{
-  
-
-  
+export const getSingleUser=async(id)=>{
   try {
-    const {data,status}=await axios.post('/api/adminlogin',{password:password})
-    
-    
-    
+    const {status,data}=await axios.get('/api/getSingleUser',id);
     if(status===200){
-     return Promise.resolve({token:data.token})
+      console.log(data);
+      return Promise.resolve(data);
+
     }
   } catch (error) {
-    return Promise.reject(error.response.status)
+    return Promise.reject("cant get user")
   }
 }
