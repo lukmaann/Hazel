@@ -93,7 +93,7 @@ let address="";
 
 
 if(!picturePath){
-  return <div className="p-10 flex flex-wrap max:sm:justify-center h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
+  return <div className="p-10 flex flex-wrap max-sm:justify-center h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
   <div className={"w-[35vw] h-[90%]  bg-black text-white py-2 rounded max-sm:w-[95vw] "}>
     <div  className="w-[100%] h-[10%] relative flex items-center p-4 ">
       <img
