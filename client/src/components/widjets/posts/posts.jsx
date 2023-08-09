@@ -36,13 +36,13 @@ const Posts = (props) => {
     onMouseOut={() => setOver(false)}
     className="h-[250px] w-[250px] relative rounded-s max-sm:w-[30vw] max-sm:h-[150px] border border-white"
   >
-    <div className="w-[100%] h-[85%] text-black flex justify-center items-center max-sm:h-[100%] ">
+    <div className="w-[100%] h-[85%] text-white bg-gradient-to-l from-black to-gray-700 flex justify-center border-2  rounded-lg text-center overflow-auto noscrollbar items-center max-sm:h-[100%] ">
       {caption}
     </div>
     <div className="px-1 flex items-center justify-between h-[15%] ">
       <div className="flex">
         <Heart className="w-5 max-sm:w-2 max-sm:hidden" onClick={() => {}} isActive={true} />
-        <h1 className="text-black px-2 max-sm:hidden">{likeCount}</h1>
+        <h1 className="text-black px-2  max-sm:hidden">{likeCount}</h1>
       </div>
       
       {over && postUserId === loggedUser._id && (
