@@ -93,18 +93,18 @@ const CreatePost = () => {
           </div>
          }
         
-          <div className="w-[70%] text-center ">
+          <div className="w-[90%] text-center ">
             <textarea
               type="text"
               {...formik.getFieldProps("caption")}
-              className=" p-1 w-[90%] h-14  mt-10  focus: outline-none shadow-sm"
+              className=" p-1 w-[100%] text-center h-24  mt-10  focus: outline-none "
               placeholder="What's new today?"
             />
             <input
               type="text"
               placeholder="Add Loacation"
               autoComplete="OFF"
-              className="p-1 w-[90%] m-2 focus:outline-none"
+              className="p-1 w-[90%] text-center m-2 focus:outline-none"
               {...formik.getFieldProps("location")}
             />
 

@@ -10,6 +10,8 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CloseIcon from '@mui/icons-material/Close';
 import PopUp from "../PopUp";
 import VerifiedIcon from '@mui/icons-material/Verified';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 
 import {
   usePostStore,
@@ -91,8 +93,8 @@ let address="";
 
 
 if(!picturePath){
-  return <div className="p-10 flex flex-wrap  h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
-  <div className={"w-[35vw] h-[90%]  bg-white rounded max-sm:w-[100vw] "}>
+  return <div className="p-10 flex flex-wrap max:sm:justify-center h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
+  <div className={"w-[35vw] h-[90%]  bg-black text-white py-2 rounded max-sm:w-[95vw] "}>
     <div  className="w-[100%] h-[10%] relative flex items-center p-4 ">
       <img
         src={profile||Avatar}
@@ -115,7 +117,7 @@ if(!picturePath){
       <div className="absolute right-7">
       {openMore&& <div className="pr-2 flex items-center bg-white border rounded-lg   border-gray-500">
       <button className="p-2 text-gray-500  " onClick={()=>{setOpenReport(!openReport)}}>Report Post</button>
-      <CloseIcon onClick={()=>{setOpenMore(!openMore)}}/>
+      <CloseIcon className="text-black" onClick={()=>{setOpenMore(!openMore)}}/>
       
       
 
@@ -128,19 +130,16 @@ if(!picturePath){
     <div className=" h-min overflow-y-auto  flex noscrollbar">
           <h1 className="px-5 py-2 font-thin text-sm">
            
-             {caption }
+             {caption.slice(0,300) }
           
           </h1>
           
         </div>
-    <div className=" h-[20%]">
+    <div className=" h-[20%] ">
       <div className="h-[100%]">
-        <div className="flex  items-center   p  min-w-fit">
-          <Heart
-            isActive={liked}
-            onClick={LikePost}
-            className="w-6 mt-2 ml-4 select-none "
-          />
+        <div className="flex  items-center   px-5  min-w-fit">
+          
+          {liked?<ThumbUpAltIcon onClick={LikePost}/>:<ThumbUpOffAltIcon onClick={LikePost}/>}
 
           <FontAwesomeIcon
             icon={faComment}
@@ -150,8 +149,8 @@ if(!picturePath){
             }}
             className={
               clickComment
-                ? "mt-2 mx-3 text-2xl p-1 text-gray-800 drop-shadow-sm"
-                : "mt-2 mx-3 text-2xl p-1 text-black"
+                ? "mt-2 mx-3 text-xl p-1 py-0 text-gray-400 drop-shadow-sm"
+                : "mt-2 mx-3 text-xl p-1 py-0 text-white"
             }
           />
         </div>
@@ -165,7 +164,7 @@ if(!picturePath){
       </div>
     </div>
   </div>
-  <div className={"w-[40%] mt-20 h-[90%] max-sm:w-[100%] max-sm:mt-10"}>
+  <div className={"w-[40%] mt-0 h-[90%] max-sm:w-[100%] max-sm:mt-10"}>
     <div className=" flex justify-center h-[20%]   overflow-hidden"></div>
     {clickComment && (
       <div className="w-[100%] h-[100%]  flex justify-center">

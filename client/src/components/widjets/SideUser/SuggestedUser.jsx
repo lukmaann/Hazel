@@ -44,7 +44,7 @@ const SuggestedUsers=(props)=>{
       };
   
 
-    return <div  className="h-[90%]  min-w-[15vw] max-sm:min-w-[50vw] mx-1 relative bg-white border rounded-sm flex flex-col items-center">
+    return <div  className="h-[90%]  w-[15vw]  max-sm:min-w-[50vw] mx-1 relative bg-white border rounded-sm flex flex-col items-center">
     <Toaster/>
     <img src={profile||Avatar} onClick={()=>{navigate('/user',{state:{id:name}})}} className="w-[60%] h-[50%] rounded-full object-cover m-2  border-4 border-gray-100"/>
     <h1 onClick={()=>{navigate('/user',{state:{id:name}})}} className="font-semibold hover:cursor-pointer" >{name} {verifiedUsers.includes(name)&&<VerifiedIcon className="p-[3px]"/>}</h1>

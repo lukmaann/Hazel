@@ -10,13 +10,13 @@ const PopUp=(props)=>{
 
     return <Dialog open={openPopup} >
         <DialogTitle >
-        <div className="flex justify-between">
+        <div className="flex justify-between ">
             {title}
             <button onClick={()=>setOpenPopup(false)}><CloseIcon/></button>
         </div>
         
         </DialogTitle>
-        <DialogContent>{children}</DialogContent>
+        <DialogContent >{children}</DialogContent>
     </Dialog>
 }
 
