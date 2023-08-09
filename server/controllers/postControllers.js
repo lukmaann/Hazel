@@ -103,3 +103,15 @@ export const delpost=async(req,res)=>{
     return res.status(404).json({error:error.message})
   }
 }
+
+export const getsinglepost=async(req,res)=>{
+  
+  try {
+  const {postId}=req.params;
+  const post=await Post.findById(id)  ;
+  return res.status(200).json(post)
+    
+  } catch (error) {
+    return res.status(404).json({error:"cant get post"})
+  }
+}

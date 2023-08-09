@@ -1,3 +1,4 @@
+import Post from "../models/postModel.js";
 import User from "../models/userModel.js";
 /* READ */
 
@@ -73,5 +74,16 @@ export const getSingleUser=async(req,res)=>{
     res.status(200).json(rest)
   } catch (error) {
     res.status(404).json({error})
+  }
+}
+
+export const deleteUser=async(req,res)=>{
+  try {
+    const {userId}=req.params
+    await User.findByIdAndDelete(userId);
+    await Post.deleteMany({userId})
+    return res.status(201)
+  } catch (error) {
+    return res.status(404).json({error})
   }
 }

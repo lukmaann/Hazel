@@ -20,13 +20,13 @@ const AdminPage = () => {
         
       </nav>
 
-      <div className="h-screen  p-10 flex justify-between">
-        <div className="w-[40%] h-[90%] ">
+      <div className="h-screen  p-10 flex justify-center">
+        <div className="w-[80%] h-[90%] ">
           <div className="text-center bg-black text-white  h-[10%] flex items-center justify-between px-5 text-xl">
             <h1> Manage Reports</h1>
             <h1>Total reports : { reports.length}</h1>
           </div>
-          <div className=" w-[100%] h-[90%] border-black border">
+          <div className=" w-[100%] h-[90%]">
             <ReportBox/>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { createPost, getFeedPosts, getUserPosts,commentOnPost, likePost, delpost } from "../controllers/postControllers.js"
+import { createPost, getFeedPosts, getUserPosts,commentOnPost, likePost, delpost, getsinglepost } from "../controllers/postControllers.js"
 
 import auth from "../middlewre/auth.js"
-import { createReport, getReports } from "../controllers/reportController.js";
+import { createReport, deleteReport, getReports } from "../controllers/reportController.js";
 
 const router = Router();
 
@@ -11,6 +11,8 @@ const router = Router();
 router.route('/explore').get(getFeedPosts)
 router.route('/:userId/post').get(auth,getUserPosts)
 router.route('/getreports').get(getReports)
+router.route('/deletereport/:reportId').get(deleteReport)
+router.route('/getsinglepost/:postId').get(getsinglepost)
 // --------------------------upload--------
 
 router.route('/uploadpost').post(createPost)

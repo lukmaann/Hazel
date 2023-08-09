@@ -295,9 +295,45 @@ try {
 
 export const getSingleUser=async(id)=>{
   try {
-    const {data,status}=await axios.get('/api/getsingleuser',{params:{userId:id}})
-    console.log(status);
+    const {data,status}=await axios.get(`/api/getsingleuser/${id}`)
+    if(status===200){
+      return Promise.resolve(data)
+    }
   } catch (error) {
     return Promise.reject('cant get user')
+  }
+}
+
+export const getSinglePost=async(id)=>{
+
+  try {
+    const {data,status}=await axios.get(`/api/getsinglepost/${id}`)
+    if(status===200){
+      return Promise.resolve(data)
+    }
+  } catch (error) {
+    return Promise.reject("Cant get Posts")
+  }
+}
+
+export const deleteUser=async(id)=>{
+  try {
+    const {status}=await axios.get(`/api/deleteuser/${id}`);
+    if(status===200){
+      return Promise.resolve("user deleted")
+    }
+
+  } catch (error) {
+    return Promise.reject("cant get user")  }
+}
+
+export const deleteReport=async(id)=>{
+  try {
+    const {status,data}=await axios.get(`/api/deletereport/${id}`);
+    if(status===200){
+      return Promise.resolve(data)
+    }
+  } catch (error) {
+    return Promise.reject("cant delete report")
   }
 }

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { LoadServer, getUser } from "../controllers/appController.js";
-import { getAllUsers, getSingleUser, getUserFriends } from "../controllers/usercontroller.js";
+import { deleteUser, getAllUsers, getSingleUser, getUserFriends } from "../controllers/usercontroller.js";
 import { addRemoveFriend } from "../controllers/usercontroller.js";
 import auth from "../middlewre/auth.js"
 
@@ -13,6 +13,8 @@ router.route("/users").get(getAllUsers);
 router.route('/getsingleuser/:userId').get(getSingleUser)
 
 router.route('/:id/friends').get(auth,getUserFriends)
+
+router.route('/deleteuser/:userId').get(deleteUser)
 
 
 
