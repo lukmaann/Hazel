@@ -11,7 +11,7 @@ const Posts = (props) => {
 
   const [over, setOver] = useState(false);
 
-  const { picturePath, likes, postUserId, id } = props;
+  const { picturePath, likes, postUserId, id ,caption} = props;
   const likeCount = Object.keys(likes).length;
 
   const delPost = () => {
@@ -27,6 +27,31 @@ const Posts = (props) => {
       delpost(id);
     });
   };
+
+  if(!picturePath){
+    return <div
+    onMouseOver={() => {
+      setOver(true);
+    }}
+    onMouseOut={() => setOver(false)}
+    className="h-[250px] w-[250px] relative rounded-s max-sm:w-[30vw] max-sm:h-[150px] border border-white"
+  >
+    <div className="w-[100%] h-[85%] text-black flex justify-center items-center max-sm:h-[100%] ">
+      {caption}
+    </div>
+    <div className="px-1 flex items-center justify-between h-[15%] ">
+      <div className="flex">
+        <Heart className="w-5 max-sm:w-2 max-sm:hidden" onClick={() => {}} isActive={true} />
+        <h1 className="text-black px-2 max-sm:hidden">{likeCount}</h1>
+      </div>
+      
+      {over && postUserId === loggedUser._id && (
+
+        <DeleteIcon onClick={delPost} className="text-black hover:cursor-pointer max-sm:absolute max-sm:top-1 max-sm:text-gray-400 " />
+      )}
+    </div>
+  </div>
+  }else
 
   return (
     <div

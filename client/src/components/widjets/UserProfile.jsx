@@ -131,6 +131,7 @@ const UserProfile = (props) => {
                   picturePath={item.picturePath}
                   likes={item.likes}
                   id={item._id}
+                  caption={item.caption}
                 />
               );
             }

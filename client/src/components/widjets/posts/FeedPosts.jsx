@@ -90,7 +90,98 @@ let address="";
   
 
 
+if(!picturePath){
+  return <div className="p-10 flex flex-wrap  h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
+  <div className={"w-[35vw] h-[90%]  bg-white rounded max-sm:w-[100vw] "}>
+    <div  className="w-[100%] h-[10%] relative flex items-center p-4 ">
+      <img
+        src={profile||Avatar}
+        className=" h-12 border-2 w-12 object-cover mr-4 border-gray-300 rounded-full "
+        alt="profile img"
+        
+      />
+      <div className="h-12 ">
+        <button
+          onClick={() => firstName===loggedUser.username?navigate("/homepage"):navigate("/user", { state: { id: firstName } })}
+          className="font-bold font-sans lowercase hover:text-gray-500 cursor-pointer"
+        >
+          {firstName}
+          {verified && <VerifiedIcon fontSize="small" className="p-[2px]"/>}
+         
+        </button>
+        <h6 className="font-thin lowercase text-xs">{location || address}</h6>
+      </div>
+      <MoreHorizIcon onClick={()=>{setOpenMore(!openMore)}} className='absolute right-7'/>
+      <div className="absolute right-7">
+      {openMore&& <div className="pr-2 flex items-center bg-white border rounded-lg   border-gray-500">
+      <button className="p-2 text-gray-500  " onClick={()=>{setOpenReport(!openReport)}}>Report Post</button>
+      <CloseIcon onClick={()=>{setOpenMore(!openMore)}}/>
+      
+      
 
+        
+      </div>}
+      
+      </div>
+    </div>
+  
+    <div className=" h-min overflow-y-auto  flex noscrollbar">
+          <h1 className="px-5 py-2 font-thin text-sm">
+           
+             {caption }
+          
+          </h1>
+          
+        </div>
+    <div className=" h-[20%]">
+      <div className="h-[100%]">
+        <div className="flex  items-center   p  min-w-fit">
+          <Heart
+            isActive={liked}
+            onClick={LikePost}
+            className="w-6 mt-2 ml-4 select-none "
+          />
+
+          <FontAwesomeIcon
+            icon={faComment}
+
+            onClick={() => {
+              setClickComment(!clickComment);
+            }}
+            className={
+              clickComment
+                ? "mt-2 mx-3 text-2xl p-1 text-gray-800 drop-shadow-sm"
+                : "mt-2 mx-3 text-2xl p-1 text-black"
+            }
+          />
+        </div>
+
+        <h2 className=" w-[100%]  mt-1 text-sm font-bold px-5 select-none">
+          {likecounts} {likecounts>1?"Likes":"Like"}  {likecounts>1 && `, also liked by ${friendliked[0].username}`}
+        </h2>
+      
+        
+
+      </div>
+    </div>
+  </div>
+  <div className={"w-[40%] mt-20 h-[90%] max-sm:w-[100%] max-sm:mt-10"}>
+    <div className=" flex justify-center h-[20%]   overflow-hidden"></div>
+    {clickComment && (
+      <div className="w-[100%] h-[100%]  flex justify-center">
+        <CommentBox postId={postId} comments={comments} />
+      </div>
+    )}
+  </div>
+  <PopUp
+    openPopup={openReport}
+    setOpenPopup={setOpenReport}
+    title="Report "
+  >
+   <ReportPost userId={postUserId} reportedById={userId} postId={postId}/>
+  </PopUp>
+</div>
+}
 
   return (
     <div className="p-10 flex flex-wrap  h-min z-10 bg-white max-sm:w-[100vw] max-sm:p-0">
