@@ -7,7 +7,7 @@ const ViewPost=(props)=>{
     <div className="w-[100%] mb-2 flex justify-around h-[80%] bg-black text-white"  >
     <div className="w-[45%] h-[100%] bg-yellow-300"></div>
     <div className="w-[45%] h-[100%] bg-slate-300 text-black">
-    {img}
+    <img className="w-[100%] h-[100%]" src={img}/>
     
 
     </div>

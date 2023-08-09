@@ -19,7 +19,7 @@ const ReportBox=()=>{
     return <div className="w-[100%] h-[100%] overflow-auto noscrollbar">
     {
         Reports.map((item,index)=>{
-            return <ReportUnit key={index} id={item._id} userId={item.reportedById} content={item.reportContent}/>
+            return <ReportUnit key={index} postId={item.postId} id={item._id} userId={item.reportedById} content={item.reportContent}/>
         })
     }
     

@@ -108,7 +108,7 @@ export const getsinglepost=async(req,res)=>{
   
   try {
   const {postId}=req.params;
-  const post=await Post.findById(id)  ;
+  const post=await Post.findById(postId)  ;
   return res.status(200).json(post)
     
   } catch (error) {

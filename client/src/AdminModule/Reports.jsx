@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { deleteReport, getSingleUser } from "../helper/helper";
+import { deleteReport, getSinglePost, getSingleUser } from "../helper/helper";
 import DeleteIcon from '@mui/icons-material/Delete';
 import LaunchIcon from '@mui/icons-material/Launch';
 import PopUp from "../components/widjets/PopUp";
@@ -13,10 +13,11 @@ const ReportUnit = (props) => {
   const {setReports}=UseReportStore((state)=>state)
     const[open,setopen]=useState(false)
   const [user, setUser] = useState("");
-  const { userId, content,id } = props;
-  getSingleUser(userId).then((data) => {
-    setUser(data);
-  });
+  const [post,setPost]=useState(null)
+  const { userId, content,id,postId } = props;
+  getSingleUser(userId).then((data) => setUser(data))
+
+  getSinglePost(postId).then((data)=>console.log(data))
 
   const delreport=()=>{
     const delpromise=deleteReport(id);
@@ -26,7 +27,9 @@ const ReportUnit = (props) => {
       error:"error occured"
     })
 
-    delpromise.then((data)=>setReports(data))
+    delpromise.then((data)=>{
+      setReports(data.reports)
+    })
     
   }
 
@@ -54,7 +57,7 @@ const ReportUnit = (props) => {
       <PopUp     openPopup={open}
         setOpenPopup={setopen}
         title="Reported post">
-            <ViewPost/>
+            <ViewPost />
         </PopUp>
       
       
