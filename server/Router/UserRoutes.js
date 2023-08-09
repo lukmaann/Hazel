@@ -10,7 +10,7 @@ const router=Router();
 router.route('/load').get(LoadServer)
 router.route("/user/:username").get(getUser)
 router.route("/users").get(getAllUsers);
-router.route('/getSingleuser').get(getSingleUser)
+router.route('/getsingleuser').get(getSingleUser)
 
 router.route('/:id/friends').get(auth,getUserFriends)
 
