@@ -4,12 +4,16 @@ import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import Avatar from "../../assets/profile.png";
 import { useState } from "react";
+import VerifiedIcon from '@mui/icons-material/Verified';
+
 
 import Posts from "./posts/posts";
 import { addFriends } from "../../helper/helper";
 import {usePostStore, useUserStore } from "../../store/store";
 import { toast, Toaster } from "react-hot-toast";
 const impressions = Math.floor(Math.random() * 10);
+const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
+
 // import useFecth from "../../hooks/fecthpost.hooks";
 
 const UserProfile = (props) => {
@@ -73,7 +77,8 @@ const UserProfile = (props) => {
         </div>
         <div className="w-8/12 ml-8 p-8 h-[90%]">
           <div className="flex gap-4">
-            <h1 className="text-2xl font-normal">{user.username} </h1>
+          <h1 className="text-2xl font-normal">{user.username} {verifiedUsers.includes(user.username) && <VerifiedIcon/>}</h1>
+
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>

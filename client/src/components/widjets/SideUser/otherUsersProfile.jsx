@@ -2,6 +2,9 @@
 
 import { useNavigate } from "react-router-dom";
 import Avatar from "../../../assets/profile.png"
+import VerifiedIcon from '@mui/icons-material/Verified';
+const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
+
 
 const UsersProfile = (props) => {
   const navigate = useNavigate();
@@ -18,7 +21,7 @@ const UsersProfile = (props) => {
           alt=""
         />
       </div>
-      <span className="font-semibold text-xs  mt-2"> {name}</span>
+      <span className="font-semibold text-xs w-max mt-2"> {name} {verifiedUsers.includes(name)&&<VerifiedIcon className="p-[5px]"/>}</span>
     </div>
   );
 };

@@ -6,8 +6,10 @@ import { useUserStore } from "../../store/store";
 import Posts from "./posts/posts";
 import { usePostStore } from "../../store/store";
 import useFecth from "../../hooks/fecthpost.hooks";
-const impressions = Math.floor(Math.random() * 10);
+import VerifiedIcon from '@mui/icons-material/Verified';
 
+const impressions = Math.floor(Math.random() * 10);
+const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
 
 
 const HomeProfile = () => {
@@ -34,7 +36,7 @@ const HomeProfile = () => {
        
         <div className="w-8/12 ml-8 p-8 h-[90%]">
           <div className="flex gap-4">
-            <h1 className="text-2xl font-normal">{user.username} </h1>
+            <h1 className="text-2xl font-normal">{user.username} {verifiedUsers.includes(user.username) && <VerifiedIcon/>}</h1>
             <button onClick={() => setclick(!click)}>
               <ExpandMoreIcon />
             </button>

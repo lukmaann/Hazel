@@ -296,6 +296,7 @@ try {
 export const getSingleUser=async(id)=>{
   try {
     const {status,data}=await axios.get('/api/getSingleUser',{userId:id});
+    console.log(status);
     if(status===200){
       console.log(data);
       return Promise.resolve(data);

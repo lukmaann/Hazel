@@ -72,7 +72,9 @@ const MenuItems = () => {
           />
           <button
             onClick={() => {
-              user.firstName ? setModal(true) : setUsernameModal(true);
+              navigate('/homepage')
+              user.firstName ? setModal(true)  : setUsernameModal(true) ;
+              
             }}
           >
             Create Post

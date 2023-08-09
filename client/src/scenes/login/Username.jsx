@@ -23,7 +23,7 @@ const Username = () => {
     setTimeout(()=>{
 
       toast.promise(serverloader,{
-        loading:"check your network speed please ☹️",
+        loading:"Slow network detected ☹️",
         success:"You can login now 😉",
         error:"cant load app please try again"
       })

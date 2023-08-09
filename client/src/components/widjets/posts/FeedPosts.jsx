@@ -9,6 +9,7 @@ import CommentBox from "../comment/CommentBox";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CloseIcon from '@mui/icons-material/Close';
 import PopUp from "../PopUp";
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 import {
   usePostStore,
@@ -21,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import ReportPost from "../../ReportPost";
 
 const FeedPosts = (props) => {
+  const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
   const {
     likes,
     caption,
@@ -53,13 +55,15 @@ const FeedPosts = (props) => {
 
   let profile = "";
   let firstName = "";
-
+let address="";
   Users.map((item) => {
     if (item._id === postUserId) {
       profile = item.profile;
       firstName = item.username;
+      address=item.address;
     }
   });
+  const verified=verifiedUsers.includes(firstName)
 
   const LikePost = () => {
     const data = UpdateLikes({ postId, userId });
@@ -98,14 +102,16 @@ const FeedPosts = (props) => {
             alt="profile img"
             
           />
-          <div className="h-12 w-20">
+          <div className="h-12 ">
             <button
               onClick={() => firstName===loggedUser.username?navigate("/homepage"):navigate("/user", { state: { id: firstName } })}
               className="font-bold font-sans lowercase hover:text-gray-500 cursor-pointer"
             >
               {firstName}
+              {verified && <VerifiedIcon fontSize="small" className="p-[2px]"/>}
+             
             </button>
-            <h6 className="font-thin lowercase text-xs">{location}</h6>
+            <h6 className="font-thin lowercase text-xs">{location || address}</h6>
           </div>
           <MoreHorizIcon onClick={()=>{setOpenMore(!openMore)}} className='absolute right-7'/>
           <div className="absolute right-7">
