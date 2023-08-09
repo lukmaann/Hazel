@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useModal } from "../store/store";
 import { useUserStore } from "../store/store";
 import { usePostStore } from "../store/store";
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 const CreatePost = () => {
   const navigate=useNavigate();
@@ -16,6 +17,7 @@ const CreatePost = () => {
   const user=useUserStore((state)=>state.user)
   const setModal=useModal((state)=>state.setModal)
   const [isDisabled,setDisable]=useState(false)
+  const [uploadclick,setuploadclick]=useState(false)
 
   
 
@@ -31,7 +33,7 @@ const CreatePost = () => {
 
     
     onSubmit: async (value) => {
-      value = await Object.assign(value, { picturePath: file });
+      value = await uploadclick ? Object.assign(value, {  picturePath: file  }):Object.assign(value, {  picturePath: ""  });
       value = await Object.assign(value, { userId: user._id || "" });
       const createPromise= uploadPosts(value);
       toast.promise(createPromise,{
@@ -68,14 +70,18 @@ const CreatePost = () => {
   };
   
     return (
-      <div className="h-[70vh] w-[45vh]  flex flex-col items-center max-sm:w-[100%] max-sm:h-[80%]">
+      <div className="h-max w-[45vh]  flex flex-col items-center max-sm:w-[100%] max-sm:h-[80%]">
        <Toaster toastOptions={{style:{background:"#D2D2C0"}}} position="top-center" reverseOrder={false}></Toaster>
+       <button className="bg-gray-400 px-2 text-white rounded-lg m-2" onClick={()=>setuploadclick(!uploadclick)}>{uploadclick?"DisSelect Image":"Select Image"} <AddPhotoAlternateIcon/></button>
+       
         <form
           action=""
-          className="flex flex-col items-center"
+          className="flex flex-col items-center "
           onSubmit={formik.handleSubmit}
         >
-          <div className="profile w-[70%] h-[270px]  text-center py-4">
+         {
+          uploadclick&&
+          <div className="profile w-[70%] h-[270px] select-none hover:cursor-pointer  text-center py-4">
             <label htmlFor="profile">
               <img
                 className="rounded-sm "
@@ -85,17 +91,18 @@ const CreatePost = () => {
             </label>
             <input type="file" onChange={onUpload} id="profile" />
           </div>
+         }
         
           <div className="w-[70%] text-center ">
             <textarea
               type="text"
               {...formik.getFieldProps("caption")}
-              className=" p-1 w-[90%] h-14    focus: outline-none shadow-sm"
-              placeholder="Write a caption"
+              className=" p-1 w-[90%] h-14  mt-10  focus: outline-none shadow-sm"
+              placeholder="What's new today?"
             />
             <input
               type="text"
-              placeholder="location"
+              placeholder="Add Loacation"
               autoComplete="OFF"
               className="p-1 w-[90%] m-2 focus:outline-none"
               {...formik.getFieldProps("location")}
@@ -108,7 +115,7 @@ const CreatePost = () => {
               type="submit"
               
             >
-              Upload
+              Post
             </button>
           </div>
         </form>

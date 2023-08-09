@@ -19,7 +19,7 @@ const HomePage = () => {
         <MenuItems />
         <HomeProfile />
       </div>
-      <PopUp openPopup={modal} setOpenPopup={setModal} title="Create Post">
+      <PopUp openPopup={modal} setOpenPopup={setModal} title="Post">
         <CreatePost />
       </PopUp>
     </div>

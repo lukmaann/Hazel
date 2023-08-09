@@ -37,7 +37,7 @@ const Posts = (props) => {
     className="h-[250px] w-[250px] relative rounded-s max-sm:w-[30vw] max-sm:h-[150px] border border-white"
   >
     <div className="w-[100%] h-[85%] text-white bg-gradient-to-l from-black to-gray-700 flex justify-center border-2  rounded-lg text-center overflow-auto noscrollbar items-center max-sm:h-[100%] ">
-      {caption}
+      <h1 className="max-sm:text-[8px] p-1">{caption}</h1>
     </div>
     <div className="px-1 flex items-center justify-between h-[15%] ">
       <div className="flex">
