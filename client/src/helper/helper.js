@@ -294,16 +294,10 @@ try {
 }
 
 export const getSingleUser=async(id)=>{
-  const {userId}=id
   try {
-    const {status,data}=await axios.get('/api/getsingleuser',{userId});
+    const {data,status}=await axios.get('/api/getsingleuser',{params:{userId:id}})
     console.log(status);
-    if(status===200){
-      console.log(data);
-      return Promise.resolve(data);
-
-    }
   } catch (error) {
-    return Promise.reject("cant get user")
+    return Promise.reject('cant get user')
   }
 }
