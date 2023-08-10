@@ -24,7 +24,7 @@ import { useNavigate } from "react-router-dom";
 import ReportPost from "../../ReportPost";
 
 const FeedPosts = (props) => {
-  const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
+  const verifiedUsers=["lukmaan","Lukmaan","Vijaykumar","vijaykumar","Gangadhar","gangadhar"]
   const {
     likes,
     caption,
