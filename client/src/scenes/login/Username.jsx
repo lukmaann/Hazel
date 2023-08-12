@@ -16,6 +16,7 @@ const Username = () => {
   const navigate = useNavigate();
 
   const [isDisabled,setDisable]=useState(false)
+  const [guest,setGuest]=useState(false)
 
   useEffect(()=>{
     const serverloader=LoadServer();
@@ -46,7 +47,8 @@ const Username = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (value) => {
-      if(value.username==="admin101"){
+     
+      if (value.username==="admin101"){
         navigate('/admin')
       }else{
         setUsername(value.username);
@@ -57,6 +59,8 @@ const Username = () => {
      
     },
   });
+
+
 
   return (
     <div >
@@ -86,20 +90,26 @@ const Username = () => {
                 className={Styles.textbox}
                 autoComplete="OFF"
                 placeholder="Username"
+                
               />
               <button className={`${Styles.btn} disabled:cursor-wait `} type="submit" disabled={isDisabled}>
                 Lets Go{" "}
               </button>
+             
             </div>
-            <div className="text-center  mt-32 bg-black rounded-xl py-1 w-[70%] mx-auto text-white">
+            <div className="text-center  mt-20 bg-black rounded-xl py-1 w-[70%] mx-auto text-white">
               <span>
                 Not a Member?
                 <Link to="/register" className=" text-red-500 px-2 hover:underline  font-bold">
                   Register
                 </Link>
+                
               </span>
             </div>
           </form>
+         
+             
+          
         </div>
         <div>
           <div className={`${Styles.home} relative flex max-sm:hidden`}>

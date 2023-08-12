@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { deleteReport, getSinglePost, getSingleUser } from "../helper/helper";
 import DeleteIcon from '@mui/icons-material/Delete';
 import LaunchIcon from '@mui/icons-material/Launch';
@@ -13,11 +13,19 @@ const ReportUnit = (props) => {
   const {setReports}=UseReportStore((state)=>state)
     const[open,setopen]=useState(false)
   const [user, setUser] = useState("");
-  const [post,setPost]=useState(null)
+  const [post,setPost]=useState({picturePath:""})
   const { userId, content,id,postId } = props;
-  getSingleUser(userId).then((data) => setUser(data))
 
-  getSinglePost(postId).then((data)=>console.log(data))
+  useEffect(()=>{
+    getSingleUser(userId).then((data) => setUser(data))
+    getSinglePost(postId).then((data)=>setPost(data))
+
+  },[])
+
+  
+  
+
+  
 
   const delreport=()=>{
     const delpromise=deleteReport(id);
@@ -57,7 +65,7 @@ const ReportUnit = (props) => {
       <PopUp     openPopup={open}
         setOpenPopup={setopen}
         title="Reported post">
-            <ViewPost />
+            <ViewPost username={user.username}  img={post.picturePath} id={post._id} likes={post.likes} caption={post.caption}/>
         </PopUp>
       
       
