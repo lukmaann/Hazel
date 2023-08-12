@@ -15,7 +15,7 @@ const NewUsersBox = () => {
         <div className="flex overflow-auto noscrollbar w-[100%] h-[90%] mt-2">
         {
           FilteredUsers.slice(0).reverse().slice(0,4).map((item,index)=>{
-            if(loggedUser._id!==item._id && !loggedUser.friends.includes(item._id)){
+            if(loggedUser._id!==item._id && !loggedUser.friends.includes(item._id) && item.username!=="IamGuest"){
               return <SuggestedUsers key={index} profile={item.profile} name={item.username} connections={item.friends} id={item._id} caption="Newly Joined"/>
             }
           })

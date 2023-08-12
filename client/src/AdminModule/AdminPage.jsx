@@ -21,10 +21,19 @@ const AdminPage = () => {
       </nav>
 
       <div className="h-screen  p-10 flex justify-center">
-        <div className="w-[80%] h-[90%] ">
+        <div className="w-[95%] h-[90%] ">
           <div className="text-center bg-black text-white  h-[10%] flex items-center justify-between px-5 text-xl">
             <h1> Manage Reports</h1>
             <h1>Total reports : { reports.length}</h1>
+          </div>
+          <div className="text-center bg-slate-500 text-white  h-[10%] flex items-center justify-around px-5 text-xl">
+            <h1 className="w-[25%]"> Profile</h1>
+            <h1 className="w-[25%]"> Reported By</h1>
+            <h1 className="w-[25%]"> Report Content</h1>
+
+            <h1 className="w-[25%]"> Post</h1>
+            <h1 className="w-[25%]"> Report</h1>
+
           </div>
           <div className=" w-[100%] h-[90%]">
             <ReportBox/>

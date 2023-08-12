@@ -20,8 +20,14 @@ const SuggestionBox = () => {
         <div className="flex overflow-auto noscrollbar w-[100%] h-[90%] mt-2">
         {
           FilteredUsers.slice(0,5).map((item,index)=>{
-            
+
+            if(item.username!=="IamGuest"){
               return <SuggestedUsers key={index} profile={item.profile} name={item.username} connections={item.friends} id={item._id}/>
+
+
+            }
+            
+     
           
           })
         }
