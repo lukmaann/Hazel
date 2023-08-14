@@ -1,55 +1,36 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-
-import { toast } from "react-hot-toast";
+// import { useState } from "react";
+import { UseViewReportStore } from "../store/store";
 import { deleteReport, deletepost } from "../helper/helper";
+import { toast } from "react-hot-toast";
 import { UseReportStore } from "../store/store";
 
-
-const ViewPost=(props)=>{
-    const setReports=UseReportStore((state)=>state.setReports)
-
-    const {img,id,caption,likes,username,reportId}=props
+const ViewPost=()=>{
+  const {setReports}=UseReportStore((state)=>state)
+    const Report=UseViewReportStore((state)=>state.Report)
+    const {username,postimg,caption,content,postId}=Report
 
     const delpost=()=>{
-        const deletepromise=deletepost(id)
-
-        toast.promise(deletepromise,{
-            loading:"deleting post",
-            success:"post deleted",
-            error:"error"
-        })
-        deleteReport(reportId).then((data)=>setReports(data))
-     
-
+      deleteReport(postId).then((data)=>{
+        setReports(data)
+      })
+      deletepost(postId);
+   
     }
-    let likeCount = Object.keys(likes).length;
-    return <div className="w-[40vw] border-2 border-black h-[100vh]">
-    <div className="w-[100%] mb-2 flex justify-around h-[80%] bg-black text-white"  >
-    <div className="w-[50%] h-[100%] flex justify-center items-center">
-    {img?<img className="w-[100%] h-[100%] object-scale-down" src={img}/>:<h1>{caption}</h1>}
-    </div>
-    <div className="w-[50%] p-5 h-[100%] flex flex-col justify-center items-start text-black bg-white">
-    
-    <h1>Username : {username}</h1>
-    
-    <h1> Total Likes on post : {likeCount}</h1>
-    <h1>Caption : {caption}</h1>
-    
 
     
-    
+  
+    return <div className="w-[50%] p-2  text-white h-[100%]" >
+    <h1 className="text-3xl">POST</h1>
+    <div className="w-[30%] h-[40%] flex justify-center items-center">
+    {postimg!==""? <img src={postimg} alt="" className="object-cover h-[100%] w-[100%]" />:<h1 className="text-xl text-center">{caption}</h1>}
 
     </div>
-
-
-    </div>
-<div className="h-[15%] w-[100%] flex items-center justify-around - text-black">
-<button className="p-2 border-2 rounded-lg m-2 hover:bg-red-500 hover:border-white border-black" onClick={delpost}>Delete this post</button>
-    {/* <button className="p-2 border-2 rounded-lg m-2 hover:bg-red-500 hover:border-white border-black">Terminate User</button> */}
-</div>
-
-
+    <h1>Reported by : {username}</h1>
+    {postimg!==""&&<h1>post caption : {caption}</h1>}
+    <h1>Report : {content}</h1>
+    <button onClick={delpost} className="p-2 w-[30%] border rounded-sm my-5 hover:bg-red-500  font-bold">DELETE POST</button>
+  
+        
     </div>
 }
 
