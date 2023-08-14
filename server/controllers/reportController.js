@@ -37,7 +37,7 @@ export const getReports=async(req,res)=>{
 export const deleteReport=async(req,res)=>{
   try {
     const {reportId}=req.params;
-    await Report.findByIdAndDelete(reportId);
+    await Report.deleteMany({postId:reportId})
     const reports=await Report.find();
     res.status(200).json({reports})
     

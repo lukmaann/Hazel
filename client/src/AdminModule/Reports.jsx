@@ -28,7 +28,7 @@ const ReportUnit = (props) => {
   
 
   const delreport=()=>{
-    const delpromise=deleteReport(id);
+    const delpromise=deleteReport(postId);
     toast.promise(delpromise,{
       loading:"deleting report",
       success:"report deleted",
@@ -36,41 +36,20 @@ const ReportUnit = (props) => {
     })
 
     delpromise.then((data)=>{
-      setReports(data.reports)
+      setReports(data)
     })
     
   }
 
   return (
-    <div className="w-[100%] h-[50%] border-2 border-b select-text rounded-xl p-2 my-2 flex items-center justify-around">
-    <div className="w-[25%] h=[50%] border-r border-black flex items-center justify-center">
-    <img src={user.profile} className="w-[50%] border-2 border-black p-1 rounded-full" />
-
-    </div>
-      <div className="px-5 w-[25%] m-2 h-[50%] border-r border-black justify-center items-center flex overflow-hidden noscrollbar">
-        <h1 className="font-bold">{user.username}</h1>
-        
-      </div>
-      <div className="px-5 w-[25%] h-[50%] m-2 border-r justify-center items-center flex border-black overflow-auto noscrollbar">
-        <h1 className="">{content}</h1>
-        
-      </div>
-      <div className="px-5 w-[25%] h-[50%] m-2 gap-2 flex items-center justify-center border-r border-black">
-        <button onClick={()=>setopen(true)}>view post</button>
-        <LaunchIcon/>
-      </div>
-      <div onClick={delreport} className="px-5 w-[25%] h-[50%] flex  gap-2 items-center justify-center ">
-        <button>Delete report</button>
-        <DeleteIcon/>
-      </div>
-      <PopUp     openPopup={open}
-        setOpenPopup={setopen}
-        title="Reported post">
-            <ViewPost username={user.username}  img={post.picturePath} id={post._id} likes={post.likes} caption={post.caption}/>
-        </PopUp>
-      
-      
-    </div>
+   <div className="bg-gray-800 rounded-lg p-3 flex justify-between text-gray-200 h-[10%] my-2">
+   <div className="w-[80%]">
+   <h1 className="text-xl ">{content.slice(0,35)}...</h1>
+   <h2 className="text-xs text-gray-400 my-2">{user.username}</h2>
+   
+   </div>
+   <button onClick={delreport}><DeleteIcon/></button>
+   </div>
   );
 };
 

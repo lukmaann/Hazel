@@ -331,7 +331,7 @@ export const deleteReport=async(id)=>{
   try {
     const {status,data}=await axios.get(`/api/deletereport/${id}`);
     if(status===200){
-      return Promise.resolve(data)
+      return Promise.resolve(data.reports)
     }
   } catch (error) {
     return Promise.reject("cant delete report")
