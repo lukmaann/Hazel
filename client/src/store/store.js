@@ -115,7 +115,7 @@ export const UseReportStore = create((set) => ({
 
 export const UseViewReportStore = create((set) => ({
   Report: {
-    username: "lukmaan",
+    username: "",
     postimg: "",
     postId: "",
     likes: "",

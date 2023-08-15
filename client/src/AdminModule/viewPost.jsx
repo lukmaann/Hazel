@@ -17,9 +17,11 @@ const ViewPost=()=>{
    
     }
 
-    
+    if(username===""){
+      return 
+    }
   
-    return <div className="w-[50%] p-2  text-white h-[100%]" >
+    return <div className="w-[50%] p-2  text-white h-[100%]" > 
     <h1 className="text-3xl">POST</h1>
     <div className="w-[30%] h-[40%] flex justify-center items-center">
     {postimg!==""? <img src={postimg} alt="" className="object-cover h-[100%] w-[100%]" />:<h1 className="text-xl text-center">{caption}</h1>}

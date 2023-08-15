@@ -17,7 +17,7 @@ const AdminPage = () => {
   return (
     <div className="h-[600px] w-[100vw] text-white bg-black p-5">
       <Toaster position="bottom-right"></Toaster>
-      <div className="flex text-white bg-black sticky top-5 text-3xl  mb-5 justify-between">
+      <div className="flex text-white bg-black sticky top-0 text-3xl  mb-5 justify-between">
         <h1 className="font-extrabold font-mono"> Hazel Reports</h1>
         <button onClick={logout}>
           <LogoutIcon />

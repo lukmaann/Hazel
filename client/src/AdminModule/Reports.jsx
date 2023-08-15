@@ -12,12 +12,12 @@ import { toast } from "react-hot-toast";
 
 const ReportUnit = (props) => {
   const {setReports}=UseReportStore((state)=>state)
-  const {setViewReport,Report}=UseViewReportStore((state)=>state)
+  const {setViewReport}=UseViewReportStore((state)=>state)
 
   const [user, setUser] = useState("");
   const [post, setPost] = useState(null);
  
-  const { userId, content,postId ,id} = props;
+  const { userId, content,postId } = props;
 
   useEffect(()=>{
     getSingleUser(userId).then((data) => setUser(data))
@@ -35,7 +35,7 @@ const ReportUnit = (props) => {
   
 
   const delreport=()=>{
-    const delpromise=post!==null?deleteReport(postId):deleteReport(id);
+    const delpromise=deleteReport(postId);
     toast.promise(delpromise,{
       loading:"deleting report",
       success:"report deleted",
