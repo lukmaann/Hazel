@@ -292,7 +292,7 @@ if(!picturePath){
         setOpenPopup={setOpenReport}
         title="Report "
       >
-       <ReportPost userId={postUserId} reportedById={userId} postId={postId}/>
+       <ReportPost userId={postUserId} openpopup={setOpenReport} reportedById={userId} postId={postId}/>
       </PopUp>
     </div>
   );

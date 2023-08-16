@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 
 
 const ReportPost=(props)=>{
-    const {userId,postId,reportedById}=props
+    const {userId,postId,reportedById,openpopup}=props
 
     const formik=useFormik({
         initialValues:{
@@ -32,6 +32,8 @@ const ReportPost=(props)=>{
             reportpromise.then(()=>{
 
                 resetForm({values:""})
+                openpopup(false)
+                
                 
             }).catch((data)=>{
                 console.log(data);
