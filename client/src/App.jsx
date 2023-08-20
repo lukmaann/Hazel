@@ -18,10 +18,10 @@ import AdminPage from "./AdminModule/AdminPage";
 
 
 const Routes = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: <Username/>,
-  // },
+  {
+    path: "/",
+    element: <Username/>,
+  },
   {
     path: "/password",
     element: <AuthoriseUsername><Password/></AuthoriseUsername>
@@ -64,7 +64,7 @@ const Routes = createBrowserRouter([
     path:"/adminpage",
     element:<AuthorisedAdmin><AdminPage/></AuthorisedAdmin>
   },{
-    path:"/",
+    path:"/pagenotfound",
     element:<PageNotFound></PageNotFound>
   }
 ]);
