@@ -220,7 +220,7 @@ if(!picturePath){
           <img
             src={picturePath}
             className={
-              "h-[100%] max-h-[80vh] object-cover rounded-lg select-none   border-black w-[90%] "
+              "h-[100%] max-h-[80vh] shadow-lg object-cover rounded-lg select-none   border-black w-[90%] "
             }
             alt=""
             
@@ -228,7 +228,7 @@ if(!picturePath){
         </div>
         <div className=" h-[20%]">
           <div className="h-[100%]">
-            <div className="flex  items-center   px-5  min-w-fit">
+            <div className="flex  items-center my-2  px-5  min-w-fit">
               <Heart
                 isActive={liked}
                 onClick={LikePost}

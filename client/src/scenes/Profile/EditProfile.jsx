@@ -55,7 +55,7 @@ const EditProfile = () => {
     <div className="container mx-auto">
       <MenuItems />
 
-      <div className="flex items-center justify-center max-sm:w-[100vw]">
+      <div className="flex items-center justify-center max-sm:w-[100vw] mt-10">
         <div className={` h-[100vh] max-sm:mt-20`}>
           <div className="title flex flex-col items-center">
             <h4 className="text-4xl font-bold">Edit Profile</h4>
@@ -111,12 +111,12 @@ const EditProfile = () => {
               <input
                 type="text"
                 {...formik.getFieldProps("address")}
-                className={Styles.textbox}
+                className={`${Styles.textbox} w-[75%]`}
                 autoComplete="OFF"
                 placeholder="Adress"
               />
 
-              <button className={Styles.btn} type="submit">
+              <button className={`${Styles.btn} w-[75%]`} type="submit">
                 Save
               </button>
             </div>

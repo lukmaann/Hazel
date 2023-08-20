@@ -13,6 +13,7 @@ import NewUsersBox from "../../components/widjets/SideUser/newUsersBox";
 import useFecth from "../../hooks/fecthpost.hooks";
 import { Skeleton } from "@mui/material";
 import LinkIcon from '@mui/icons-material/Link';
+import AllDone from "../../components/widjets/alldone";
 // import { useEffect, useState } from "react";
 const ExplorePage = () => {
   const [{ postData, postisLoading }] = useFecth();
@@ -146,6 +147,7 @@ const ExplorePage = () => {
         <UserBox />
 
         <div className="ml-[20%] w-[80%]   flex flex-col-reverse min-h-max max-sm:ml-0 max-sm:w-[100vw] ">
+     <AllDone/>
           {feedPosts.slice(2, -1).map((item, index) => {
             return (
               <FeedPosts
