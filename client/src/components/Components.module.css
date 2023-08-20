@@ -22,7 +22,7 @@
 
 @media (max-width: 600px) {
   .menuaside {
-    @apply flex-row w-[100vw]  h-[7vh] bottom-0 fixed mt-3 ;
+    @apply flex-row w-[100vw]  h-[7vh] bottom-0 fixed  ;
   }
 
   .menubox {
