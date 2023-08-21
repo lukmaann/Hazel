@@ -126,7 +126,7 @@ const Username = () => {
             </div>
           </form>
           <div className="w-[100%] flex mt-4  justify-center">
-            <Badge color="warning" badgeContent="Try">
+            <Badge color="secondary" badgeContent="Try">
               <h1
                 className="p-2 border border-black text-sm rounded-lg shadow-lg hover:cursor-pointer "
                 onClick={guestlogin}
