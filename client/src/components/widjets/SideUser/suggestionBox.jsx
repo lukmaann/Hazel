@@ -21,7 +21,7 @@ const SuggestionBox = () => {
         {
           FilteredUsers.slice(0,5).map((item,index)=>{
 
-            if(item.username!=="IamGuest"){
+            if(item.username!=="HELLOGUEST"){
               return <SuggestedUsers key={index} profile={item.profile} name={item.username} connections={item.friends} id={item._id}/>
 
 

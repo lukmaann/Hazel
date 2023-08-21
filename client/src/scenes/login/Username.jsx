@@ -4,19 +4,22 @@ import Styles from "../../styles/username.module.css";
 import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
 import { userValidate } from "../../helper/validate";
-import { useAuthStore } from "../../store/store";
+import { useAuthStore, useUserStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Style from "./loginpages.module.css"
+import useFecth from "../../hooks/fecth.hooks";
 import { useEffect, useState } from "react";
-import { LoadServer } from "../../helper/helper";
+import { LoadServer, loginUser } from "../../helper/helper";
+
 
 const Username = () => {
   const setUsername = useAuthStore((state) => state.setUsername);
+  const setUser=useUserStore((state)=>state.setUser)
   const navigate = useNavigate();
 
   const [isDisabled,setDisable]=useState(false)
-  const [guest,setGuest]=useState(false)
+ 
 
   useEffect(()=>{
     const serverloader=LoadServer();
@@ -37,6 +40,26 @@ const Username = () => {
       error:"No network"
     })
   },[])
+
+  const [{  apiData }] = useFecth(`user/HELLOGUEST`);
+  const guestlogin=()=>{
+
+   const loginPromise= loginUser({username:"HELLOGUEST",password:"helloguest"})
+
+   toast.promise(loginPromise,{
+    loading:"LOGGING IN AS GUEST",
+    success:"WELCOME GUEST",
+    error:"error"
+   })
+
+   loginPromise.then(async (res)=>{
+    let { token } = res;
+    localStorage.setItem("token", token);
+    
+    setUser(apiData);
+    navigate("/explore")
+   })
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -59,6 +82,7 @@ const Username = () => {
      
     },
   });
+
 
 
 
@@ -107,7 +131,10 @@ const Username = () => {
               </span>
             </div>
           </form>
-         
+          <div className="w-[100%] flex justify-center">
+         <h1 className="p-2 rounded-lg hover:cursor-pointer " onClick={guestlogin} >Login As Guest</h1>
+            
+          </div>
              
           
         </div>

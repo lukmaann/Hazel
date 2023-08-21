@@ -12,6 +12,7 @@ import CreatePost from "../../components/CreatePost";
 import { useUserStore } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import { updateUser } from "../../helper/helper";
+import { Toaster } from "react-hot-toast";
 
 const EditProfile = () => {
   const navigate=useNavigate()
@@ -53,6 +54,7 @@ const EditProfile = () => {
 
   return (
     <div className="container mx-auto">
+    <Toaster position="bottom-right"/>
       <MenuItems />
 
       <div className="flex items-center justify-center max-sm:w-[100vw] mt-10">

@@ -9,6 +9,7 @@ import PopUp from "./PopUp";
 import Styles from "../Components.module.css";
 import LinkIcon from '@mui/icons-material/Link';
 import Logo from "./logo";
+
 // ------------------------components-----------
 import { useModal } from "../../store/store";
 import Avatar from "../../assets/profile.png";
