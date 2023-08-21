@@ -26,7 +26,7 @@ const EditProfile = () => {
       email: user.email || "",
       firstName: user.firstName || "",
       lastName: user.lastName || "",
-      mobile: user.mobile || "",
+      mobile: user.mobile || "0000000000",
       address: user.address || "",
     },
     enableReinitialize: true,

@@ -122,6 +122,7 @@ const Username = () => {
                 >
                   Register
                 </Link>
+                
               </span>
             </div>
           </form>
