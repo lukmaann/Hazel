@@ -139,10 +139,7 @@ const Username = () => {
         </div>
         <div>
           <div className={`${Styles.home} relative flex max-sm:hidden`}>
-            <button className=" absolute rounded-sm underlines  text-white px-2 bottom-2 right-2    ">
-              {" "}
-              About Us ↗
-            </button>
+            
           </div>
         </div>
       </div>
