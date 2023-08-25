@@ -5,6 +5,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
 import ReportIcon from "@mui/icons-material/Report";
 import ViewPost from "./viewPost";
+import ScreenRotationTwoToneIcon from '@mui/icons-material/ScreenRotationTwoTone';
 
 const AdminPage = () => {
   const navigate = useNavigate();
@@ -15,7 +16,13 @@ const AdminPage = () => {
     navigate("/");
   };
   return (
-    <div className="h-[600px] w-[100vw] text-white bg-black p-5">
+    <div>
+    <div className="flex justify-center sm:hidden items-center h-screen">
+      <h1>Rotate your phone <ScreenRotationTwoToneIcon/></h1>
+    </div>
+
+    
+    <div className="h-[600px] min-h-screen  w-[100vw] max-sm:hidden text-white bg-black p-5">
       <Toaster position="bottom-right"></Toaster>
       <div className="flex text-white bg-black sticky top-0 text-3xl  mb-5 justify-between">
         <h1 className="font-extrabold font-mono"> Hazel Reports</h1>
@@ -30,6 +37,7 @@ const AdminPage = () => {
         <ReportBox />
         <ViewPost/>
       </div>
+    </div>
     </div>
   );
 };
