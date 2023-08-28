@@ -84,14 +84,14 @@ const Register = () => {
               <input
                 type="email"
                 {...formik.getFieldProps("email")}
-                className={Styles.textbox}
+                className={`w-[78%] ${Styles.textbox}`}
                 autoComplete="OFF"
                 placeholder="Email"
               />
               <input
                 type="text"
                 {...formik.getFieldProps("username")}
-                className={`${Styles.textbox} `}
+                className={`${Styles.textbox} w-[78%] `}
                 autoComplete="OFF"
                 placeholder="Username"
               />

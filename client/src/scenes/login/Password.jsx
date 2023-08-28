@@ -27,7 +27,7 @@ const Password = () => {
   const setPosts=usePostStore((state)=>state.setPosts)
   const [{ isLoading, apiData, serverError }] = useFecth(`user/${username}`);
   const [{postData}]=usePostFecth()
-  const [isDisabled,setDisable]=useState(false)
+  // const [isDisabled,setDisable]=useState(false)
  
 
   const formik = useFormik({
@@ -40,7 +40,7 @@ const Password = () => {
     validateOnChange: false,
     onSubmit: async (value) => {
       const loginPromise = loginUser({ username, password: value.password });
-      setDisable(true)
+      // setDisable(true)
 
       loginPromise.then(async (res) => {
         let { token } = res;
@@ -100,7 +100,7 @@ const Password = () => {
               />
               <span className="absolute right-10 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
             </div>
-              <button className={`${Styles.btn} disabled:cursor-wait`} type="submit" disabled={isDisabled}>
+              <button className={`${Styles.btn} w-[78%] `} type="submit">
                 Login
               </button>
             </div>
