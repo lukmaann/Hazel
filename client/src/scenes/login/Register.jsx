@@ -8,8 +8,11 @@ import { registerValidation } from "../../helper/validate";
 import { useState } from "react";
 import convertToBase64 from "../../helper/convert";
 import { registerUser } from "../../helper/helper";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const Register = () => {
+  const [showPassword,setShowPassword]=useState("password")
   const navigate = useNavigate();
 
   const [isDisabled,setDisable]=useState(false)
@@ -63,7 +66,7 @@ const Register = () => {
               Happy to join you
             </span>
           </div>
-          <form className="py-1" onSubmit={formik.handleSubmit}>
+          <form className="py-1 w-72" onSubmit={formik.handleSubmit}>
             <div className="profile flex justify-center py-4">
               <label htmlFor="profile">
                 <img
@@ -92,13 +95,16 @@ const Register = () => {
                 autoComplete="OFF"
                 placeholder="Username"
               />
+              <div className="flex relative">
               <input
-                type="password"
+                type={showPassword}
                 {...formik.getFieldProps("password")}
-                className={Styles.textbox}
+                className={`w-[78%] ${Styles.textbox}`}
                 autoComplete="OFF"
-                placeholder="password"
+                placeholder="Password"
               />
+              <span className="absolute right-10 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
+            </div>
 
               <button className={`${Styles.btn} disabled:cursor-not-allowed disabled:opacity-70`} type="submit"  disabled={isDisabled}>
                 Register

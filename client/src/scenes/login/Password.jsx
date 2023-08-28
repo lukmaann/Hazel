@@ -6,7 +6,8 @@ import { Toaster, toast } from "react-hot-toast";
 import { useFormik } from "formik";
 import Style from "./loginpages.module.css"
 import { useState } from "react";
-
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 // -------------------------store data and custom hooks------------
 import { useAuthStore, usePostStore } from "../../store/store";
 import { useUserStore } from "../../store/store";
@@ -18,6 +19,7 @@ import { passwordValidate } from "../../helper/validate";
 import { loginUser } from "../../helper/helper";
 
 const Password = () => {
+  const [showPassword,setShowPassword]=useState("password")
   const setUser = useUserStore((state) => state.setUser);
 
   const navigate = useNavigate();
@@ -79,7 +81,7 @@ const Password = () => {
               Welcome Back!!
             </span>
           </div>
-          <form className="py-1" onSubmit={formik.handleSubmit}>
+          <form className="py-1 w-72" onSubmit={formik.handleSubmit}>
             <div className="profile flex justify-center py-4">
               <img
                 className={Styles.profile_img}
@@ -88,13 +90,16 @@ const Password = () => {
               />
             </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
-              <input
-                type="password"
+            <div className="flex relative">
+            <input
+                type={showPassword}
                 {...formik.getFieldProps("password")}
-                className={Styles.textbox}
+                className={`w-[78%] ${Styles.textbox}`}
                 autoComplete="OFF"
                 placeholder="Password"
               />
+              <span className="absolute right-10 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
+            </div>
               <button className={`${Styles.btn} disabled:cursor-wait`} type="submit" disabled={isDisabled}>
                 Login
               </button>
