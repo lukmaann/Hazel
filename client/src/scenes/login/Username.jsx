@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { Link } from "react-router-dom";
 import year from "../../helper/date";
 import Styles from "../../styles/username.module.css";
@@ -19,6 +20,7 @@ const Username = () => {
   const navigate = useNavigate();
 
   const [isDisabled, setDisable] = useState(false);
+  const [serverloded,setserverloded]=useState(false);
 
   useEffect(() => {
     const serverloader = LoadServer();
@@ -36,6 +38,12 @@ const Username = () => {
       success: "Server started successfully",
       error: "No network",
     });
+
+    serverloader.then(()=>{
+    setserverloded(true)
+
+    })
+
   }, []);
 
   const [{ apiData }] = useFecth(`user/HELLOGUEST`);
@@ -128,12 +136,14 @@ const Username = () => {
           </form>
           <div className="w-[100%] flex mt-4  justify-center">
             <Badge color="secondary" badgeContent="Try">
-              <h1
-                className="p-2 border border-black text-sm rounded-lg shadow-lg hover:cursor-pointer "
+              <button
+                className="p-2 border border-black disabled:cursor-not-allowed disabled:opacity-30 text-sm rounded-lg shadow-lg hover:cursor-pointer "
                 onClick={guestlogin}
+                disabled={!serverloded}
+                
               >
                 Login As Guest
-              </h1>
+              </button>
             </Badge>
           </div>
         </div>
