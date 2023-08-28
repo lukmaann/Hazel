@@ -94,7 +94,7 @@ const Username = () => {
         position="top-center"
         reverseOrder={false}
       ></Toaster>
-      <div className="flex items-center justify-center h-screen ">
+      <div className="flex items-center justify-center h-screen  ">
         <div className={`${Styles.glass} ${Style.logincontainer} `}>
           <div className="title flex flex-col items-center">
             <img src={logo} className="text-3xl font-bold w-[200px]" />
@@ -153,7 +153,7 @@ const Username = () => {
           </div>
         </div>
       </div>
-      <footer className="text-center text-sm text-gray-600 py-2">
+      <footer className="text-center text-sm text-gray-600 m-auto w-[80%] py-2">
         ©{year} Lukn Developments || All right reserved
       </footer>
     </div>
