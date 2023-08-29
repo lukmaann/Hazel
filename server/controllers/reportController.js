@@ -1,4 +1,5 @@
 import Report from "../models/reportModel.js";
+import Post from "../models/postModel.js";
 
 export const createReport = async (req, res) => {
   try {
@@ -37,7 +38,7 @@ export const getReports=async(req,res)=>{
 export const deleteReport=async(req,res)=>{
   try {
     const {reportId}=req.params;
-    await Report.deleteMany({postId:reportId})
+    await Report.deleteMany({postId:reportId})||Report.findByIdAndDelete(reportId)
     const reports=await Report.find();
     res.status(200).json({reports})
     
