@@ -106,7 +106,7 @@ const Register = () => {
               <span className="absolute right-10 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
             </div>
 
-              <button className={`${Styles.btn} disabled:cursor-not-allowed disabled:opacity-70`} type="submit"  disabled={isDisabled}>
+              <button className={`${Styles.btn} disabled:cursor-not-allowed disabled:opacity-40 w-[78%]`} type="submit"  disabled={isDisabled}>
                 Register
               </button>
             </div>
