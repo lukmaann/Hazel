@@ -153,7 +153,7 @@ const Username = () => {
           </div>
         </div>
       </div>
-      <footer className="text-center text-sm text-gray-600 m-auto w-[80%] py-2">
+      <footer className="text-center text-sm text-gray-600 m-auto  py-2">
         ©{year} Lukn Developments || All right reserved
       </footer>
     </div>
