@@ -71,7 +71,7 @@ const Password = () => {
         reverseOrder={false}
       ></Toaster>
       <div className="flex items-center justify-center h-screen">
-        <div className={`${Styles.glass} ${Style.logincontainer} rounded-lg`}>
+        <div className={`${Styles.glass} ${Style.logincontainer} border-none rounded-lg`}>
           <div className="title flex flex-col items-center">
             <h4 className="text-4xl  font-bold capitalize  ">
               {" "}
@@ -90,17 +90,17 @@ const Password = () => {
               />
             </div>
             <div className="textbox flex flex-col justify-center items-center gap-3">
-            <div className="flex relative">
+            <div className="flex w-[78%] relative">
             <input
                 type={showPassword}
                 {...formik.getFieldProps("password")}
-                className={`w-[78%] ${Styles.textbox}`}
+                className={`w-[100%]  ${Styles.textbox}`}
                 autoComplete="OFF"
                 placeholder="Password"
               />
-              <span className="absolute right-10 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
+              <span className="absolute right-2 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
             </div>
-              <button className={`${Styles.btn} w-[78%] `} type="submit">
+              <button className={`${Styles.btn} w-[78%] mx-2`} type="submit">
                 Login
               </button>
             </div>

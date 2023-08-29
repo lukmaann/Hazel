@@ -21,11 +21,12 @@
 }
 
 .btn {
-  @apply border border-b-4 border-black text-black bg-yellow-400 w-[70%] rounded-lg py-2 ;
+  transition:all 1s ease-in-out ;
+  @apply border border-b-4 border-black text-black  w-[70%] rounded-lg py-2 ;
 }
 
 .btn:hover {
-  @apply border-2 border-b-4 bg-yellow-400;
+  @apply border-2 border-b-4  bg-gradient-to-br from-yellow-300 via-yellow-400  to-yellow-500
 }
 
 input[type="file"] {

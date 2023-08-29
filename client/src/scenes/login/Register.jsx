@@ -95,18 +95,18 @@ const Register = () => {
                 autoComplete="OFF"
                 placeholder="Username"
               />
-              <div className="flex relative">
+              <div className="flex w-[78%] relative">
               <input
                 type={showPassword}
                 {...formik.getFieldProps("password")}
-                className={`w-[78%] ${Styles.textbox}`}
+                className={`w-full ${Styles.textbox}`}
                 autoComplete="OFF"
                 placeholder="Password"
               />
-              <span className="absolute right-10 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
+              <span className="absolute right-2 mt-2 " onClick={()=>{setShowPassword(showPassword==="password"?"text":"password")} }> {showPassword==="password"?<VisibilityIcon/>:<VisibilityOffIcon/>}</span>
             </div>
 
-              <button className={`${Styles.btn} disabled:cursor-not-allowed disabled:opacity-70`} type="submit"  disabled={isDisabled}>
+              <button className={`${Styles.btn} w-[78%] disabled:cursor-not-allowed disabled:opacity-70`} type="submit"  disabled={isDisabled}>
                 Register
               </button>
             </div>
