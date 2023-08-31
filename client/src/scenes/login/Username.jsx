@@ -20,7 +20,7 @@ const Username = () => {
   const navigate = useNavigate();
 
   const [isDisabled, setDisable] = useState(false);
-  const [serverloded,setserverloded]=useState(false);
+  const [serverloded, setserverloded] = useState(false);
 
   useEffect(() => {
     const serverloader = LoadServer();
@@ -39,11 +39,9 @@ const Username = () => {
       error: "No network",
     });
 
-    serverloader.then(()=>{
-    setserverloded(true)
-
-    })
-
+    serverloader.then(() => {
+      setserverloded(true);
+    });
   }, []);
 
   const [{ apiData }] = useFecth(`user/HELLOGUEST`);
@@ -130,7 +128,6 @@ const Username = () => {
                 >
                   Register
                 </Link>
-                
               </span>
             </div>
           </form>
@@ -140,7 +137,6 @@ const Username = () => {
                 className="p-2 border border-black disabled:cursor-not-allowed disabled:opacity-30 text-sm rounded-lg shadow-lg hover:cursor-pointer "
                 onClick={guestlogin}
                 disabled={!serverloded}
-                
               >
                 Login As Guest
               </button>
@@ -148,9 +144,7 @@ const Username = () => {
           </div>
         </div>
         <div>
-          <div className={`${Styles.home} relative flex max-sm:hidden`}>
-            
-          </div>
+          <div className={`${Styles.home} relative flex max-sm:hidden`}></div>
         </div>
       </div>
       <footer className="text-center text-sm text-gray-600 m-auto  py-2">
