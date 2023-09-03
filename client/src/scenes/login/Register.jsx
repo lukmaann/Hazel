@@ -10,6 +10,7 @@ import convertToBase64 from "../../helper/convert";
 import { registerUser } from "../../helper/helper";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import logo from "../../assets/logo.png"
 
 const Register = () => {
   const [showPassword,setShowPassword]=useState("password")
@@ -61,7 +62,8 @@ const Register = () => {
       <div className="flex items-center justify-center h-screen">
         <div className={Styles.glass}>
           <div className="title flex flex-col items-center">
-            <h4 className="text-4xl font-bold ">Hazel!</h4>
+          <img src={logo} className="text-3xl font-bold w-[200px]" />
+
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
               Happy to join you
             </span>
