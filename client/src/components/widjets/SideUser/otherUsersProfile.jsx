@@ -3,7 +3,7 @@
 import { useNavigate } from "react-router-dom";
 import Avatar from "../../../assets/profile.png"
 import VerifiedIcon from '@mui/icons-material/Verified';
-const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
+const verifiedUsers=["lukmaan","Lukmaan","vijaykumar","Vijaykumar","Gangadhar","gangadhar"]
 
 
 const UsersProfile = (props) => {

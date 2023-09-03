@@ -9,7 +9,7 @@ import useFecth from "../../hooks/fecthpost.hooks";
 import VerifiedIcon from '@mui/icons-material/Verified';
 
 const impressions = Math.floor(Math.random() * 10);
-const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
+const verifiedUsers=["lukmaan","Lukmaan","Vijaykmar","vijaykumar","Gangadhar","gangadhar"]
 
 
 const HomeProfile = () => {

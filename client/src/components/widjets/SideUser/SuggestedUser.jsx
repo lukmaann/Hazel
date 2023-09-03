@@ -4,7 +4,7 @@ import { toast ,Toaster } from "react-hot-toast"
 import { addFriends } from "../../../helper/helper"
 import Avatar from "../../../assets/profile.png"
 import VerifiedIcon from '@mui/icons-material/Verified';
-const verifiedUsers=["lukmaan","Lukmaan","Vijay","vijay","Gangadhar","gangadhar"]
+const verifiedUsers=["lukmaan","Lukmaan","Vijaykumar","vijaykumar","Gangadhar","gangadhar"]
 
 
 
