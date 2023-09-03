@@ -112,7 +112,7 @@ const Username = () => {
                 placeholder="Username"
               />
               <button
-                className={`${Styles.btn} disabled:cursor-wait `}
+                className={`${Styles.btn} disabled:cursor-wait bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 `}
                 type="submit"
                 disabled={isDisabled}
               >
