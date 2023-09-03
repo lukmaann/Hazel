@@ -86,13 +86,13 @@ const Username = () => {
   });
 
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto bg-black">
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
         position="top-center"
         reverseOrder={false}
       ></Toaster>
-      <div className="flex items-center justify-center h-screen  ">
+      <div className="flex w-full items-center justify-center h-screen  ">
         <div className={`${Styles.glass} ${Style.logincontainer} `}>
           <div className="title flex flex-col items-center">
             <img src={logo} className="text-3xl font-bold w-[200px]" />
