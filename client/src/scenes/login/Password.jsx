@@ -71,7 +71,7 @@ const Password = () => {
         reverseOrder={false}
       ></Toaster>
       <div className="flex items-center justify-center h-screen">
-        <div className={`${Styles.glass} ${Style.logincontainer} border-none rounded-lg`}>
+        <div className={`${Styles.glass} ${Style.logincontainer}  border-none rounded-lg`}>
           <div className="title flex flex-col items-center">
             <h4 className="text-4xl  font-bold capitalize  ">
               {" "}

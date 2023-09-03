@@ -92,8 +92,8 @@ const Username = () => {
         position="top-center"
         reverseOrder={false}
       ></Toaster>
-      <div className="flex w-full items-center justify-center h-screen bg-black ">
-        <div className={`${Styles.glass} ${Style.logincontainer} `}>
+      <div className="flex max-w-full items-center justify-center h-screen bg-black ">
+        <div className={`${Styles.glass} ${Style.logincontainer} w-full`}>
           <div className="title flex flex-col items-center">
             <img src={logo} className="text-3xl font-bold w-[200px]" />
             <span className="text-gray-500  text-l text-center py-3 w-2/3">
