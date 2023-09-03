@@ -12,7 +12,7 @@ const HomePage = () => {
     <div className="min-h-screen">
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
-        position="top-center"
+        position="bottom-right"
         reverseOrder={false}
       ></Toaster>
       <div className="flex   h-screen ">

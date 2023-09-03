@@ -71,7 +71,7 @@ const CreatePost = () => {
   
     return (
       <div className="h-max w-[45vh]  flex flex-col items-center max-sm:w-[100%] max-sm:h-[80%]">
-       <Toaster toastOptions={{style:{background:"#D2D2C0"}}} position="top-center" reverseOrder={false}></Toaster>
+       <Toaster toastOptions={{style:{background:"#D2D2C0"}}} position="bottom-right" reverseOrder={false}></Toaster>
        <button className="bg-gray-400 px-2 text-white rounded-lg m-2" onClick={()=>setuploadclick(!uploadclick)}>{uploadclick?"DisSelect Image":"Select Image"} <AddPhotoAlternateIcon/></button>
        
         <form

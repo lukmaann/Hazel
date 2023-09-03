@@ -22,6 +22,7 @@ const Username = () => {
   const [isDisabled, setDisable] = useState(false);
   const [serverloded, setserverloded] = useState(false);
 
+  
   useEffect(() => {
     const serverloader = LoadServer();
 
@@ -89,7 +90,7 @@ const Username = () => {
     <div className="container mx-auto ">
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
-        position="top-center"
+        position="bottom-right"
         reverseOrder={false}
       ></Toaster>
       <div className="flex max-w-full items-center justify-center h-screen ">

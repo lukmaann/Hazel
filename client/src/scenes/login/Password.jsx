@@ -52,9 +52,9 @@ const Password = () => {
       
       });
       toast.promise(loginPromise, {
-        loading: "loading",
+        loading: "Checking Credentials",
         success: "logged in ",
-        error: "Password not match",
+        error: "Invalid Password",
       });
     },
   });
@@ -67,7 +67,7 @@ const Password = () => {
     <div className="container mx-auto">
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
-        position="top-center"
+        position="bottom-right"
         reverseOrder={false}
       ></Toaster>
       <div className="flex items-center justify-center h-screen">
