@@ -114,6 +114,16 @@ const Password = () => {
             </div>
           </form>
         </div>
+        {/* ---------------------------------------- */}
+
+        {/* <button
+          className={`  top-[400px] right-[1000px]     ${Styles.btn} w-[200px]  fixed  disabled:cursor-wait  `}
+          type="submit"
+        >
+          Login{" "}
+        </button> */}
+
+        {/* ------------------------------------------ */}
       </div>
       <footer className="text-center text-sm text-gray-600 py-2">
         ©{year} Lukn Developments|| All right reserved
