@@ -27,10 +27,7 @@ const FeedPosts = (props) => {
   const verifiedUsers = [
     "lukmaan",
     "Lukmaan",
-    "Vijaykumar",
-    "vijaykumar",
-    "Gangadhar",
-    "gangadhar",
+
   ];
   const {
     likes,
