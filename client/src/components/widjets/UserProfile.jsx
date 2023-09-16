@@ -12,7 +12,7 @@ import { addFriends } from "../../helper/helper";
 import {usePostStore, useUserStore } from "../../store/store";
 import { toast, Toaster } from "react-hot-toast";
 const impressions = Math.floor(Math.random() * 10);
-const verifiedUsers=["lukmaan","Lukmaan","Vijaykumar","vijaykumar","Gangadhar","gangadhar"]
+const verifiedUsers=["lukmaan","Lukmaan"]
 
 // import useFecth from "../../hooks/fecthpost.hooks";
 
