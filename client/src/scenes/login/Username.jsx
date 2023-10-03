@@ -87,7 +87,7 @@ const Username = () => {
   });
 
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto bg-black ">
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
         position="bottom-right"
@@ -148,7 +148,7 @@ const Username = () => {
           <div className={`${Styles.home} relative flex max-sm:hidden`}></div>
         </div>
       </div>
-      <footer className="text-center text-sm text-gray-600 m-auto bg-black py-2">
+      <footer className="text-center text-sm text-gray-600 m-auto py-2">
         ©{year} Lukn Developments || All right reserved
       </footer>
     </div>
