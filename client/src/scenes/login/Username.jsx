@@ -148,7 +148,7 @@ const Username = () => {
           <div className={`${Styles.home} relative flex max-sm:hidden`}></div>
         </div>
       </div>
-      <footer className="text-center text-sm text-gray-600 m-auto max-w-[80%]  py-2">
+      <footer className="text-center text-sm text-gray-600 m-auto bg-black py-2">
         ©{year} Lukn Developments || All right reserved
       </footer>
     </div>
