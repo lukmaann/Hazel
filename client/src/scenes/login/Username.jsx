@@ -87,7 +87,7 @@ const Username = () => {
   });
 
   return (
-    <div className="container mx-auto bg-black ">
+    <div className="container mx-auto  ">
       <Toaster
         toastOptions={{ style: { background: "#D2D2C0" } }}
         position="bottom-right"
