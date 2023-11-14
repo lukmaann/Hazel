@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Style from "./loginpages.module.css";
 import useFecth from "../../hooks/fecth.hooks";
-import { useEffect, useState } from "react";
-import { LoadServer, loginUser } from "../../helper/helper";
+import { useState } from "react";
+import {  loginUser } from "../../helper/helper";
 import Badge from "@mui/material/Badge";
 
 const Username = () => {
@@ -20,7 +20,7 @@ const Username = () => {
   const navigate = useNavigate();
 
   const [isDisabled, setDisable] = useState(false);
-  const [serverloded, setserverloded] = useState(true);
+  const [serverloded, ] = useState(true);
 
   
   

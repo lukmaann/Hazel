@@ -32,7 +32,7 @@ const Booting = () => {
 
     setTimeout(()=>{
         setText("server taking to long to respond");
-        toast('Refresh the page')
+        return toast('Refresh the page')
 
     },11000)
   }, []);
