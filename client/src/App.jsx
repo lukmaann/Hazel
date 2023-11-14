@@ -15,11 +15,17 @@ import { AuthoriseUsername } from "./middleware/auth";
 import UserProfile from "./components/userPage";
 import AdminLogin from "./AdminModule/Adminlogin";
 import AdminPage from "./AdminModule/AdminPage";
+import Booting from "./scenes/booting/booting";
 
 
 const Routes = createBrowserRouter([
   {
-    path: "/",
+    path:'/',
+    element:<Booting/>
+
+  },
+  {
+    path: "/username",
     element: <Username/>,
   },
   {

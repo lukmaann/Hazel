@@ -1,0 +1,25 @@
+.main{
+    @apply w-full h-screen flex justify-center items-center bg-gradient-to-br from-gray-100 to-gray-300
+}
+
+.img{
+
+
+    @apply w-[50px]
+}
+
+.txt{
+    animation: fade infinite ease-in-out 3s ;
+    @apply p-2 m-2 text-gray-900 capitalize
+}
+
+@keyframes fade{
+    0%,100%{
+        @apply opacity-30 
+    }
+
+    50%{
+        @apply opacity-100
+    }
+
+}

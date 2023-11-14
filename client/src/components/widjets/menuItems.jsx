@@ -25,7 +25,7 @@ const MenuItems = () => {
   const logout = () => {
     localStorage.clear();
 
-    navigate("/");
+    navigate("/username");
   };
  
 

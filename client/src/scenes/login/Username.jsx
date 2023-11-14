@@ -20,30 +20,10 @@ const Username = () => {
   const navigate = useNavigate();
 
   const [isDisabled, setDisable] = useState(false);
-  const [serverloded, setserverloded] = useState(false);
+  const [serverloded, setserverloded] = useState(true);
 
   
-  useEffect(() => {
-    const serverloader = LoadServer();
-
-    setTimeout(() => {
-      toast.promise(serverloader, {
-        loading: "Slow network detected ☹️",
-        success: "You can login now 😉",
-        error: "cant load app please try again",
-      });
-    }, 6000);
-
-    toast.promise(serverloader, {
-      loading: "Booting Up the servers",
-      success: "Server started successfully",
-      error: "No network",
-    });
-
-    serverloader.then(() => {
-      setserverloded(true);
-    });
-  }, []);
+  
 
   const [{ apiData }] = useFecth(`user/HELLOGUEST`);
   const guestlogin = () => {
