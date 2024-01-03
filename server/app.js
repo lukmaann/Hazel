@@ -30,6 +30,10 @@ app.use('/api',router)
 app.use('/api',userRouter)
 app.use('/api',postRouter)
 
+app.use((err,req,res,next)=>{
+    res.send("sorry  the server is down")
+})
+
 connectdb().then(()=>{
     app.listen(process.env.PORT || 3000 ,()=>console.log("server connected to db and started "))
 })
